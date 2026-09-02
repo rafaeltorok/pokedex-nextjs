@@ -49,7 +49,7 @@ export default async function PokemonPage({
               p-3
               border-1
               border-gray-600
-              pokemonData-type-${pokemonData.types[0].type.name} bg-[var(--pokemon-type-color)]
+              pokemon-type-${pokemonData.types[0].type.name} bg-[var(--pokemon-type-color)]
               [-webkit-text-stroke:0.35px_#303030]
             `}
           >
