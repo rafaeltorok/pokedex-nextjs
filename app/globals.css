@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: yellow;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.pokemon-type-bug {
+  --pokemon-type-color: #ac2;
+}
+
+.pokemon-type-dark {
+  --pokemon-type-color: #754;
+}
+
+.pokemon-type-dragon {
+  --pokemon-type-color: #73f;
+}
+
+.pokemon-type-electric {
+  --pokemon-type-color: #fd3;
+}
+
+.pokemon-type-fairy {
+  --pokemon-type-color: #d8b;
+}
+
+.pokemon-type-fighting {
+  --pokemon-type-color: #c33;
+}
+
+.pokemon-type-fire {
+  --pokemon-type-color: #f83;
+}
+
+.pokemon-type-flying {
+  --pokemon-type-color: #b9f;
+}
+
+.pokemon-type-ghost {
+  --pokemon-type-color: #759;
+}
+
+.pokemon-type-grass {
+  --pokemon-type-color: #8c5;
+}
+
+.pokemon-type-ground {
+  --pokemon-type-color: #ec6;
+}
+
+.pokemon-type-ice {
+  --pokemon-type-color: #9ed;
+}
+
+.pokemon-type-normal {
+  --pokemon-type-color: #ba8;
+}
+
+.pokemon-type-poison {
+  --pokemon-type-color: #a4a;
+}
+
+.pokemon-type-psychic {
+  --pokemon-type-color: #f59;
+}
+
+.pokemon-type-rock {
+  --pokemon-type-color: #ba3;
+}
+
+.pokemon-type-steel {
+  --pokemon-type-color: #bcd;
+}
+
+.pokemon-type-water {
+  --pokemon-type-color: #69f;
+}
+
+.pokemon-type-bug,
+.pokemon-type-dark,
+.pokemon-type-dragon,
+.pokemon-type-electric,
+.pokemon-type-fairy,
+.pokemon-type-fighting,
+.pokemon-type-fire,
+.pokemon-type-flying,
+.pokemon-type-ghost,
+.pokemon-type-grass,
+.pokemon-type-ground,
+.pokemon-type-ice,
+.pokemon-type-normal,
+.pokemon-type-poison,
+.pokemon-type-psychic,
+.pokemon-type-rock,
+.pokemon-type-steel,
+.pokemon-type-water {
+  background: linear-gradient(140deg, var(--pokemon-type-color) 50%, #ddd 100%);
+}
