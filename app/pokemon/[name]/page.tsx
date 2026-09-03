@@ -1,12 +1,14 @@
 // Next.js
 import { notFound } from "next/navigation";
-import Image from "next/image";
 
 // Services
 import { getPokemons, getPokemon } from "@/services/pokemons";
 
 // Utils
 import capitalize from "@/utils/capitalize";
+
+// Components
+import SpritePicture from "@/components/SpritePicture";
 
 export default async function PokemonPage({
   params,
@@ -30,13 +32,7 @@ export default async function PokemonPage({
         {capitalize(pokemonData.name)}
       </p>
 
-      <Image
-        src={pokemonData.sprites.other.home.front_default}
-        width={300}
-        height={300}
-        alt="Pokémon picture"
-        className="p-5"
-      />
+      <SpritePicture url={pokemonData.sprites.other.home.front_default} />
 
       <div className="flex">
         {pokemonData.types.length === 1 ? (
