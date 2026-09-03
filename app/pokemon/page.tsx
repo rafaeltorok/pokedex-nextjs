@@ -6,11 +6,31 @@ import { getPokemons } from "@/services/pokemons";
 // Utils
 import capitalize from "@/utils/capitalize";
 
-export default async function PokemonList() {
-  const pokemons = await getPokemons();
+// Components
+import SearchBar from "@/components/SearchBar";
+
+export default async function PokemonList(props: {
+  searchParams?: Promise<{
+    query?: string;
+  }>;
+}) {
+  let pokemons = await getPokemons();
+
+  // Extract the query search term
+  const searchParams = await props.searchParams;
+  const query = searchParams?.query;
+
+  // Filter the list by Pokémon name
+  if (query) {
+    pokemons = pokemons.filter((p) => {
+      return p.name.includes(query.toLowerCase());
+    });
+  }
 
   return (
     <>
+      <SearchBar />
+
       <ul className="w-[300px] mx-auto text-center">
         {pokemons.map((p) => (
           <li
