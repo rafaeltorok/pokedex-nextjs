@@ -9,9 +9,7 @@ export default function SpritePicture({ url }: { url: string }) {
   return (
     <div className="relative w-[300px] h-[300px]">
       {loading && (
-        <p
-          className="absolute inset-0 flex items-center justify-center bg-gray-900"
-        >
+        <p className="absolute inset-0 flex items-center justify-center bg-gray-900">
           Loading sprite...
         </p>
       )}

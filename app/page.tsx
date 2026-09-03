@@ -28,7 +28,7 @@ export default function Home() {
 
         <section className="mx-auto my-10">
           <p>Build with Next.js and Tailwind CSS.</p>
-          
+
           <div className="mt-5">
             Features:
             <ul className="list-disc">
@@ -42,9 +42,12 @@ export default function Home() {
 
         <section className="mx-auto">
           <p className="text-gray-500">
-            <em>Developed by Rafael G. Torok (2026).
+            <em>
+              Developed by Rafael G. Torok (2026).
               <br />
-              <Link target="_blank" href={"https://github.com/rafaeltorok"}>Github profile⇗</Link>
+              <Link target="_blank" href={"https://github.com/rafaeltorok"}>
+                Github profile⇗
+              </Link>
             </em>
           </p>
         </section>
