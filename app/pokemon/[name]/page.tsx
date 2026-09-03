@@ -27,8 +27,27 @@ export default async function PokemonPage({
   const pokemonData = await getPokemon(pokemon.url);
 
   return (
-    <div className="flex justify-center flex-col mx-auto border-2 border-yellow bg-gray-900 rounded-xl mt-10 mb-5">
-      <p className="text-center font-bold text-2xl [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)] bg-black p-3 border-3 border-black rounded-xl">
+    <div
+      className="
+        flex flex-col
+        mx-auto
+        border-2 border-yellow
+        bg-gray-900
+        rounded-xl
+        mt-10 mb-5
+        justify-center
+      "
+    >
+      <p
+        className="
+          text-center font-bold text-2xl
+          [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
+          bg-black
+          p-3
+          border-3 border-black
+          rounded-xl
+        "
+      >
         {capitalize(pokemonData.name)}
       </p>
 
