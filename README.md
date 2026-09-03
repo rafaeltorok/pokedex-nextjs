@@ -7,7 +7,12 @@
 
 ## About
 
-A Pokédex style web app that presents a list containing all of the Generation I (Kanto) Pokémons. Users can select each Pokémon to obtain more info about their base stats.
+A Pokédex style web app that presents a list containing all of the Generation I (Kanto) Pokémons. Users can select each Pokémon to obtain more info about their base stats and types.
+
+### Screenshots
+
+<img src="./img/pokedex-list-view.png" alt="Pokédex list view" width=345 />
+<img src="./img/pokemon-info-view.png" alt="Pokémon info card view" width=300 />
 
 ## Usage
 
