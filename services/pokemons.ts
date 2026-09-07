@@ -2,10 +2,8 @@ import axios from "axios";
 
 import type { PokemonApiResource, Pokemon } from "@/types/types";
 
-export async function getPokemons(): Promise<PokemonApiResource[]> {
-  const response = await axios.get(
-    "https://pokeapi.co/api/v2/pokemon/?limit=151",
-  );
+export async function getPokemons(url: string): Promise<PokemonApiResource[]> {
+  const response = await axios.get(url);
   return response.data.results;
 }
 
