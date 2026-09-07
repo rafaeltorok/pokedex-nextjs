@@ -10,15 +10,20 @@ import capitalize from "@/utils/capitalize";
 // Components
 import SpritePicture from "@/components/SpritePicture";
 
-export default async function PokemonPage({
-  params,
-}: {
-  params: Promise<{ name: string }>;
-}) {
-  const { name } = await params;
-  const pokemonList = await getPokemons();
+// Helper function
+// Calculate the total sum of all base stats
+const calculateTotalStats = (total: number, stat: { base_stat: number }) => {
+  return total + stat.base_stat;
+};
 
-  const pokemon = pokemonList.find((p) => p.name === name);
+interface PokemonPageProps {
+  pokeName: string;
+  baseUrl: string;
+};
+
+export default async function PokemonPage({ pokeName, baseUrl }: PokemonPageProps) {
+  const pokemonList = await getPokemons(baseUrl);
+  const pokemon = pokemonList.find((p) => p.name === pokeName);
 
   if (!pokemon) {
     return notFound();
@@ -95,13 +100,21 @@ export default async function PokemonPage({
         {pokemonData.stats.map((s) => (
           <div key={s.stat.name} className="flex text-center">
             <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700">
-              {s.stat.name}
+              {capitalize(s.stat.name)}
             </p>
             <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800">
               {s.base_stat}
             </p>
           </div>
         ))}
+        <div className="flex text-center">
+          <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700 rounded-bl-xl">
+              Total
+            </p>
+            <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800 rounded-br-xl">
+              {pokemonData.stats.reduce(calculateTotalStats, 0)}
+            </p>
+        </div>
       </div>
     </div>
   );
