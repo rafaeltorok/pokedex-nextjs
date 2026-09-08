@@ -27,14 +27,14 @@ export default function Home() {
         </h1>
 
         <section className="mx-auto my-10">
-          <p>Build with Next.js and Tailwind CSS.</p>
+          <p>Built with Next.js and Tailwind CSS.</p>
 
           <div className="mt-5">
             Features:
             <ul className="list-disc">
-              <li>Contains all 151 Pokémons from Generation I (Kanto)</li>
+              <li>The full Pokédex from Generations I to IV (Kanto to Sinnoh)</li>
               <li>Filter the Pokémons by name</li>
-              <li>Display each Pokémon types</li>
+              <li>Display their types</li>
               <li>Check their base stats</li>
             </ul>
           </div>
