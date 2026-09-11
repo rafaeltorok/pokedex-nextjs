@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
+
 // Components
 import PokemonList from "@/components/PokemonList";
+
+export const metadata: Metadata = {
+  title: "Kanto Pokédex | Pokédex App"
+};
 
 export default async function KantoList(props: {
   searchParams?: Promise<{
