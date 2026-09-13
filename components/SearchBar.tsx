@@ -26,6 +26,7 @@ export default function SearchBar() {
         className="bg-gray-700 p-2 my-4 rounded w-[275px]"
         type="search"
         placeholder="Search Pokémon..."
+        defaultValue={searchParams.get("query")?.toString()}
         onChange={(e) => {
           handleSearch(e.target.value.trimStart());
         }}
