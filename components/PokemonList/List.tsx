@@ -1,14 +1,10 @@
-import Link from "next/link";
-
 // Services
 import { getPokemons } from "@/services/pokemons";
 
 // Components
 import SearchBar from "@/components/SearchBar";
-import Pagination from "./Pagination/Pagination";
-
-// Utils
-import capitalize from "@/utils/capitalize";
+import Pagination from "../Pagination/Pagination";
+import Item from "./Item";
 
 // TypeScript types
 import type { PokemonApiResource } from "@/types/types";
@@ -20,7 +16,7 @@ interface PokemonListProps {
   regionName: string;
 };
 
-export default async function PokemonList({ query, requestedPage, baseUrl, regionName }: PokemonListProps) {
+export default async function List({ query, requestedPage, baseUrl, regionName }: PokemonListProps) {
   let pokemons: PokemonApiResource[] = await getPokemons(baseUrl);
 
   // Filter the list by Pokémon name
@@ -55,16 +51,7 @@ export default async function PokemonList({ query, requestedPage, baseUrl, regio
 
       <ul className="w-[300px] mx-auto text-center">
         {paginatedData.map((p) => (
-          <li
-            key={p.name}
-            className="border-1 border-gray-500 rounded bg-gray-900 p-2 m-2 font-bold hover:bg-gray-700"
-          >
-            <Link href={`/${regionName}/${p.name}`}>
-              <span className="[-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]">
-                {capitalize(p.name)}
-              </span>
-            </Link>
-          </li>
+          <Item key={p.name} pokemon={p} regionName={regionName} />
         ))}
       </ul>
 

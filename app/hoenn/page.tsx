@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import PokemonList from "@/components/PokemonList";
+import List from "@/components/PokemonList/List";
 
 export const metadata: Metadata = {
   title: "Hoenn Pokédex | Pokédex App"
@@ -27,7 +27,7 @@ export default async function HoennList(props: {
         Hoenn Pokédex
       </h1>
 
-      <PokemonList query={query} requestedPage={page} baseUrl={baseUrl} regionName="hoenn" />
+      <List query={query} requestedPage={page} baseUrl={baseUrl} regionName="hoenn" />
     </>
   );
 }
