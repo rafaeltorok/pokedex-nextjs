@@ -38,14 +38,15 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
         flex flex-col
         mx-auto
         border-2 border-black
-        bg-gradient-to-br from-red-600 via-red-500 to-white
+        bg-gradient-to-br from-red-700 via-red-600 to-white
         rounded-xl
         mt-10 mb-5
         justify-center
-        p-2
+        p-1
         relative
       "
     >
+      {/* Corner icons */}
       <Image
         src={"/pokeball_icon.png"}
         width={25}
@@ -75,6 +76,7 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
         className="absolute bottom-[-8] right-[-8]"
       />
 
+      {/* Table title */}
       <div
         className="
           flex
@@ -96,6 +98,7 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
 
       <SpritePicture url={pokemonData.sprites.other.home.front_default} />
 
+      {/* Pokémon types section */}
       <div className="flex">
         {pokemonData.types.length === 1 ? (
           <p
@@ -134,6 +137,7 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
         )}
       </div>
 
+      {/* Stats section */}
       <div>
         {pokemonData.stats.map((s) => (
           <div key={s.stat.name} className="flex text-center">
