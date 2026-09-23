@@ -30,20 +30,31 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
     return notFound();
   }
 
+  // Get the Pokémon data from the API
   const pokemonData = await getPokemon(pokemon.url);
+
+  // Define the gradient colors based on the Pokémon types
+  const typeNames = pokemonData.types.map((t) => t.type.name);
+  const typeColor = (name: string) => `var(--type-${name})`;
+  const strong = (name: string) =>
+    `color-mix(in srgb, var(--type-${name}), black 15%)`;
+
+  const gradient = typeNames[1]
+    ? `linear-gradient(to bottom right, ${strong(typeNames[0])} 40%, ${strong(typeNames[1])} 60%)`
+    : `linear-gradient(to bottom right, ${strong(typeNames[0])} 50%, white 100%)`;
 
   return (
     <div
-      className="
+      style={{ backgroundImage: gradient }}
+      className={`
         flex flex-col
         mx-auto
-        bg-gradient-to-br from-red-700 via-red-600 to-white
         rounded-xl
         mt-10 mb-5
         justify-center
         p-1
         relative
-      "
+      `}
     >
       {/* Corner icons */}
       <Image
@@ -51,28 +62,28 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
         width={25}
         height={25}
         alt=""
-        className="absolute top-[-8] left-[-8]"
+        className="absolute -top-2 -left-2"
       />
       <Image
         src={"/pokeball_icon.png"}
         width={25}
         height={25}
         alt=""
-        className="absolute top-[-8] right-[-8]"
+        className="absolute -top-2 -right-2"
       />
       <Image
         src={"/pokeball_icon.png"}
         width={25}
         height={25}
         alt=""
-        className="absolute bottom-[-8] left-[-8]"
+        className="absolute -bottom-2 -left-2"
       />
       <Image
         src={"/pokeball_icon.png"}
         width={25}
         height={25}
         alt=""
-        className="absolute bottom-[-8] right-[-8]"
+        className="absolute -bottom-2 -right-2"
       />
 
       {/* Table title */}
@@ -102,16 +113,18 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
         {pokemonData.types.length === 1 ? (
           <p
             key={pokemonData.types[0].type.name}
-            className={`
+            style={{
+              backgroundImage: `linear-gradient(140deg, ${typeColor(pokemonData.types[0].type.name)} 50%, white 100%)`,
+            }}
+            className="
               w-full
               text-center
               font-bold
               p-3
               border-1
               border-gray-600
-              pokemon-type-${pokemonData.types[0].type.name} bg-[var(--pokemon-type-color)]
               [-webkit-text-stroke:0.35px_#303030]
-            `}
+            "
           >
             {capitalize(pokemonData.types[0].type.name)}
           </p>
@@ -119,16 +132,18 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
           pokemonData.types.map((t) => (
             <p
               key={t.type.name}
-              className={`
+              style={{
+                backgroundImage: `linear-gradient(140deg, ${typeColor(t.type.name)} 50%, white 100%)`,
+              }}
+              className="
                 w-1/2
                 text-center
                 font-bold
                 p-3
                 border-1
                 border-gray-600
-                pokemon-type-${t.type.name} bg-[var(--pokemon-type-color)]
                 [-webkit-text-stroke:0.35px_#303030]
-              `}
+              "
             >
               {capitalize(t.type.name)}
             </p>
