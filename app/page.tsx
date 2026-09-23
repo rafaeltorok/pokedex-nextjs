@@ -8,7 +8,6 @@ export default function Home() {
         items-center
         justify-center
         font-sans
-        bg-black
       "
     >
       <main
@@ -18,7 +17,6 @@ export default function Home() {
           items-center
           py-16
           px-10
-          bg-black
           sm:items-start
         "
       >
