@@ -22,7 +22,7 @@ export default function Item({ pokemon, regionName }: ItemProps) {
         bg-gray-900
         p-2 m-2
         font-bold
-        hover:bg-gray-700
+        hover:bg-gray-700 active:bg-gray-600
         items-center
         h-[50px]
       "
