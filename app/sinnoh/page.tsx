@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default async function SinnohList(props: {
   searchParams?: Promise<{
     query?: string;
+    page?: string;
   }>;
 }) {
   // Define the region API link
@@ -18,6 +19,7 @@ export default async function SinnohList(props: {
   // Extract the query search term
   const searchParams = await props.searchParams;
   const query = searchParams?.query;
+  const page = Number(searchParams?.page) || 1;
 
   return (
     <>
@@ -25,7 +27,7 @@ export default async function SinnohList(props: {
         Sinnoh Pokédex
       </h1>
 
-      <PokemonList query={query} baseUrl={baseUrl} regionName="sinnoh" />
+      <PokemonList query={query} requestedPage={page} baseUrl={baseUrl} regionName="sinnoh" />
     </>
   );
 }
