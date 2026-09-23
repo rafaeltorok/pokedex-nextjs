@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import List from "@/components/PokemonList/List";
 
 export const metadata: Metadata = {
-  title: "Johto Pokédex | Pokédex App"
+  title: "Johto Pokédex | Pokédex App",
 };
 
 export default async function JohtoList(props: {
@@ -27,7 +27,12 @@ export default async function JohtoList(props: {
         Johto Pokédex
       </h1>
 
-      <List query={query} requestedPage={page} baseUrl={baseUrl} regionName="johto" />
+      <List
+        query={query}
+        requestedPage={page}
+        baseUrl={baseUrl}
+        regionName="johto"
+      />
     </>
   );
 }

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import List from "@/components/PokemonList/List";
 
 export const metadata: Metadata = {
-  title: "Sinnoh Pokédex | Pokédex App"
+  title: "Sinnoh Pokédex | Pokédex App",
 };
 
 export default async function SinnohList(props: {
@@ -27,7 +27,12 @@ export default async function SinnohList(props: {
         Sinnoh Pokédex
       </h1>
 
-      <List query={query} requestedPage={page} baseUrl={baseUrl} regionName="sinnoh" />
+      <List
+        query={query}
+        requestedPage={page}
+        baseUrl={baseUrl}
+        regionName="sinnoh"
+      />
     </>
   );
 }

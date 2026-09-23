@@ -30,7 +30,9 @@ export default function Home() {
           <div className="mt-5">
             Features:
             <ul className="list-disc">
-              <li>The full Pokédex from Generations I to IV (Kanto to Sinnoh)</li>
+              <li>
+                The full Pokédex from Generations I to IV (Kanto to Sinnoh)
+              </li>
               <li>Filter the Pokémons by name</li>
               <li>Display their types</li>
               <li>Check their base stats</li>

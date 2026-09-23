@@ -20,7 +20,7 @@ const calculateTotalStats = (total: number, stat: { base_stat: number }) => {
 interface PokemonPageProps {
   pokeName: string;
   baseUrl: string;
-};
+}
 
 export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
   const pokemonList = await getPokemons(baseUrl);
@@ -98,12 +98,8 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
           rounded-tl-xl rounded-tr-xl
         "
       >
-        <span className="w-2/8 text-xl">
-          {`# ${pokemonData.id}`}
-        </span>
-        <span className="w-6/8 text-2xl">
-          {capitalize(pokemonData.name)}
-        </span>
+        <span className="w-2/8 text-xl">{`# ${pokemonData.id}`}</span>
+        <span className="w-6/8 text-2xl">{capitalize(pokemonData.name)}</span>
       </div>
 
       <SpritePicture url={pokemonData.sprites.other.home.front_default} />
@@ -165,11 +161,11 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
         ))}
         <div className="flex text-center">
           <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700 rounded-bl-xl">
-              Total
-            </p>
-            <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800 rounded-br-xl">
-              {pokemonData.stats.reduce(calculateTotalStats, 0)}
-            </p>
+            Total
+          </p>
+          <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800 rounded-br-xl">
+            {pokemonData.stats.reduce(calculateTotalStats, 0)}
+          </p>
         </div>
       </div>
     </div>

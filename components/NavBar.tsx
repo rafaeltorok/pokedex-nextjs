@@ -23,7 +23,7 @@ export default function NavBar() {
         <section className="MOBILE-MENU flex lg:hidden w-full">
           <div
             className="HAMBURGER-ICON space-y-2 p-1"
-            onClick={() => setIsNavOpen((prev) => (!prev))}
+            onClick={() => setIsNavOpen((prev) => !prev)}
           >
             <span className="block h-0.5 w-8 bg-gray-500"></span>
             <span className="block h-0.5 w-8 bg-gray-500"></span>

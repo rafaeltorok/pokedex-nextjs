@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import List from "@/components/PokemonList/List";
 
 export const metadata: Metadata = {
-  title: "Kanto Pokédex | Pokédex App"
+  title: "Kanto Pokédex | Pokédex App",
 };
 
 export default async function KantoList(props: {
@@ -27,7 +27,12 @@ export default async function KantoList(props: {
         Kanto Pokédex
       </h1>
 
-      <List query={query} requestedPage={page} baseUrl={baseUrl} regionName="kanto" />
+      <List
+        query={query}
+        requestedPage={page}
+        baseUrl={baseUrl}
+        regionName="kanto"
+      />
     </>
   );
 }

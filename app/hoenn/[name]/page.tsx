@@ -6,15 +6,17 @@ import Data from "@/components/PokemonPage/Data";
 // Utils
 import capitalize from "@/utils/capitalize";
 
-export async function generateMetadata(
-  { params }: { params: Promise<{ name: string }> }
-): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ name: string }>;
+}): Promise<Metadata> {
   const { name } = await params;
 
   return {
     title: `${capitalize(name)} | Hoenn Pokédex`,
   };
-};
+}
 
 export default async function HoennPokePage({
   params,
@@ -26,8 +28,6 @@ export default async function HoennPokePage({
 
   // Create the API url
   const baseUrl = "https://pokeapi.co/api/v2/pokemon?offset=251&limit=135";
-  
-  return (
-    <Data pokeName={name} baseUrl={baseUrl} />
-  );
+
+  return <Data pokeName={name} baseUrl={baseUrl} />;
 }

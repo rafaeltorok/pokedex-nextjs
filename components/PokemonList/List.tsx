@@ -14,9 +14,14 @@ interface PokemonListProps {
   requestedPage: number;
   baseUrl: string;
   regionName: string;
-};
+}
 
-export default async function List({ query, requestedPage, baseUrl, regionName }: PokemonListProps) {
+export default async function List({
+  query,
+  requestedPage,
+  baseUrl,
+  regionName,
+}: PokemonListProps) {
   let pokemons: PokemonApiResource[] = await getPokemons(baseUrl);
 
   // Filter the list by Pokémon name
@@ -30,7 +35,7 @@ export default async function List({ query, requestedPage, baseUrl, regionName }
   const ITEMS_PER_PAGE = 8;
   const totalPages = Math.ceil(pokemons.length / ITEMS_PER_PAGE);
 
-   // Get the current page number
+  // Get the current page number
   const currentPage =
     Number.isInteger(requestedPage) &&
     requestedPage > 0 &&
