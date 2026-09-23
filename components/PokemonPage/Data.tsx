@@ -37,7 +37,6 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
       className="
         flex flex-col
         mx-auto
-        border-2 border-black
         bg-gradient-to-br from-red-700 via-red-600 to-white
         rounded-xl
         mt-10 mb-5
