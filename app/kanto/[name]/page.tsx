@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import PokemonPage from "@/components/PokemonPage";
+import Data from "@/components/PokemonPage/Data";
 
 // Utils
 import capitalize from "@/utils/capitalize";
@@ -28,6 +28,6 @@ export default async function KantoPokePage({
   const baseUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
   
   return (
-    <PokemonPage pokeName={name} baseUrl={baseUrl} />
+    <Data pokeName={name} baseUrl={baseUrl} />
   );
 }

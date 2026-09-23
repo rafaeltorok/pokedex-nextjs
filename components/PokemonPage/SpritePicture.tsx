@@ -7,7 +7,7 @@ export default function SpritePicture({ url }: { url: string }) {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="relative w-[300px] h-[300px]">
+    <div className="relative w-[300px] h-[300px] bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600">
       {loading && (
         <p className="absolute inset-0 flex items-center justify-center bg-gray-900">
           Loading sprite...

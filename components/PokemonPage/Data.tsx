@@ -1,5 +1,6 @@
 // Next.js
 import { notFound } from "next/navigation";
+import Image from "next/image";
 
 // Services
 import { getPokemons, getPokemon } from "@/services/pokemons";
@@ -8,7 +9,7 @@ import { getPokemons, getPokemon } from "@/services/pokemons";
 import capitalize from "@/utils/capitalize";
 
 // Components
-import SpritePicture from "@/components/SpritePicture";
+import SpritePicture from "@/components/PokemonPage/SpritePicture";
 
 // Helper function
 // Calculate the total sum of all base stats
@@ -21,7 +22,7 @@ interface PokemonPageProps {
   baseUrl: string;
 };
 
-export default async function PokemonPage({ pokeName, baseUrl }: PokemonPageProps) {
+export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
   const pokemonList = await getPokemons(baseUrl);
   const pokemon = pokemonList.find((p) => p.name === pokeName);
 
@@ -36,22 +37,53 @@ export default async function PokemonPage({ pokeName, baseUrl }: PokemonPageProp
       className="
         flex flex-col
         mx-auto
-        border-2 border-yellow
-        bg-gray-900
+        border-2 border-black
+        bg-gradient-to-br from-red-600 via-red-500 to-white
         rounded-xl
         mt-10 mb-5
         justify-center
+        p-2
+        relative
       "
     >
-      <p
+      <Image
+        src={"/pokeball_icon.png"}
+        width={25}
+        height={25}
+        alt=""
+        className="absolute top-[-8] left-[-8]"
+      />
+      <Image
+        src={"/pokeball_icon.png"}
+        width={25}
+        height={25}
+        alt=""
+        className="absolute top-[-8] right-[-8]"
+      />
+      <Image
+        src={"/pokeball_icon.png"}
+        width={25}
+        height={25}
+        alt=""
+        className="absolute bottom-[-8] left-[-8]"
+      />
+      <Image
+        src={"/pokeball_icon.png"}
+        width={25}
+        height={25}
+        alt=""
+        className="absolute bottom-[-8] right-[-8]"
+      />
+
+      <div
         className="
           flex
+          items-center
           text-center font-bold
           [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
           bg-black
-          p-3
-          border-3 border-black
-          rounded-xl
+          py-4
+          rounded-tl-xl rounded-tr-xl
         "
       >
         <span className="w-2/8 text-xl">
@@ -60,7 +92,7 @@ export default async function PokemonPage({ pokeName, baseUrl }: PokemonPageProp
         <span className="w-6/8 text-2xl">
           {capitalize(pokemonData.name)}
         </span>
-      </p>
+      </div>
 
       <SpritePicture url={pokemonData.sprites.other.home.front_default} />
 
