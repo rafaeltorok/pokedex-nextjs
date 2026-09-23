@@ -45,7 +45,8 @@ export default async function PokemonPage({ pokeName, baseUrl }: PokemonPageProp
     >
       <p
         className="
-          text-center font-bold text-2xl
+          flex
+          text-center font-bold
           [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
           bg-black
           p-3
@@ -53,7 +54,12 @@ export default async function PokemonPage({ pokeName, baseUrl }: PokemonPageProp
           rounded-xl
         "
       >
-        {capitalize(pokemonData.name)}
+        <span className="w-2/8 text-xl">
+          {`# ${pokemonData.id}`}
+        </span>
+        <span className="w-6/8 text-2xl">
+          {capitalize(pokemonData.name)}
+        </span>
       </p>
 
       <SpritePicture url={pokemonData.sprites.other.home.front_default} />
