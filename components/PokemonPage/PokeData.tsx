@@ -10,6 +10,7 @@ import capitalize from "@/utils/capitalize";
 
 // Components
 import SpritePicture from "@/components/PokemonPage/SpritePicture";
+import Abilities from "./sections/Abilities";
 import NavArrows from "./NavArrows";
 
 // Helper function
@@ -188,25 +189,29 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
 
       {/* Stats section */}
       <div>
+        <p className="text-center text-xl text-bold bg-gray-800 p-2">Stats</p>
         {pokemonData.stats.map((s) => (
           <div key={s.stat.name} className="flex text-center">
-            <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700">
+            <p className="w-1/2 text-left border-1 border-gray-500 p-2 bg-gray-600">
               {capitalize(s.stat.name)}
             </p>
-            <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800">
+            <p className="w-1/2 border-1 border-gray-500 p-2 bg-gray-800">
               {s.base_stat}
             </p>
           </div>
         ))}
         <div className="flex text-center">
-          <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700 rounded-bl-xl">
+          <p className="w-1/2 text-left border-1 border-gray-500 p-2 bg-gray-600">
             Total
           </p>
-          <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800 rounded-br-xl">
+          <p className="w-1/2 border-1 border-gray-500 p-2 bg-gray-800">
             {pokemonData.stats.reduce(calculateTotalStats, 0)}
           </p>
         </div>
       </div>
+
+      {/* Abilities section */}
+      <Abilities pokemonData={pokemonData} />
     </div>
   );
 }
