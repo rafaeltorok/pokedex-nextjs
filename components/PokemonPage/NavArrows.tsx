@@ -49,7 +49,7 @@ export default function NavArrows({ pokemonList, pokemonName, regionName }: NavA
             -left-10
             text-4xl
             p-1
-            border-1 border-gray-500 rounded
+            border-1 border-gray-700 rounded
             bg-gray-900
             hover:bg-gray-700 active:bg-gray-600
           "
@@ -66,7 +66,7 @@ export default function NavArrows({ pokemonList, pokemonName, regionName }: NavA
             -right-10
             text-4xl
             p-1
-            border-1 border-gray-500 rounded
+            border-1 border-gray-700 rounded
             bg-gray-900
             hover:bg-gray-700 active:bg-gray-600
           "
