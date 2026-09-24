@@ -1,6 +1,7 @@
 // Next.js
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 // Services
 import { getPokemons, getPokemon } from "@/services/pokemons";
@@ -10,6 +11,7 @@ import capitalize from "@/utils/capitalize";
 
 // Components
 import SpritePicture from "@/components/PokemonPage/SpritePicture";
+import NavArrows from "./NavArrows";
 
 // Helper function
 // Calculate the total sum of all base stats
@@ -20,9 +22,10 @@ const calculateTotalStats = (total: number, stat: { base_stat: number }) => {
 interface PokemonPageProps {
   pokeName: string;
   baseUrl: string;
+  regionName: string;
 }
 
-export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
+export default async function Data({ pokeName, baseUrl, regionName }: PokemonPageProps) {
   const pokemonList = await getPokemons(baseUrl);
   const pokemon = pokemonList.find((p) => p.name === pokeName);
 
@@ -45,94 +48,83 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
 
   return (
     <div
-      style={{ backgroundImage: gradient }}
       className={`
         flex flex-col
         mx-auto
         rounded-xl
         mt-10 mb-5
         justify-center
-        p-1
-        relative
       `}
     >
-      {/* Corner icons */}
-      <Image
-        src={"/pokeball_icon.png"}
-        width={25}
-        height={25}
-        alt=""
-        className="absolute -top-2 -left-2"
-      />
-      <Image
-        src={"/pokeball_icon.png"}
-        width={25}
-        height={25}
-        alt=""
-        className="absolute -top-2 -right-2"
-      />
-      <Image
-        src={"/pokeball_icon.png"}
-        width={25}
-        height={25}
-        alt=""
-        className="absolute -bottom-2 -left-2"
-      />
-      <Image
-        src={"/pokeball_icon.png"}
-        width={25}
-        height={25}
-        alt=""
-        className="absolute -bottom-2 -right-2"
-      />
-
-      {/* Table title */}
       <div
-        className="
-          flex
-          items-center
-          text-center font-bold
-          [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
-          bg-black
-          py-4
-          rounded-tl-xl rounded-tr-xl
-        "
+        style={{ backgroundImage: gradient }}
+        className={`
+          p-1
+          relative
+        `}
       >
-        <span className="w-2/8 text-xl">{`# ${pokemonData.id}`}</span>
-        <span className="w-6/8 text-2xl">{capitalize(pokemonData.name)}</span>
-      </div>
+        {/* Corner icons */}
+        <Image
+          src={"/pokeball_icon.png"}
+          width={25}
+          height={25}
+          alt=""
+          className="absolute -top-2 -left-2"
+        />
+        <Image
+          src={"/pokeball_icon.png"}
+          width={25}
+          height={25}
+          alt=""
+          className="absolute -top-2 -right-2"
+        />
+        <Image
+          src={"/pokeball_icon.png"}
+          width={25}
+          height={25}
+          alt=""
+          className="absolute -bottom-2 -left-2"
+        />
+        <Image
+          src={"/pokeball_icon.png"}
+          width={25}
+          height={25}
+          alt=""
+          className="absolute -bottom-2 -right-2"
+        />
 
-      <SpritePicture url={pokemonData.sprites.other.home.front_default} />
+        {/* Table title - Pokémon name and ID number */}
+        <div
+          className="
+            flex
+            items-center
+            text-center font-bold
+            [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
+            bg-black
+            py-4
+            rounded-tl-xl rounded-tr-xl
+          "
+        >
+          <span className="w-2/8 text-xl">{`# ${pokemonData.id}`}</span>
+          <span className="w-6/8 text-2xl">{capitalize(pokemonData.name)}</span>
+        </div>
 
-      {/* Pokémon types section */}
-      <div className="flex">
-        {pokemonData.types.length === 1 ? (
-          <p
-            key={pokemonData.types[0].type.name}
-            style={{
-              backgroundImage: `linear-gradient(140deg, ${typeColor(pokemonData.types[0].type.name)} 50%, white 100%)`,
-            }}
-            className="
-              w-full
-              text-center
-              font-bold
-              p-3
-              border-1
-              border-gray-600
-              [-webkit-text-stroke:0.35px_#303030]
-            "
-          >
-            {capitalize(pokemonData.types[0].type.name)}
-          </p>
-        ) : (
-          pokemonData.types.map((t) => (
+        {/* Sprite section */}
+        <SpritePicture url={pokemonData.sprites.other.home.front_default} />
+
+        {/* Navigation arrows */}
+        <NavArrows pokemonList={pokemonList} pokemonName={pokeName} regionName={regionName} />
+
+        {/* Pokémon types section */}
+        <div className="flex">
+          {pokemonData.types.length === 1 ? (
             <p
-              key={t.type.name}
+              key={pokemonData.types[0].type.name}
               style={{
-                backgroundImage: `linear-gradient(140deg, ${typeColor(t.type.name)} 50%, white 100%)`,
+                backgroundImage: `linear-gradient(140deg, ${typeColor(pokemonData.types[0].type.name)} 50%, white 100%)`,
               }}
               className="
-                w-1/2
+                w-full
                 text-center
                 font-bold
                 p-3
@@ -141,32 +133,67 @@ export default async function Data({ pokeName, baseUrl }: PokemonPageProps) {
                 [-webkit-text-stroke:0.35px_#303030]
               "
             >
-              {capitalize(t.type.name)}
+              {capitalize(pokemonData.types[0].type.name)}
             </p>
-          ))
-        )}
-      </div>
+          ) : (
+            pokemonData.types.map((t) => (
+              <p
+                key={t.type.name}
+                style={{
+                  backgroundImage: `linear-gradient(140deg, ${typeColor(t.type.name)} 50%, white 100%)`,
+                }}
+                className="
+                  w-1/2
+                  text-center
+                  font-bold
+                  p-3
+                  border-1
+                  border-gray-600
+                  [-webkit-text-stroke:0.35px_#303030]
+                "
+              >
+                {capitalize(t.type.name)}
+              </p>
+            ))
+          )}
+        </div>
 
-      {/* Stats section */}
-      <div>
-        {pokemonData.stats.map((s) => (
-          <div key={s.stat.name} className="flex text-center">
-            <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700">
-              {capitalize(s.stat.name)}
+        {/* Stats section */}
+        <div>
+          {pokemonData.stats.map((s) => (
+            <div key={s.stat.name} className="flex text-center">
+              <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700">
+                {capitalize(s.stat.name)}
+              </p>
+              <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800">
+                {s.base_stat}
+              </p>
+            </div>
+          ))}
+          <div className="flex text-center">
+            <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700 rounded-bl-xl">
+              Total
             </p>
-            <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800">
-              {s.base_stat}
+            <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800 rounded-br-xl">
+              {pokemonData.stats.reduce(calculateTotalStats, 0)}
             </p>
           </div>
-        ))}
-        <div className="flex text-center">
-          <p className="w-1/2 text-left border-1 border-gray-600 p-3 bg-gray-700 rounded-bl-xl">
-            Total
-          </p>
-          <p className="w-1/2 border-1 border-gray-600 p-3 bg-gray-800 rounded-br-xl">
-            {pokemonData.stats.reduce(calculateTotalStats, 0)}
-          </p>
         </div>
+      </div>
+
+      {/* Return button */}
+      <div className="mx-auto my-5 text-xl">
+        <Link
+          href={`/${regionName}`}
+          className="
+            border-1 border-gray-500 rounded
+            bg-gray-900
+            p-2
+            hover:bg-gray-700 active:bg-gray-600
+          "
+        >
+          Return
+        </Link>
       </div>
     </div>
   );

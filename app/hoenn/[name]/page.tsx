@@ -29,5 +29,5 @@ export default async function HoennPokePage({
   // Create the API url
   const baseUrl = "https://pokeapi.co/api/v2/pokemon?offset=251&limit=135";
 
-  return <Data pokeName={name} baseUrl={baseUrl} />;
+  return <Data pokeName={name} baseUrl={baseUrl} regionName="hoenn" />;
 }
