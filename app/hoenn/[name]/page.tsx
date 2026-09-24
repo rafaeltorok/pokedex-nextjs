@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import Data from "@/components/PokemonPage/Data";
+import PokePage from "@/components/PokemonPage/PokePage";
 
 // Utils
 import capitalize from "@/utils/capitalize";
@@ -29,5 +29,5 @@ export default async function HoennPokePage({
   // Create the API url
   const baseUrl = "https://pokeapi.co/api/v2/pokemon?offset=251&limit=135";
 
-  return <Data pokeName={name} baseUrl={baseUrl} regionName="hoenn" />;
+  return <PokePage pokeName={name} baseUrl={baseUrl} regionName="hoenn" />;
 }
