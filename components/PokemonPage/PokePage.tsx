@@ -6,7 +6,7 @@ import Link from "next/link";
 import { getPokemons, getPokemon } from "@/services/pokemons";
 
 // Components
-import PokeData from "./PokeData";
+import PokeData from "./dataTable/PokeData";
 
 interface PokemonPageProps {
   pokeName: string;

@@ -1,16 +1,16 @@
 import capitalize from "@/utils/capitalize";
 
 // TypeScript types
-import type { Pokemon } from "@/types/types";
+import type { PokemonAbility } from "@/types/types";
 
 interface AbilitiesProps {
-  pokemonData: Pokemon;
+  abilities: PokemonAbility[];
 }
 
-export default function Abilities({ pokemonData }: AbilitiesProps) {
+export default function Abilities({ abilities }: AbilitiesProps) {
   // Handle the Pokémon abilities
-  const normalAbility = pokemonData.abilities.find((ability) => !ability.is_hidden);
-  const hiddenAbility = pokemonData.abilities.find(
+  const normalAbility = abilities.find((ability) => !ability.is_hidden);
+  const hiddenAbility = abilities.find(
     (ability) => ability.is_hidden === true,
   );
 

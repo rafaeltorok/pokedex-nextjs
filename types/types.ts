@@ -3,7 +3,7 @@ export interface PokemonApiResource {
   url: string;
 }
 
-interface PokemonType {
+export interface PokemonType {
   slot: number;
   type: {
     name: string;
@@ -11,14 +11,14 @@ interface PokemonType {
   };
 }
 
-interface PokemonStats {
+export interface PokemonStats {
   base_stat: number;
   stat: {
     name: string;
   };
 }
 
-interface PokemonAbility {
+export interface PokemonAbility {
   is_hidden: boolean;
   slot: number;
   ability: {
