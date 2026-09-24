@@ -8,7 +8,11 @@ interface NavArrowsProps {
   regionName: string;
 }
 
-export default function NavArrows({ previous, next, regionName }: NavArrowsProps) {
+export default function NavArrows({
+  previous,
+  next,
+  regionName,
+}: NavArrowsProps) {
   return (
     <div>
       {/* Previous arrow */}

@@ -23,7 +23,12 @@ interface PokeDataProps {
   regionName: string;
 }
 
-export default function PokeData({ pokemonList, pokemonData, typeNames, regionName }: PokeDataProps) {
+export default function PokeData({
+  pokemonList,
+  pokemonData,
+  typeNames,
+  regionName,
+}: PokeDataProps) {
   const router = useRouter();
 
   // Define the gradient colors based on the Pokémon types
@@ -35,7 +40,9 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
     : `linear-gradient(to bottom right, ${strong(typeNames[0])} 50%, white 100%)`;
 
   // Define the previous and next pages based on the current Pokédex entry position
-  const currentPokemonIndex = pokemonList.findIndex(poke => poke.name === pokemonData.name);
+  const currentPokemonIndex = pokemonList.findIndex(
+    (poke) => poke.name === pokemonData.name,
+  );
   const previous = pokemonList[currentPokemonIndex - 1]?.name || "";
   const next = pokemonList[currentPokemonIndex + 1]?.name || "";
 
@@ -79,7 +86,7 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
         p-1
         relative
       `}
-      { ...swipeHandler }
+      {...swipeHandler}
     >
       {/* Corner icons */}
       <Image
@@ -118,11 +125,7 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
       <SpritePicture url={pokemonData.sprites.other.home.front_default} />
 
       {/* Navigation arrows */}
-      <NavArrows
-        previous={previous}
-        next={next}
-        regionName={regionName}
-      />
+      <NavArrows previous={previous} next={next} regionName={regionName} />
 
       {/* Pokémon types section */}
       <Types types={pokemonData.types} />

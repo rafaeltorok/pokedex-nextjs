@@ -37,4 +37,4 @@ export default function Stats({ stats }: StatsProps) {
 // Calculate the total sum of all base stats
 function calculateTotalStats(total: number, stat: { base_stat: number }) {
   return total + stat.base_stat;
-};
+}

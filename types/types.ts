@@ -24,7 +24,7 @@ export interface PokemonAbility {
   ability: {
     name: string;
     url: string;
-  }
+  };
 }
 
 export interface Pokemon {

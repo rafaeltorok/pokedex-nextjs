@@ -10,16 +10,20 @@ interface AbilitiesProps {
 export default function Abilities({ abilities }: AbilitiesProps) {
   // Handle the Pokémon abilities
   const normalAbility = abilities.find((ability) => !ability.is_hidden);
-  const hiddenAbility = abilities.find(
-    (ability) => ability.is_hidden === true,
-  );
+  const hiddenAbility = abilities.find((ability) => ability.is_hidden === true);
 
   return (
     <div className="w-full">
       <p className="text-center text-xl text-bold bg-gray-800 p-2">Abilities</p>
       <div className="flex flex-col">
-        {normalAbility && renderRow("Normal ability", normalAbility.ability.name, !hiddenAbility)}
-        {hiddenAbility && renderRow("Hidden ability", hiddenAbility.ability.name, true)}
+        {normalAbility &&
+          renderRow(
+            "Normal ability",
+            normalAbility.ability.name,
+            !hiddenAbility,
+          )}
+        {hiddenAbility &&
+          renderRow("Hidden ability", hiddenAbility.ability.name, true)}
       </div>
     </div>
   );

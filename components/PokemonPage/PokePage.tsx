@@ -14,7 +14,11 @@ interface PokemonPageProps {
   regionName: string;
 }
 
-export default async function PokePage({ pokeName, baseUrl, regionName }: PokemonPageProps) {
+export default async function PokePage({
+  pokeName,
+  baseUrl,
+  regionName,
+}: PokemonPageProps) {
   const pokemonList = await getPokemons(baseUrl);
   const pokemon = pokemonList.find((p) => p.name === pokeName);
 
@@ -44,7 +48,7 @@ export default async function PokePage({ pokeName, baseUrl, regionName }: Pokemo
         pokemonData={pokemonData}
         typeNames={typeNames}
         regionName={regionName}
-      />      
+      />
 
       {/* Return button */}
       <div className="mx-auto my-5 text-xl">
