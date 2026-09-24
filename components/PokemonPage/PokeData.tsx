@@ -1,6 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
+import { SwipeEventData, useSwipeable } from "react-swipeable";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 // Utils
 import capitalize from "@/utils/capitalize";
@@ -26,6 +29,8 @@ interface PokeDataProps {
 }
 
 export default function PokeData({ pokemonList, pokemonData, typeNames, regionName }: PokeDataProps) {
+  const router = useRouter();
+
   // Define the gradient colors based on the Pokémon types
   const typeColor = (name: string) => `var(--type-${name})`;
   const strong = (name: string) =>
@@ -35,6 +40,44 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
     ? `linear-gradient(to bottom right, ${strong(typeNames[0])} 40%, ${strong(typeNames[1])} 60%)`
     : `linear-gradient(to bottom right, ${strong(typeNames[0])} 50%, white 100%)`;
 
+  // Define the previous and next pages based on the current Pokédex entry position
+  const currentPokemonIndex = pokemonList.findIndex(poke => poke.name === pokemonData.name);
+  const previous = pokemonList[currentPokemonIndex - 1]?.name || "";
+  const next = pokemonList[currentPokemonIndex + 1]?.name || "";
+
+  // Handles keyboard navigation
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      // Left arrow key
+      if (event.key === "ArrowLeft" && previous) {
+        router.push(`/${regionName}/${previous}`);
+      }
+
+      // Right arrow key
+      if (event.key === "ArrowRight" && next) {
+        router.push(`/${regionName}/${next}`);
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [previous, next, router, regionName]);
+
+  // Handles the Touch screen swipe to change the page
+  const swipeHandler = useSwipeable({
+    onSwiped: (eventData: SwipeEventData) => {
+      // Previous page
+      if (eventData.dir === "Right" && previous) {
+        router.push(`/${regionName}/${previous}`);
+      }
+
+      // Next page
+      if (eventData.dir === "Left" && next) {
+        router.push(`/${regionName}/${next}`);
+      }
+    },
+  });
+
   return (
     <div
       style={{ backgroundImage: gradient }}
@@ -42,6 +85,7 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
         p-1
         relative
       `}
+      { ...swipeHandler }
     >
       {/* Corner icons */}
       <Image
@@ -94,8 +138,8 @@ export default function PokeData({ pokemonList, pokemonData, typeNames, regionNa
 
       {/* Navigation arrows */}
       <NavArrows
-        pokemonList={pokemonList}
-        pokemonName={pokemonData.name}
+        previous={previous}
+        next={next}
         regionName={regionName}
       />
 
