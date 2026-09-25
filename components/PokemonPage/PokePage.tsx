@@ -3,7 +3,12 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 // Services
-import { getPokemons, getPokemon } from "@/services/pokemons";
+import {
+  getPokemons,
+  getPokemon,
+  getSpecies,
+  getEvolutionChain
+} from "@/services/pokemons";
 
 // Components
 import PokeData from "./dataTable/PokeData";
@@ -29,6 +34,12 @@ export default async function PokePage({
   // Get the Pokémon data from the API
   const pokemonData = await getPokemon(pokemon.url);
 
+  // Get the species information
+  const pokemonSpecies = await getSpecies(pokemonData.name);
+
+  // Get the evolution chain for the current Pokémon
+  const evolutionChain = await getEvolutionChain(pokemonSpecies?.evolution_chain.url);
+
   // Map the type names to define the table gradient colors
   const typeNames = pokemonData.types.map((t) => t.type.name);
 
@@ -46,6 +57,7 @@ export default async function PokePage({
       <PokeData
         pokemonList={pokemonList}
         pokemonData={pokemonData}
+        evolutionChain={evolutionChain}
         typeNames={typeNames}
         regionName={regionName}
       />

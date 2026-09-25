@@ -1,8 +1,10 @@
+// Type for the Pokémon list
 export interface PokemonApiResource {
   name: string;
   url: string;
 }
 
+// Types for the Pokémon data table
 export interface PokemonType {
   slot: number;
   type: {
@@ -27,6 +29,7 @@ export interface PokemonAbility {
   };
 }
 
+// Pokémon type for the individual data pages
 export interface Pokemon {
   id: number;
   name: string;
@@ -40,4 +43,39 @@ export interface Pokemon {
   types: PokemonType[];
   stats: PokemonStats[];
   abilities: PokemonAbility[];
+}
+
+export interface PokemonSpecies {
+  evolution_chain: {
+    url: string;
+  };
+}
+
+// Evolution chain types
+
+// Name of the trigger (e.g. level-up, use-item, trade)
+export interface EvolutionTrigger {
+  name: string;
+}
+
+// Define how a Pokémon evolves
+export interface EvolutionDetails {
+  trigger: EvolutionTrigger;
+  min_level: number | null;
+}
+
+// Single evolution chain link
+export interface ChainLink {
+  is_baby: boolean;
+  species: {
+    name: string;
+    url: string;
+  };
+  evolution_details: EvolutionDetails[];
+  evolves_to: ChainLink[]; // recursive
+}
+
+// Root for the evolution chain
+export interface EvolutionChain {
+  chain: ChainLink;
 }

@@ -11,14 +11,16 @@ import SpritePicture from "@/components/PokemonPage/dataTable/sections/SpritePic
 import Types from "./sections/Types";
 import Stats from "./sections/Stats";
 import Abilities from "./sections/Abilities";
+import Evolution from "./sections/Evolution";
 import NavArrows from "./NavArrows";
 
 // TypeScript types
-import type { Pokemon, PokemonApiResource } from "@/types/types";
+import type { Pokemon, PokemonApiResource, EvolutionChain } from "@/types/types";
 
 interface PokeDataProps {
   pokemonList: PokemonApiResource[];
   pokemonData: Pokemon;
+  evolutionChain: EvolutionChain | null;
   typeNames: string[];
   regionName: string;
 }
@@ -26,6 +28,7 @@ interface PokeDataProps {
 export default function PokeData({
   pokemonList,
   pokemonData,
+  evolutionChain,
   typeNames,
   regionName,
 }: PokeDataProps) {
@@ -135,6 +138,9 @@ export default function PokeData({
 
       {/* Abilities section */}
       <Abilities abilities={pokemonData.abilities} />
+
+      {/* Evolution section */}
+      <Evolution evolutionChain={evolutionChain} currentName={pokemonData.name} />
     </div>
   );
 }
