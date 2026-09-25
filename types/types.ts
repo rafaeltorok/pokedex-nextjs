@@ -62,6 +62,9 @@ export interface EvolutionTrigger {
 export interface EvolutionDetails {
   trigger: EvolutionTrigger;
   min_level: number | null;
+  item: {
+    name: string;
+  } | null;
 }
 
 // Single evolution chain link

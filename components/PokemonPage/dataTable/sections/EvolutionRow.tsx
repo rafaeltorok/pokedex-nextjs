@@ -63,6 +63,9 @@ function describeEvolution(details: EvolutionDetails[]): string {
   // Trade evolution type
   if (detail.trigger?.name === "trade") return "Trade";
 
+  // Item evolution
+  if (detail.item) return capitalize(detail.item.name);
+
   // Other types
   return capitalize(detail.trigger?.name ?? "");
 }
