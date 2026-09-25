@@ -66,6 +66,9 @@ function describeEvolution(details: EvolutionDetails[]): string {
   // Item evolution
   if (detail.item) return capitalize(detail.item.name);
 
+  // For undefined specific types
+  if (detail.trigger?.name === "level-up") return "Other";
+
   // Other types
   return capitalize(detail.trigger?.name ?? "");
 }
