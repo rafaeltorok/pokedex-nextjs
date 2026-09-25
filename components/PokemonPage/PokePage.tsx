@@ -7,7 +7,7 @@ import {
   getPokemons,
   getPokemon,
   getSpecies,
-  getEvolutionChain
+  getEvolutionChain,
 } from "@/services/pokemons";
 
 // Components
@@ -38,7 +38,9 @@ export default async function PokePage({
   const pokemonSpecies = await getSpecies(pokemonData.name);
 
   // Get the evolution chain for the current Pokémon
-  const evolutionChain = await getEvolutionChain(pokemonSpecies?.evolution_chain.url);
+  const evolutionChain = await getEvolutionChain(
+    pokemonSpecies?.evolution_chain.url,
+  );
 
   // Map the type names to define the table gradient colors
   const typeNames = pokemonData.types.map((t) => t.type.name);

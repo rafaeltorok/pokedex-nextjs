@@ -12,7 +12,10 @@ interface EvolutionProps {
   currentName: string;
 }
 
-export default function Evolution({ evolutionChain, currentName }: EvolutionProps) {
+export default function Evolution({
+  evolutionChain,
+  currentName,
+}: EvolutionProps) {
   // Find the current Pokémon position inside of the evolution chain
   // to define if a Pokémon has any previous or next evolutions
   const node = evolutionChain

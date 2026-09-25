@@ -10,7 +10,11 @@ interface EvolutionRowProps {
   details: EvolutionDetails[];
 }
 
-export default function EvolutionRow({ label, name, details }: EvolutionRowProps) {
+export default function EvolutionRow({
+  label,
+  name,
+  details,
+}: EvolutionRowProps) {
   return (
     <div className="flex w-full">
       <p

@@ -15,7 +15,11 @@ import Evolution from "./sections/Evolution";
 import NavArrows from "./NavArrows";
 
 // TypeScript types
-import type { Pokemon, PokemonApiResource, EvolutionChain } from "@/types/types";
+import type {
+  Pokemon,
+  PokemonApiResource,
+  EvolutionChain,
+} from "@/types/types";
 
 interface PokeDataProps {
   pokemonList: PokemonApiResource[];
@@ -140,7 +144,10 @@ export default function PokeData({
       <Abilities abilities={pokemonData.abilities} />
 
       {/* Evolution section */}
-      <Evolution evolutionChain={evolutionChain} currentName={pokemonData.name} />
+      <Evolution
+        evolutionChain={evolutionChain}
+        currentName={pokemonData.name}
+      />
     </div>
   );
 }
