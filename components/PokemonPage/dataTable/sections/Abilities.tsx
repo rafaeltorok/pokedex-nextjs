@@ -17,42 +17,36 @@ export default function Abilities({ abilities }: AbilitiesProps) {
       <p className="text-center text-xl text-bold bg-gray-800 p-2">Abilities</p>
       <div className="flex flex-col">
         {normalAbility &&
-          renderRow(
-            "Normal ability",
-            normalAbility.ability.name,
-            !hiddenAbility,
-          )}
+          renderRow("Normal ability", normalAbility.ability.name)}
         {hiddenAbility &&
-          renderRow("Hidden ability", hiddenAbility.ability.name, true)}
+          renderRow("Hidden ability", hiddenAbility.ability.name)}
       </div>
     </div>
   );
 }
 
 // Render each ability row when available
-function renderRow(label: string, ability: string, isLast: boolean) {
+function renderRow(label: string, ability: string) {
   return (
     <div className="flex w-full">
       <p
-        className={`
+        className="
           w-1/2
           bg-gray-600
           p-2
           border-1 border-gray-500
-          ${isLast ? "rounded-bl-xl" : ""}
-        `}
+        "
       >
         {label}
       </p>
       <p
-        className={`
+        className="
           w-1/2
           bg-gray-800
           p-2
           text-center
           border-1 border-gray-500
-          ${isLast ? "rounded-br-xl" : ""}
-        `}
+        "
       >
         {capitalize(ability)}
       </p>
