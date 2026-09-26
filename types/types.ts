@@ -41,6 +41,11 @@ interface FlavorText {
   }
 }
 
+export interface AbilityData {
+  name: string;
+  description: string;
+}
+
 // Pokémon type for the individual data pages
 export interface Pokemon {
   id: number;

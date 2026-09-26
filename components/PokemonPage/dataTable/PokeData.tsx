@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SwipeEventData, useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -13,12 +13,14 @@ import Stats from "./sections/Stats";
 import Abilities from "./sections/Abilities";
 import Evolution from "./sections/Evolution";
 import NavArrows from "./NavArrows";
+import Notification from "@/components/Notification";
 
 // TypeScript types
 import type {
   Pokemon,
   PokemonApiResource,
   EvolutionChain,
+  AbilityData
 } from "@/types/types";
 
 interface PokeDataProps {
@@ -26,6 +28,8 @@ interface PokeDataProps {
   pokemonData: Pokemon;
   evolutionChain: EvolutionChain | null;
   typeNames: string[];
+  normalAbility: AbilityData;
+  hiddenAbility: AbilityData;
   regionName: string;
 }
 
@@ -34,9 +38,13 @@ export default function PokeData({
   pokemonData,
   evolutionChain,
   typeNames,
+  normalAbility,
+  hiddenAbility,
   regionName,
 }: PokeDataProps) {
   const router = useRouter();
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
 
   // Define the gradient colors based on the Pokémon types
   const strong = (name: string) =>
@@ -141,12 +149,24 @@ export default function PokeData({
       <Stats stats={pokemonData.stats} />
 
       {/* Abilities section */}
-      <Abilities abilities={pokemonData.abilities} />
+      <Abilities
+        normalAbility={normalAbility}
+        hiddenAbility={hiddenAbility}
+        setShowMessage={setShowMessage}
+        setMessage={setMessage}
+      />
 
       {/* Evolution section */}
       <Evolution
         evolutionChain={evolutionChain}
         currentName={pokemonData.name}
+      />
+
+      {/* Display the description for either an ability or type */}
+      <Notification
+        showMessage={showMessage}
+        setShowMessage={setShowMessage}
+        message={message}
       />
     </div>
   );

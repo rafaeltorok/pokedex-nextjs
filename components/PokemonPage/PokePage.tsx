@@ -8,10 +8,14 @@ import {
   getPokemon,
   getSpecies,
   getEvolutionChain,
+  getAbilityDescription,
 } from "@/lib/data";
 
 // Components
 import PokeData from "./dataTable/PokeData";
+
+// TypeScript types
+import type { Pokemon, AbilityData } from "@/types/types";
 
 interface PokemonPageProps {
   pokeName: string;
@@ -42,6 +46,10 @@ export default async function PokePage({
     pokemonSpecies?.evolution_chain.url,
   );
 
+  // Handle the Pokémon abilities
+  const normalAbility = await getAbilityData(pokemonData, "normal");
+  const hiddenAbility = await getAbilityData(pokemonData, "hidden");
+
   // Map the type names to define the table gradient colors
   const typeNames = pokemonData.types.map((t) => t.type.name);
 
@@ -61,6 +69,8 @@ export default async function PokePage({
         pokemonData={pokemonData}
         evolutionChain={evolutionChain}
         typeNames={typeNames}
+        normalAbility={normalAbility}
+        hiddenAbility={hiddenAbility}
         regionName={regionName}
       />
 
@@ -80,4 +90,24 @@ export default async function PokePage({
       </div>
     </div>
   );
+}
+
+async function getAbilityData(pokemonData: Pokemon, type: string): Promise<AbilityData> {
+  let ability;
+
+  if (type === "normal") {
+    ability = pokemonData.abilities.find((ability) => !ability.is_hidden);
+  } else if (type === "hidden") {
+    ability = pokemonData.abilities.find((ability) => ability.is_hidden === true);
+  }
+
+  // Handle the abilities descriptions
+  const description = await getAbilityDescription(ability?.ability.url || "");
+
+  return {
+    name: ability?.ability.name || "",
+    description: description?.flavor_text_entries.find((entry) => {
+      return entry.language.name === "en";
+    })?.flavor_text || "",
+  };
 }

@@ -5,11 +5,12 @@ import capitalize from "@/utils/capitalize";
 interface AbilityRowProps {
   label: string;
   name: string;
-  url: string;
-  showDescription: (url: string) => void;
+  setShowMessage: (show: boolean) => void;
+  setMessage: (message: string) => void;
+  description: string;
 }
 
-export default function AbilityRow({ label, name, url, showDescription }: AbilityRowProps) {
+export default function AbilityRow({ label, name, setShowMessage, setMessage, description }: AbilityRowProps) {
   return (
     <div className="flex w-full">
       <p
@@ -30,7 +31,10 @@ export default function AbilityRow({ label, name, url, showDescription }: Abilit
           text-center
           border-1 border-gray-500
         "
-        onClick={() => showDescription(url)}
+        onClick={() => {
+          setMessage(description || "No description available");
+          setShowMessage(true);
+        }}
       >
         {capitalize(name)}
       </button>
