@@ -1,4 +1,3 @@
-// services/pokemons.ts
 import axios from "axios";
 
 import type {

@@ -1,5 +1,5 @@
 // Services
-import { getPokemons } from "@/services/pokemons";
+import { getPokemons } from "@/lib/data";
 
 // Components
 import SearchBar from "@/components/SearchBar";

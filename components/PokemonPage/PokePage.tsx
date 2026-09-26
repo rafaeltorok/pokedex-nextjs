@@ -8,7 +8,7 @@ import {
   getPokemon,
   getSpecies,
   getEvolutionChain,
-} from "@/services/pokemons";
+} from "@/lib/data";
 
 // Components
 import PokeData from "./dataTable/PokeData";
