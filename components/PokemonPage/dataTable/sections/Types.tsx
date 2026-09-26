@@ -1,7 +1,7 @@
 import capitalize from "@/utils/capitalize";
 
 // TypeScript types
-import { PokemonType } from "@/types/types";
+import type { PokemonType } from "@/types/types";
 
 interface TypesProps {
   types: PokemonType[];

@@ -2,7 +2,7 @@
 import Item from "./Item";
 
 // TypeScript types
-import { PokemonApiResource } from "@/types/types";
+import type { PokemonApiResource } from "@/types/types";
 
 interface ListProps {
   paginatedData: PokemonApiResource[];
