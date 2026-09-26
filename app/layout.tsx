@@ -2,6 +2,7 @@ import "./globals.css";
 
 // Components
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 
 // TypeScript types
 import type { Metadata } from "next";
@@ -23,7 +24,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${pokeFont.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         <NavBar />
-        {children}
+
+        <main className="flex-1 mx-auto">
+          {children}
+        </main>
+        
+        <Footer />
       </body>
     </html>
   );

@@ -39,18 +39,6 @@ export default function Home() {
             </ul>
           </div>
         </section>
-
-        <section className="mx-auto">
-          <p className="text-gray-500">
-            <em>
-              Developed by Rafael G. Torok (2026).
-              <br />
-              <Link target="_blank" href={"https://github.com/rafaeltorok"}>
-                Github profile⇗
-              </Link>
-            </em>
-          </p>
-        </section>
       </main>
     </div>
   );
