@@ -11,16 +11,39 @@ interface RelationSectionProps {
 }
 
 export default function RelationSection({ label, damageRelation, classDefinition }: RelationSectionProps) {
-  const relationList = damageRelation.map((r) => capitalize(r.name)).join(", ");
+  const typeColor = (name: string) => `var(--type-${name})`;
 
   return (
     <div className={classDefinition}>
-      <p className="text-left">{label}</p>
+      <p
+        className="text-left [-webkit-text-stroke:0.35px_#303030]"
+      >
+        {label}
+      </p>
+
       {damageRelation.length === 0 ? (
-        <p>None</p>
+        <p
+          className="[-webkit-text-stroke:0.35px_#303030]"
+        >
+          None
+        </p>
       ) : (
-        <div>
-          <p>{relationList}</p>
+        <div className="flex flex-wrap">
+          {damageRelation.map((r) => (
+            <div
+              key={r.url}
+              style={{
+                backgroundImage: `linear-gradient(140deg, ${typeColor(r.name)} 65%, white 100%)`,
+              }}
+              className="
+                p-2 m-1
+                rounded-xl
+                [-webkit-text-stroke:0.5px_#303030]
+              "
+            >
+              {capitalize(r.name)}
+            </div>
+          ))}
         </div>
       )}
     </div>

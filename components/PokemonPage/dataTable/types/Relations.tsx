@@ -43,6 +43,7 @@ export default function Relations({
         my-auto sm:my-5
         backdrop:bg-black/50
         backdrop:backdrop-blur-[3px]
+        overflow-auto scrollbar-none
       "
       onCancel={() => setShowDamageRelations(false)}
     >
