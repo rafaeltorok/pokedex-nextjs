@@ -23,7 +23,14 @@ export default async function KantoList(props: {
 
   return (
     <>
-      <h1 className="mx-auto mt-8 mb-2 text-2xl font-bold [text-shadow:1px_1px_0_#000]">
+      <h1 
+        className="
+          mx-auto mt-8 mb-2
+          text-2xl text-center
+          font-bold
+          [text-shadow:1px_1px_0_#000]
+        "
+      >
         Kanto Pokédex
       </h1>
 

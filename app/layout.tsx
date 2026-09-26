@@ -25,10 +25,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <NavBar />
 
+        {/* Wraps the main content, to always occupy 100% of the screen height */}
         <main className="flex-1 mx-auto">
           {children}
         </main>
-        
+
         <Footer />
       </body>
     </html>
