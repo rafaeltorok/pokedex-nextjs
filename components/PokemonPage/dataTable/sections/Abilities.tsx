@@ -16,7 +16,7 @@ export default function Abilities({ normalAbility, hiddenAbility, setShowMessage
     <div className="w-full">
       <p className="text-center text-xl text-bold bg-gray-800 p-2">Abilities</p>
       <div className="flex flex-col">
-        {normalAbility &&
+        {normalAbility.name &&
           <AbilityRow
             label="Normal ability"
             name={normalAbility.name}
@@ -25,7 +25,7 @@ export default function Abilities({ normalAbility, hiddenAbility, setShowMessage
             description={normalAbility.description}
           />
         }
-        {hiddenAbility &&
+        {hiddenAbility.name &&
           <AbilityRow
             label="Hidden ability"
             name={hiddenAbility.name}
