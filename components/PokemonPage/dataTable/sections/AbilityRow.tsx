@@ -10,7 +10,13 @@ interface AbilityRowProps {
   description: string;
 }
 
-export default function AbilityRow({ label, name, setShowMessage, setMessage, description }: AbilityRowProps) {
+export default function AbilityRow({
+  label,
+  name,
+  setShowMessage,
+  setMessage,
+  description,
+}: AbilityRowProps) {
   return (
     <div className="flex w-full">
       <p

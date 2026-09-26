@@ -1,5 +1,5 @@
 // TypeScript types
-import type { ChainLink } from "@/types/types"
+import type { ChainLink } from "@/types/types";
 
 interface EvolutionNode {
   current: ChainLink;

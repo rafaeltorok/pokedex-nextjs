@@ -26,7 +26,7 @@ export default function Footer() {
 
       <div className="w-full sm:w-1/2 text-center">
         <p>
-          Powered by the {" "}
+          Powered by the{" "}
           <Link target="_blank" href={"https://pokeapi.co"}>
             Poké API⇗
           </Link>

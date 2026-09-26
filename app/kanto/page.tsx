@@ -23,7 +23,7 @@ export default async function KantoList(props: {
 
   return (
     <>
-      <h1 
+      <h1
         className="
           mx-auto mt-8 mb-2
           text-2xl text-center

@@ -50,14 +50,14 @@ export interface PokemonAbility {
 
 export interface AbilityDescription {
   name: string;
-  flavor_text_entries: FlavorText[]
+  flavor_text_entries: FlavorText[];
 }
 
 interface FlavorText {
   flavor_text: string;
   language: {
     name: string;
-  }
+  };
 }
 
 export interface AbilityData {

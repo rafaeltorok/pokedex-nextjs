@@ -11,12 +11,17 @@ interface AbilitiesProps {
   setMessage: (message: string) => void;
 }
 
-export default function Abilities({ normalAbility, hiddenAbility, setShowMessage, setMessage }: AbilitiesProps) {
+export default function Abilities({
+  normalAbility,
+  hiddenAbility,
+  setShowMessage,
+  setMessage,
+}: AbilitiesProps) {
   return (
     <div className="w-full">
       <p className="text-center text-xl text-bold bg-gray-800 p-2">Abilities</p>
       <div className="flex flex-col">
-        {normalAbility.name &&
+        {normalAbility.name && (
           <AbilityRow
             label="Normal ability"
             name={normalAbility.name}
@@ -24,8 +29,8 @@ export default function Abilities({ normalAbility, hiddenAbility, setShowMessage
             setMessage={setMessage}
             description={normalAbility.description}
           />
-        }
-        {hiddenAbility.name &&
+        )}
+        {hiddenAbility.name && (
           <AbilityRow
             label="Hidden ability"
             name={hiddenAbility.name}
@@ -33,7 +38,7 @@ export default function Abilities({ normalAbility, hiddenAbility, setShowMessage
             setMessage={setMessage}
             description={hiddenAbility.description}
           />
-        }
+        )}
       </div>
     </div>
   );

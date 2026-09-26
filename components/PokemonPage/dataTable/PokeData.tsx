@@ -53,7 +53,8 @@ export default function PokeData({
 
   // Handle the popup message for the type damage relations
   const [showDamageRelations, setShowDamageRelations] = useState(false);
-  const [damageRelations, setDamageRelations] = useState<DamageRelations | null>(null);
+  const [damageRelations, setDamageRelations] =
+    useState<DamageRelations | null>(null);
 
   // Define the gradient colors based on the Pokémon types
   const strong = (name: string) =>

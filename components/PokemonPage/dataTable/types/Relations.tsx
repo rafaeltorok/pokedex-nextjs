@@ -90,7 +90,7 @@ export default function Relations({
       ) : (
         <p>No damage relations available.</p>
       )}
-      
+
       <button
         className="
           border-1 border-gray-700 rounded

@@ -10,23 +10,19 @@ interface RelationSectionProps {
   classDefinition: string;
 }
 
-export default function RelationSection({ label, damageRelation, classDefinition }: RelationSectionProps) {
+export default function RelationSection({
+  label,
+  damageRelation,
+  classDefinition,
+}: RelationSectionProps) {
   const typeColor = (name: string) => `var(--type-${name})`;
 
   return (
     <div className={classDefinition}>
-      <p
-        className="text-left [-webkit-text-stroke:0.35px_#303030]"
-      >
-        {label}
-      </p>
+      <p className="text-left [-webkit-text-stroke:0.35px_#303030]">{label}</p>
 
       {damageRelation.length === 0 ? (
-        <p
-          className="[-webkit-text-stroke:0.35px_#303030]"
-        >
-          None
-        </p>
+        <p className="[-webkit-text-stroke:0.35px_#303030]">None</p>
       ) : (
         <div className="flex flex-wrap">
           {damageRelation.map((r) => (

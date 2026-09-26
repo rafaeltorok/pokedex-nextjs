@@ -16,11 +16,7 @@ import {
 import PokeData from "./dataTable/PokeData";
 
 // TypeScript types
-import type {
-  Pokemon,
-  AbilityData,
-  TypeDetails,
-} from "@/types/types";
+import type { Pokemon, AbilityData, TypeDetails } from "@/types/types";
 
 interface PokemonPageProps {
   pokeName: string;
@@ -56,7 +52,9 @@ export default async function PokePage({
   const hiddenAbility = await getAbilityData(pokemonData, "hidden");
 
   // Map each type name to its respective relations
-  const firstPokemonType = await getTypeRelations(pokemonData.types[0].type.url);
+  const firstPokemonType = await getTypeRelations(
+    pokemonData.types[0].type.url,
+  );
   const secondPokemonType = pokemonData.types[1]
     ? await getTypeRelations(pokemonData.types[1].type.url)
     : null;
@@ -106,13 +104,18 @@ export default async function PokePage({
 }
 
 // Return an object with the ability name and description
-async function getAbilityData(pokemonData: Pokemon, type: string): Promise<AbilityData> {
+async function getAbilityData(
+  pokemonData: Pokemon,
+  type: string,
+): Promise<AbilityData> {
   let ability;
 
   if (type === "normal") {
     ability = pokemonData.abilities.find((ability) => !ability.is_hidden);
   } else if (type === "hidden") {
-    ability = pokemonData.abilities.find((ability) => ability.is_hidden === true);
+    ability = pokemonData.abilities.find(
+      (ability) => ability.is_hidden === true,
+    );
   }
 
   // Handle the abilities descriptions
@@ -120,8 +123,9 @@ async function getAbilityData(pokemonData: Pokemon, type: string): Promise<Abili
 
   return {
     name: ability?.ability.name || "",
-    description: description?.flavor_text_entries.find((entry) => {
-      return entry.language.name === "en";
-    })?.flavor_text || "",
+    description:
+      description?.flavor_text_entries.find((entry) => {
+        return entry.language.name === "en";
+      })?.flavor_text || "",
   };
 }

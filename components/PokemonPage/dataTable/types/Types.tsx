@@ -9,7 +9,11 @@ interface TypesProps {
   setShowDamageRelations: (show: boolean) => void;
 }
 
-export default function Types({ types, setDamageRelations, setShowDamageRelations }: TypesProps) {
+export default function Types({
+  types,
+  setDamageRelations,
+  setShowDamageRelations,
+}: TypesProps) {
   const typeColor = (name: string) => `var(--type-${name})`;
 
   return (

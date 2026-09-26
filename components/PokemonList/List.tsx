@@ -9,11 +9,9 @@ interface ListProps {
   regionName: string;
 }
 
-export default function List({ paginatedData, regionName }: ListProps) { 
+export default function List({ paginatedData, regionName }: ListProps) {
   return (
-    <div
-      className="w-[300px] mx-auto text-center"
-    >
+    <div className="w-[300px] mx-auto text-center">
       <ul>
         {paginatedData.map((p) => (
           <Item key={p.name} pokemon={p} regionName={regionName} />
