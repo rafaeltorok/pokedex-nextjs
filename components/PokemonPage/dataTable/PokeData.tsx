@@ -20,14 +20,15 @@ import type {
   Pokemon,
   PokemonApiResource,
   EvolutionChain,
-  AbilityData
+  AbilityData,
+  TypeDetails,
 } from "@/types/types";
 
 interface PokeDataProps {
   pokemonList: PokemonApiResource[];
   pokemonData: Pokemon;
   evolutionChain: EvolutionChain | null;
-  typeNames: string[];
+  pokemonTypes: TypeDetails[];
   normalAbility: AbilityData;
   hiddenAbility: AbilityData;
   regionName: string;
@@ -37,7 +38,7 @@ export default function PokeData({
   pokemonList,
   pokemonData,
   evolutionChain,
-  typeNames,
+  pokemonTypes,
   normalAbility,
   hiddenAbility,
   regionName,
@@ -50,9 +51,9 @@ export default function PokeData({
   const strong = (name: string) =>
     `color-mix(in srgb, var(--type-${name}), black 15%)`;
 
-  const gradient = typeNames[1]
-    ? `linear-gradient(to bottom right, ${strong(typeNames[0])} 40%, ${strong(typeNames[1])} 60%)`
-    : `linear-gradient(to bottom right, ${strong(typeNames[0])} 50%, white 100%)`;
+  const gradient = pokemonTypes[1]
+    ? `linear-gradient(to bottom right, ${strong(pokemonTypes[0].name)} 40%, ${strong(pokemonTypes[1].name)} 60%)`
+    : `linear-gradient(to bottom right, ${strong(pokemonTypes[0].name)} 50%, white 100%)`;
 
   // Define the previous and next pages based on the current Pokédex entry position
   const currentPokemonIndex = pokemonList.findIndex(

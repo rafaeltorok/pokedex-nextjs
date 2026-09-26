@@ -9,13 +9,18 @@ import {
   getSpecies,
   getEvolutionChain,
   getAbilityDescription,
+  getTypeRelations,
 } from "@/lib/data";
 
 // Components
 import PokeData from "./dataTable/PokeData";
 
 // TypeScript types
-import type { Pokemon, AbilityData } from "@/types/types";
+import type {
+  Pokemon,
+  AbilityData,
+  TypeDetails,
+} from "@/types/types";
 
 interface PokemonPageProps {
   pokeName: string;
@@ -50,8 +55,16 @@ export default async function PokePage({
   const normalAbility = await getAbilityData(pokemonData, "normal");
   const hiddenAbility = await getAbilityData(pokemonData, "hidden");
 
-  // Map the type names to define the table gradient colors
-  const typeNames = pokemonData.types.map((t) => t.type.name);
+  // Map each type name to its respective relations
+  const firstPokemonType = await getTypeRelations(pokemonData.types[0].type.url);
+  const secondPokemonType = pokemonData.types[1]
+    ? await getTypeRelations(pokemonData.types[1].type.url)
+    : null;
+
+  // Filter out the nulls with a type predicate
+  const pokemonTypes = [firstPokemonType, secondPokemonType].filter(
+    (t): t is TypeDetails => t !== null,
+  );
 
   return (
     <div
@@ -68,7 +81,7 @@ export default async function PokePage({
         pokemonList={pokemonList}
         pokemonData={pokemonData}
         evolutionChain={evolutionChain}
-        typeNames={typeNames}
+        pokemonTypes={pokemonTypes}
         normalAbility={normalAbility}
         hiddenAbility={hiddenAbility}
         regionName={regionName}
@@ -92,6 +105,7 @@ export default async function PokePage({
   );
 }
 
+// Return an object with the ability name and description
 async function getAbilityData(pokemonData: Pokemon, type: string): Promise<AbilityData> {
   let ability;
 
