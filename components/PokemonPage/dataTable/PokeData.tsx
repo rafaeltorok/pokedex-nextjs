@@ -8,12 +8,13 @@ import { useRouter } from "next/navigation";
 // Components
 import Title from "./sections/Title";
 import SpritePicture from "@/components/PokemonPage/dataTable/sections/SpritePicture";
-import Types from "./sections/Types";
+import Types from "./types/Types";
 import Stats from "./sections/Stats";
 import Abilities from "./sections/Abilities";
 import Evolution from "./sections/Evolution";
 import NavArrows from "./NavArrows";
 import Notification from "@/components/Notification";
+import Relations from "./types/Relations";
 
 // TypeScript types
 import type {
@@ -22,6 +23,7 @@ import type {
   EvolutionChain,
   AbilityData,
   TypeDetails,
+  DamageRelations,
 } from "@/types/types";
 
 interface PokeDataProps {
@@ -44,8 +46,14 @@ export default function PokeData({
   regionName,
 }: PokeDataProps) {
   const router = useRouter();
+
+  // Handle the popup message for the abilities descriptions
   const [showMessage, setShowMessage] = useState(false);
   const [message, setMessage] = useState("");
+
+  // Handle the popup message for the type damage relations
+  const [showDamageRelations, setShowDamageRelations] = useState(false);
+  const [damageRelations, setDamageRelations] = useState<DamageRelations | null>(null);
 
   // Define the gradient colors based on the Pokémon types
   const strong = (name: string) =>
@@ -144,7 +152,11 @@ export default function PokeData({
       <NavArrows previous={previous} next={next} regionName={regionName} />
 
       {/* Pokémon types section */}
-      <Types types={pokemonData.types} />
+      <Types
+        types={pokemonTypes}
+        setDamageRelations={setDamageRelations}
+        setShowDamageRelations={setShowDamageRelations}
+      />
 
       {/* Stats section */}
       <Stats stats={pokemonData.stats} />
@@ -168,6 +180,12 @@ export default function PokeData({
         showMessage={showMessage}
         setShowMessage={setShowMessage}
         message={message}
+      />
+
+      <Relations
+        showDamageRelations={showDamageRelations}
+        setShowDamageRelations={setShowDamageRelations}
+        damageRelations={damageRelations}
       />
     </div>
   );

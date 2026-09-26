@@ -27,7 +27,7 @@ export interface DamageRelations {
   double_damage_from: DamageRelation[];
 }
 
-interface DamageRelation {
+export interface DamageRelation {
   name: string;
   url: string;
 }
