@@ -1,7 +1,11 @@
 "use client";
 
-import generatePagination from "@/utils/generatePagination";
 import { usePathname, useSearchParams } from "next/navigation";
+
+// Utils
+import generatePagination from "@/utils/generatePagination";
+
+// Components
 import PaginationNumber from "./PaginationNumber";
 import PaginationArrow from "./PaginationArrow";
 
