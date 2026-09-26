@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import List from "@/components/PokemonList/List";
+import Page from "@/components/PokemonList/Page";
 
 export const metadata: Metadata = {
   title: "Kanto Pokédex | Pokédex App",
@@ -27,7 +27,7 @@ export default async function KantoList(props: {
         Kanto Pokédex
       </h1>
 
-      <List
+      <Page
         query={query}
         requestedPage={page}
         baseUrl={baseUrl}
