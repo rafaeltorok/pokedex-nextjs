@@ -75,30 +75,30 @@ export default function PokeData({
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       // Left arrow key
-      if (event.key === "ArrowLeft" && previous) {
+      if (event.key === "ArrowLeft" && previous && !showDamageRelations && !showMessage) {
         router.push(`/${regionName}/${previous}`);
       }
 
       // Right arrow key
-      if (event.key === "ArrowRight" && next) {
+      if (event.key === "ArrowRight" && next && !showDamageRelations && !showMessage) {
         router.push(`/${regionName}/${next}`);
       }
     }
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [previous, next, router, regionName]);
+  }, [previous, next, router, regionName, showDamageRelations, showMessage]);
 
   // Handles the Touch screen swipe to change the page
   const swipeHandler = useSwipeable({
     onSwiped: (eventData: SwipeEventData) => {
       // Previous page
-      if (eventData.dir === "Right" && previous) {
+      if (eventData.dir === "Right" && previous && !showDamageRelations && !showMessage) {
         router.push(`/${regionName}/${previous}`);
       }
 
       // Next page
-      if (eventData.dir === "Left" && next) {
+      if (eventData.dir === "Left" && next && !showDamageRelations && !showMessage) {
         router.push(`/${regionName}/${next}`);
       }
     },
