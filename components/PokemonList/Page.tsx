@@ -9,7 +9,7 @@ import Pagination from "../Pagination/Pagination";
 // TypeScript types
 import type { PokemonApiResource } from "@/types/types";
 
-interface PokemonListProps {
+interface PageProps {
   query: string | undefined;
   requestedPage: number;
   baseUrl: string;
@@ -21,7 +21,7 @@ export default async function Page({
   requestedPage,
   baseUrl,
   regionName,
-}: PokemonListProps) {
+}: PageProps) {
   let pokemons: PokemonApiResource[] = await getPokemons(baseUrl);
 
   // Filter the list by Pokémon name
