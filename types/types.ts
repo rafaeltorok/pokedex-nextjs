@@ -29,6 +29,18 @@ export interface PokemonAbility {
   };
 }
 
+export interface AbilityDescription {
+  name: string;
+  flavor_text_entries: FlavorText[]
+}
+
+interface FlavorText {
+  flavor_text: string;
+  language: {
+    name: string;
+  }
+}
+
 // Pokémon type for the individual data pages
 export interface Pokemon {
   id: number;

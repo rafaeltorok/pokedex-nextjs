@@ -5,6 +5,7 @@ import type {
   Pokemon,
   PokemonSpecies,
   EvolutionChain,
+  AbilityDescription
 } from "@/types/types";
 
 // Get all Pokémons from a particular region/generation
@@ -62,4 +63,10 @@ export async function getEvolutionChain(
 
     throw error;
   }
+}
+
+// Get the description for a single ability
+export async function getAbilityDescription(url: string): Promise<AbilityDescription> {
+  const response = await axios.get(url);
+  return response.data;
 }

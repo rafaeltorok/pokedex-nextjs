@@ -1,4 +1,8 @@
-import capitalize from "@/utils/capitalize";
+// Services
+import { getAbilityDescription } from "@/lib/data";
+
+// Components
+import AbilityRow from "./AbilityRow";
 
 // TypeScript types
 import type { PokemonAbility } from "@/types/types";
@@ -17,39 +21,35 @@ export default function Abilities({ abilities }: AbilitiesProps) {
       <p className="text-center text-xl text-bold bg-gray-800 p-2">Abilities</p>
       <div className="flex flex-col">
         {normalAbility &&
-          renderRow("Normal ability", normalAbility.ability.name)}
+          <AbilityRow
+            label="Normal ability"
+            name={normalAbility.ability.name}
+            url={normalAbility.ability.url}
+            showDescription={showDescription}
+          />
+        }
         {hiddenAbility &&
-          renderRow("Hidden ability", hiddenAbility.ability.name)}
+          <AbilityRow
+            label="Hidden ability"
+            name={hiddenAbility.ability.name}
+            url={hiddenAbility.ability.url}
+            showDescription={showDescription}
+          />
+        }
       </div>
     </div>
   );
 }
 
-// Render each ability row when available
-function renderRow(label: string, ability: string) {
-  return (
-    <div className="flex w-full">
-      <p
-        className="
-          w-1/2
-          bg-gray-600
-          p-2
-          border-1 border-gray-500
-        "
-      >
-        {label}
-      </p>
-      <p
-        className="
-          w-1/2
-          bg-gray-800
-          p-2
-          text-center
-          border-1 border-gray-500
-        "
-      >
-        {capitalize(ability)}
-      </p>
-    </div>
-  );
+async function showDescription(url: string) {
+  const abilityDescription = await getAbilityDescription(url);
+  const entry = abilityDescription.flavor_text_entries.find((entry) => {
+    return entry.language.name === "en";
+  });
+  
+  if (entry) {
+    alert(`${entry.flavor_text}`);
+  } else {
+    alert("No description available");
+  }
 }
