@@ -19,8 +19,13 @@ export default function Relations({
   setShowDamageRelations,
   damageRelations,
 }: RelationsProps) {
+  // Ref for the dialog container
   const ref = useRef<HTMLDialogElement>(null);
 
+  // Ref for the type damage relations popup message
+  const refContainer = useRef<HTMLDivElement>(null);
+
+  // Handle displaying the dialog element
   useEffect(() => {
     if (showDamageRelations) {
       ref.current?.showModal();
@@ -28,6 +33,11 @@ export default function Relations({
       ref.current?.close();
     }
   }, [showDamageRelations]);
+
+  // Handle auto scrolling to the top of the damage relations message
+  useEffect(() => {
+    refContainer.current?.scrollIntoView({ behavior: "instant" });
+  });
 
   return (
     <dialog
@@ -48,7 +58,11 @@ export default function Relations({
       onCancel={() => setShowDamageRelations(false)}
     >
       {damageRelations ? (
-        <div className="min-w-[300px] max-w-[400px]">
+        <div
+          id="top-element"
+          className="min-w-[300px] max-w-[400px]"
+          ref={refContainer}
+        >
           <div className="flex flex-col gap-2 mb-5">
             <p className="text-xl p-2 bg-gray-900">Attack</p>
             <RelationSection
