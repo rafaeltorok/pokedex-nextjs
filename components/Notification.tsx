@@ -25,6 +25,8 @@ export default function Notification({
     <dialog
       ref={ref}
       className="
+        min-w-[300px]
+        max-w-[400px]
         justify-center
         align-center
         p-5
@@ -49,9 +51,10 @@ export default function Notification({
       </p>
       <button
         className="
+          w-full
           border-1 border-gray-700 rounded
           bg-gray-900
-          p-2
+          p-3
           hover:bg-gray-700 active:bg-gray-600
         "
         onClick={() => setShowMessage(false)}
