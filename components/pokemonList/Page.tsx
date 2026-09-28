@@ -4,7 +4,7 @@ import { getPokemons } from "@/lib/data";
 // Components
 import SearchBar from "@/components/SearchBar";
 import List from "./List";
-import Pagination from "../Pagination/Pagination";
+import Pagination from "../pagination/Pagination";
 
 // TypeScript types
 import type { PokemonApiResource } from "@/types/types";

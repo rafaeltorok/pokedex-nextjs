@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import Page from "@/components/PokemonList/Page";
+import Page from "@/components/pokemonList/Page";
 
 export const metadata: Metadata = {
   title: "Sinnoh Pokédex | Pokédex App",
