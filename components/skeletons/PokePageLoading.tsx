@@ -13,7 +13,9 @@ export default function PokePageLoading() {
     >
       <div
         className="
-          p-1
+          pt-1
+          pl-1
+          pr-1
         "
       >
         {/* Title and ID section */}
@@ -25,7 +27,7 @@ export default function PokePageLoading() {
             text-center font-bold
             [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
             border-gray-400 dark:bg-gray-600
-            p-4
+            p-2
             rounded-tl-xl rounded-tr-xl
           "
         >
@@ -39,7 +41,7 @@ export default function PokePageLoading() {
       </div>
 
       {/* Types section */}
-      <div className="flex p-1">
+      <div className="flex px-1">
         <div
           className="
             w-full
@@ -50,7 +52,7 @@ export default function PokePageLoading() {
       </div>
 
       {/* Stats section */}
-      <div className="p-1">
+      <div className="px-1">
         <div className="text-center bg-gray-800 p-5" />
         {renderStatRow()}
         {renderStatRow()}
@@ -62,7 +64,7 @@ export default function PokePageLoading() {
       </div>
 
       {/* Abilities section */}
-      <div className="w-full p-1">
+      <div className="w-full px-1">
         <div className="text-center bg-gray-800 p-5" />
         <div className="flex flex-col">
           <div className="flex w-full">
@@ -87,7 +89,7 @@ export default function PokePageLoading() {
       </div>
 
       {/* Evolution section */}
-      <div className="w-full p-1">
+      <div className="w-full px-1">
         <div className="text-center bg-gray-800 p-5" />
         <div className="flex w-full">
           <div
