@@ -107,9 +107,10 @@ export default function Relations({
 
       <button
         className="
+          w-full
           border-1 border-gray-700 rounded
           bg-gray-900
-          p-2
+          p-3
           hover:bg-gray-700 active:bg-gray-600
         "
         onClick={() => setShowDamageRelations(false)}
