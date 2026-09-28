@@ -31,7 +31,7 @@ export default function PokePageLoading() {
             rounded-tl-xl rounded-tr-xl
           "
         >
-          Loading Pokémon data, please wait...
+          Loading Pokémon data...
         </div>
 
         {/* Sprite picture */}
