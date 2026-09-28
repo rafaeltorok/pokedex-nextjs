@@ -86,19 +86,18 @@ export default async function PokePage({
       />
 
       {/* Return button */}
-      <div className="mx-auto my-5 text-xl">
-        <Link
-          href={`/${regionName}`}
-          className="
-            border-1 border-gray-700 rounded
-            bg-gray-900
-            p-2
-            hover:bg-gray-700 active:bg-gray-600
-          "
-        >
-          Return
-        </Link>
-      </div>
+      <Link
+        href={`/${regionName}`}
+        className="
+          w-full p-2
+          mx-auto my-5 text-xl text-center
+          border-2 border-gray-700 rounded
+          bg-gray-900
+          hover:bg-gray-700 active:bg-gray-600
+        "
+      >
+        Return
+      </Link>
     </div>
   );
 }
