@@ -18,22 +18,32 @@ export default function Home() {
           sm:items-start
         "
       >
-        <h1 className="mx-auto text-2xl font-bold [text-shadow:1px_1px_0_#000]">
+        <h1 className="mx-auto text-4xl font-bold [text-shadow:1px_1px_0_#000]">
           Pokédex App
         </h1>
 
         <section className="mx-auto my-10">
-          <p>Built with Next.js and Tailwind CSS.</p>
+          <p className="text-center">Built with Next.js and Tailwind CSS.</p>
 
           <div className="mt-5">
             Features:
             <ul className="list-disc">
               <li>
-                The full Pokédex from Generations I to IV (Kanto to Sinnoh)
+                The full Pokédex from Generations I to IV (Kanto, Johto, Hoenn and Sinnoh)
               </li>
               <li>Filter the Pokémons by name</li>
-              <li>Display their types</li>
-              <li>Check their base stats</li>
+              <li>Click on each type to get info about its damage relations</li>
+              <li>Click on each ability for a short description</li>
+            </ul>
+          </div>
+
+          <div className="mt-5">
+            Pokémon info:
+            <ul className="list-disc">
+              <li>Base stats</li>
+              <li>Types</li>
+              <li>Normal and Hidden abilities</li>
+              <li>Evolution chain</li>
             </ul>
           </div>
         </section>
