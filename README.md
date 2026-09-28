@@ -7,7 +7,7 @@
 
 ## About
 
-A Pokédex style web app that presents a list containing all of the Generation I (Kanto) Pokémons. Users can select each Pokémon to obtain more info about their base stats and types.
+A Pokédex style web app that presents a list containing all of the Pokémon from Generations I trough IV (Kanto, Johto, Hoenn and Sinnoh). Users can select each Pokémon to obtain more info about their base stats, types, abilities and evolutions.
 
 ### Screenshots
 
