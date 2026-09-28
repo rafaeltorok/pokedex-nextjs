@@ -37,7 +37,6 @@ export default function ListLoading() {
 
       {/* Pagination skeleton */}
       <div className="inline-flex mt-3 mb-5">
-        
         {/* Left nav arrow skeleton */}
         <div
           className="

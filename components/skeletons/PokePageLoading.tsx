@@ -35,9 +35,7 @@ export default function PokePageLoading() {
         </div>
 
         {/* Sprite picture */}
-        <div
-          className="w-[300px] h-[300px] bg-gray-600 dark:bg-gray-900"
-        />
+        <div className="w-[300px] h-[300px] bg-gray-600 dark:bg-gray-900" />
       </div>
 
       {/* Types section */}
@@ -133,7 +131,7 @@ function renderStatRow() {
           p-5
           bg-gray-500 dark:bg-gray-700
         "
-        />
+      />
       <div
         className="
           w-1/2
@@ -141,7 +139,7 @@ function renderStatRow() {
           p-5
           bg-gray-600 dark:bg-gray-900
         "
-        />
+      />
     </div>
   );
 }
