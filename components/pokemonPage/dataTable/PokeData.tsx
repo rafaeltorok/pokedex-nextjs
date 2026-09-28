@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 // Components
 import Title from "./sections/Title";
-import SpritePicture from "@/components/PokemonPage/dataTable/sections/SpritePicture";
+import SpritePicture from "@/components/pokemonPage/dataTable/sections/SpritePicture";
 import Types from "./types/Types";
 import Stats from "./sections/Stats";
 import Abilities from "./sections/Abilities";

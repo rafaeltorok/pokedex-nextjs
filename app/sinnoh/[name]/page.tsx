@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 // Components
-import PokePage from "@/components/PokemonPage/PokePage";
+import PokePage from "@/components/pokemonPage/PokePage";
 
 // Utils
 import capitalize from "@/utils/capitalize";
