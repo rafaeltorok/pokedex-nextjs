@@ -24,9 +24,9 @@ export default function PokePageLoading() {
             w-[300px]
             flex
             items-center
-            font-bold text-xl
-            [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
+            font-bold text-xl text-gray-200 dark:text-gray-500
             border-gray-400 dark:bg-gray-600
+            bg-gray-500 dark:bg-gray-700
             p-5
             rounded-tl-xl rounded-tr-xl
           "
