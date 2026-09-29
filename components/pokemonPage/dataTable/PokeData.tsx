@@ -122,6 +122,7 @@ export default function PokeData({
         router.push(`/${regionName}/${next}`);
       }
     },
+    delta: 100,  // Define the min amount of pixels before a swipe is registered
   });
 
   return (
