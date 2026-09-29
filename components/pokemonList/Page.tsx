@@ -54,7 +54,13 @@ export default async function Page({
     <div className="mx-auto text-center">
       <SearchBar />
 
-      <List paginatedData={paginatedData} regionName={regionName} />
+      <List
+        paginatedData={paginatedData}
+        regionName={regionName}
+        searchQuery={query}
+        totalPages={totalPages}
+        currentPage={currentPage}
+      />
 
       <Pagination totalPages={totalPages} />
     </div>
