@@ -5,9 +5,8 @@ export default function ListLoading() {
         className="
           mx-auto mt-8 mb-2
           text-2xl text-center
-          text-yellow-100 dark:text-yellow-300
+          text-gray-300 dark:text-gray-600
           font-bold
-          [text-shadow:1px_1px_0_#000]
         "
       >
         Loading available Pokémons...
