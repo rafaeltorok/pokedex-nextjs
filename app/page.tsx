@@ -29,7 +29,8 @@ export default function Home() {
             Features:
             <ul className="list-disc">
               <li>
-                The full Pokédex from Generations I to IV (Kanto, Johto, Hoenn and Sinnoh)
+                The full Pokédex from Generations I to IV (Kanto, Johto, Hoenn
+                and Sinnoh)
               </li>
               <li>Filter the Pokémons by name</li>
               <li>Click on each type to get info about its damage relations</li>
