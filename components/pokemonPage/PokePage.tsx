@@ -66,13 +66,12 @@ export default async function PokePage({
 
   return (
     <div
-      className={`
+      className="
         flex flex-col
-        mx-auto
         rounded-xl
         mt-10 mb-5
         justify-center
-      `}
+      "
     >
       {/* Pokémon data table */}
       <PokeData
