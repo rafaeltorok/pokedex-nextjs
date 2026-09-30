@@ -44,7 +44,6 @@ export default function Evolution({
             bg-gray-600
             p-1
             border-1 border-gray-500
-            rounded-br-xl rounded-bl-xl
           "
         >
           Does not evolve

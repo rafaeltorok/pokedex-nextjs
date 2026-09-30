@@ -15,7 +15,6 @@ export default function Title({ id, name }: TitleProps) {
         [-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)]
         bg-black
         py-4
-        rounded-tl-xl rounded-tr-xl
       "
     >
       <span className="w-2/8 text-xl">{`# ${String(id)}`}</span>
