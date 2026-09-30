@@ -8,7 +8,7 @@ export default function PokePageLoading() {
         mt-10 mb-5
         justify-center
         animate-pulse
-        bg-gray-500 dark:bg-gray-700
+        bg-gray-500/20 dark:bg-gray-700/40
       "
     >
       <div
@@ -24,9 +24,9 @@ export default function PokePageLoading() {
             w-[300px]
             flex
             items-center
-            font-bold text-xl text-gray-200 dark:text-gray-500
-            border-gray-400 dark:bg-gray-600
-            bg-gray-500 dark:bg-gray-700
+            font-bold text-xl text-gray-200 dark:text-gray-500/75
+            border-gray-400 dark:bg-gray-600/50
+            bg-gray-500 dark:bg-gray-700/50
             p-5
             rounded-tl-xl rounded-tr-xl
           "
@@ -35,7 +35,7 @@ export default function PokePageLoading() {
         </div>
 
         {/* Sprite picture */}
-        <div className="w-[300px] h-[300px] bg-gray-600 dark:bg-gray-900" />
+        <div className="w-[300px] h-[300px] bg-gray-600 dark:bg-gray-900/50" />
       </div>
 
       {/* Types section */}
@@ -44,14 +44,14 @@ export default function PokePageLoading() {
           className="
             w-full
             p-6
-            bg-gray-400 dark:bg-gray-600
+            bg-gray-400 dark:bg-gray-600/50
           "
         />
       </div>
 
       {/* Stats section */}
       <div className="px-1">
-        <div className="text-center bg-gray-800 p-5" />
+        <div className="text-center bg-gray-800/50 p-5" />
         {renderStatRow()}
         {renderStatRow()}
         {renderStatRow()}
@@ -63,23 +63,23 @@ export default function PokePageLoading() {
 
       {/* Abilities section */}
       <div className="w-full px-1">
-        <div className="text-center bg-gray-800 p-5" />
+        <div className="text-center bg-gray-800/50 p-5" />
         <div className="flex flex-col">
           <div className="flex w-full">
             <div
               className="
                 w-1/2
-                bg-gray-500 dark:bg-gray-700
+                bg-gray-500 dark:bg-gray-700/50
                 p-5
-                border-1 border-gray-600
+                border-1 border-gray-600/50
               "
             />
             <div
               className="
                 w-1/2
-                bg-gray-600 dark:bg-gray-900
+                bg-gray-600 dark:bg-gray-900/50
                 p-5
-                border-1 border-gray-600
+                border-1 border-gray-600/50
               "
             />
           </div>
@@ -88,30 +88,30 @@ export default function PokePageLoading() {
 
       {/* Evolution section */}
       <div className="w-full px-1">
-        <div className="text-center bg-gray-800 p-5" />
+        <div className="text-center bg-gray-800/50 p-5" />
         <div className="flex w-full">
           <div
             className="
               w-1/5
-              bg-gray-400 dark:bg-gray-600
+              bg-gray-400 dark:bg-gray-600/50
               p-5
-              border-1 border-gray-600 rounded-bl-xl
+              border-1 border-gray-600/50 rounded-bl-xl
             "
           />
           <div
             className="
               w-2/5
-              bg-gray-700 dark:bg-gray-900
+              bg-gray-700 dark:bg-gray-900/50
               p-5
-              border-1 border-gray-600
+              border-1 border-gray-600/50
             "
           />
           <div
             className="
               w-2/5
-              bg-gray-500 dark:bg-gray-700
+              bg-gray-500 dark:bg-gray-700/50
               p-5
-              border-1 border-gray-600 rounded-br-xl
+              border-1 border-gray-600/50 rounded-br-xl
             "
           />
         </div>
@@ -127,17 +127,17 @@ function renderStatRow() {
       <div
         className="
           w-1/2
-          border-1 border-gray-700
+          border-1 border-gray-700/50
           p-5
-          bg-gray-500 dark:bg-gray-700
+          bg-gray-500 dark:bg-gray-700/50
         "
       />
       <div
         className="
           w-1/2
-          border-1 border-gray-700
+          border-1 border-gray-700/50
           p-5
-          bg-gray-600 dark:bg-gray-900
+          bg-gray-600 dark:bg-gray-900/50
         "
       />
     </div>
