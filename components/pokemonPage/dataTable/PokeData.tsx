@@ -128,10 +128,12 @@ export default function PokeData({
   return (
     <div
       style={{ backgroundImage: gradient }}
-      className={`
-        p-1
-        relative
-      `}
+      className="
+        p-1 sm:p-0
+        relative mx-auto
+        sm:flex sm:flex-col
+        sm:w-full
+      "
       {...swipeHandler}
     >
       {/* Corner icons */}
@@ -164,38 +166,61 @@ export default function PokeData({
         className="absolute -bottom-2 -right-2"
       />
 
-      {/* Table title - Pokémon name and ID number */}
-      <Title id={pokemonData.id} name={pokemonData.name} />
+      {/* Wrapper for the top portion of the data table */}
+      <div className="sm:flex">
+        {/* Wrapper for the title, sprite picture and types */}
+        <div
+          className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mb-0.75"
+        >
+          {/* Table title - Pokémon name and ID number */}
+          <Title id={pokemonData.id} name={pokemonData.name} />
 
-      {/* Sprite section */}
-      <SpritePicture url={pokemonData.sprites.other.home.front_default} />
+          {/* Sprite section */}
+          <SpritePicture url={pokemonData.sprites.other.home.front_default} />
 
-      {/* Navigation arrows */}
-      <NavArrows previous={previous} next={next} regionName={regionName} />
+          {/* Pokémon types section */}
+          <Types
+            types={pokemonTypes}
+            setDamageRelations={setDamageRelations}
+            setShowDamageRelations={setShowDamageRelations}
+          />
 
-      {/* Pokémon types section */}
-      <Types
-        types={pokemonTypes}
-        setDamageRelations={setDamageRelations}
-        setShowDamageRelations={setShowDamageRelations}
-      />
+          {/* Navigation arrows */}
+          <NavArrows previous={previous} next={next} regionName={regionName} />
+        </div>
 
-      {/* Stats section */}
-      <Stats stats={pokemonData.stats} />
+        {/* Stats section */}
+        <div
+          className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:ml-0.75 sm:mb-0.75"
+        >
+          <Stats stats={pokemonData.stats} />
+        </div>
+      </div>
 
-      {/* Abilities section */}
-      <Abilities
-        normalAbility={normalAbility}
-        hiddenAbility={hiddenAbility}
-        setShowMessage={setShowMessage}
-        setMessage={setMessage}
-      />
+      {/* Wrapper for the bottom portion of the data table */}
+      <div className="sm:flex">
+        {/* Abilities section */}
+        <div
+          className="sm:bg-gray-800 sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mt-0.75"
+        >
+          <Abilities
+            normalAbility={normalAbility}
+            hiddenAbility={hiddenAbility}
+            setShowMessage={setShowMessage}
+            setMessage={setMessage}
+          />
+        </div>
 
-      {/* Evolution section */}
-      <Evolution
-        evolutionChain={evolutionChain}
-        currentName={pokemonData.name}
-      />
+        {/* Evolution section */}
+        <div
+          className="sm:bg-gray-800 sm:flex-col sm:w-1/2 sm:m-2 sm:ml-0.75 sm:mt-0.75"
+        >
+          <Evolution
+            evolutionChain={evolutionChain}
+            currentName={pokemonData.name}
+          />
+        </div>
+      </div>
 
       {/* Display the description for either an ability or type */}
       <Notification
