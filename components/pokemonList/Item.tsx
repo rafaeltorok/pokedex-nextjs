@@ -19,10 +19,10 @@ export default function Item({ pokemon, regionName }: ItemProps) {
       className="
         flex
         border-1 border-gray-500 rounded
-        bg-gray-900
+        bg-gray-900/75
         p-2 m-2
         font-bold
-        hover:bg-gray-700 active:bg-gray-600
+        hover:bg-gray-700/75 active:bg-gray-600/75
         items-center
         h-[50px]
       "
