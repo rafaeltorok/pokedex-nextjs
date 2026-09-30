@@ -7,7 +7,7 @@ export default function SpritePicture({ url }: { url: string }) {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div 
+    <div
       className="
         relative
         w-full object-contain

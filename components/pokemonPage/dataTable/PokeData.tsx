@@ -169,9 +169,7 @@ export default function PokeData({
       {/* Wrapper for the top portion of the data table */}
       <div className="sm:flex">
         {/* Wrapper for the title, sprite picture and types */}
-        <div
-          className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mb-0.75"
-        >
+        <div className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mb-0.75">
           {/* Table title - Pokémon name and ID number */}
           <Title id={pokemonData.id} name={pokemonData.name} />
 
@@ -190,9 +188,7 @@ export default function PokeData({
         </div>
 
         {/* Stats section */}
-        <div
-          className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:ml-0.75 sm:mb-0.75"
-        >
+        <div className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:ml-0.75 sm:mb-0.75">
           <Stats stats={pokemonData.stats} />
         </div>
       </div>
@@ -200,9 +196,7 @@ export default function PokeData({
       {/* Wrapper for the bottom portion of the data table */}
       <div className="sm:flex">
         {/* Abilities section */}
-        <div
-          className="sm:bg-gray-800 sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mt-0.75"
-        >
+        <div className="sm:bg-gray-800 sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mt-0.75">
           <Abilities
             normalAbility={normalAbility}
             hiddenAbility={hiddenAbility}
@@ -212,9 +206,7 @@ export default function PokeData({
         </div>
 
         {/* Evolution section */}
-        <div
-          className="sm:bg-gray-800 sm:flex-col sm:w-1/2 sm:m-2 sm:ml-0.75 sm:mt-0.75"
-        >
+        <div className="sm:bg-gray-800 sm:flex-col sm:w-1/2 sm:m-2 sm:ml-0.75 sm:mt-0.75">
           <Evolution
             evolutionChain={evolutionChain}
             currentName={pokemonData.name}

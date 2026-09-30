@@ -55,7 +55,7 @@ export default function PokePageLoading() {
           />
 
           {/* Pokémon types section */}
-          <div 
+          <div
             className="
               flex w-full
               p-6
@@ -116,9 +116,9 @@ export default function PokePageLoading() {
                   border-1 border-gray-600/50
                 "
               />
+            </div>
           </div>
         </div>
-      </div>
 
         {/* Evolution section */}
         <div
