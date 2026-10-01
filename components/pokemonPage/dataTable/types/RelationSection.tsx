@@ -7,18 +7,25 @@ import type { DamageRelation } from "@/types/types";
 interface RelationSectionProps {
   label: string;
   damageRelation: DamageRelation[];
-  classDefinition: string;
 }
 
 export default function RelationSection({
   label,
   damageRelation,
-  classDefinition,
 }: RelationSectionProps) {
   const typeColor = (name: string) => `var(--type-${name})`;
+  let bgSectionColor;
+
+  if (label.includes("No")) {
+    bgSectionColor = "500";
+  } else if (label.includes("1/2")) {
+    bgSectionColor = "600";
+  } else {
+    bgSectionColor = "700";
+  }
 
   return (
-    <div className={classDefinition}>
+    <div className={`bg-gray-${bgSectionColor} p-1 rounded`}>
       <p className="text-left [-webkit-text-stroke:0.35px_#303030]">{label}</p>
 
       {damageRelation.length === 0 ? (

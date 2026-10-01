@@ -64,40 +64,34 @@ export default function Relations({
           ref={refContainer}
         >
           <div className="flex flex-col gap-2 mb-5">
-            <p className="text-xl p-2 bg-gray-900">Attack</p>
+            <p className="text-xl p-2 bg-gray-900 rounded-xl">Attack</p>
             <RelationSection
               label="No damage to:"
               damageRelation={damageRelations.no_damage_to}
-              classDefinition="bg-gray-500 p-1"
             />
             <RelationSection
               label="1/2 damage to:"
               damageRelation={damageRelations.half_damage_to}
-              classDefinition="bg-gray-600 p-1"
             />
             <RelationSection
               label="2x damage to:"
               damageRelation={damageRelations.double_damage_to}
-              classDefinition="bg-gray-700 p-1"
             />
           </div>
 
           <div className="flex flex-col gap-2 mb-5">
-            <p className="text-xl p-2 bg-gray-900">Defense</p>
+            <p className="text-xl p-2 bg-gray-900 rounded-xl">Defense</p>
             <RelationSection
               label="No damage from:"
               damageRelation={damageRelations.no_damage_from}
-              classDefinition="bg-gray-500 p-1"
             />
             <RelationSection
               label="1/2 damage from:"
               damageRelation={damageRelations.half_damage_from}
-              classDefinition="bg-gray-600 p-1"
             />
             <RelationSection
               label="2x damage from:"
               damageRelation={damageRelations.double_damage_from}
-              classDefinition="bg-gray-700 p-1"
             />
           </div>
         </div>
