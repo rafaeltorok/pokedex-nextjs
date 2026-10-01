@@ -31,9 +31,7 @@ export default function PokePageLoading() {
           "
         >
           {/* Title section */}
-          <div className="p-5 sm:p-2">
-            Loading Pokémon data...
-          </div>
+          <div className="p-5 sm:p-2">Loading Pokémon data...</div>
 
           {/* Sprite picture */}
           <div
