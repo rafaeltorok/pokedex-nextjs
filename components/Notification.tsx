@@ -30,7 +30,7 @@ export default function Notification({
         justify-center
         align-center
         p-5
-        bg-gray-800
+        bg-gray-800/75
         text-center text-yellow-300
         border-2 border-gray-600 rounded-xl
         mx-auto
