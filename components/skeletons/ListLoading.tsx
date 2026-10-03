@@ -4,13 +4,13 @@ export default function ListLoading() {
       <h1
         className="
           mt-8 mb-2
-          text-2xl
+          text-2xl text-center
           text-gray-300 dark:text-gray-600/50
           font-bold
           p-2
         "
       >
-        Loading available Pokémons...
+        Loading Pokédex...
       </h1>
 
       <div className="w-[300px] mx-auto">
@@ -56,7 +56,7 @@ function renderListItemSkeleton() {
   return (
     <div
       className="
-        border-1 border-gray-700/75 rounded
+        rounded
         bg-gray-500/75 dark:bg-gray-800/75
         h-[50px]
       "
