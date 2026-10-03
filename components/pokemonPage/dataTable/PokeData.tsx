@@ -132,7 +132,7 @@ export default function PokeData({
         p-1 sm:p-0
         relative mx-auto
         sm:flex sm:flex-col
-        sm:w-full
+        sm:w-full lg:w-[750px]
       "
       {...swipeHandler}
     >
