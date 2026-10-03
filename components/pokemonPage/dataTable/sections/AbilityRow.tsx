@@ -19,23 +19,26 @@ export default function AbilityRow({
 }: AbilityRowProps) {
   return (
     <div className="flex w-full">
-      <p
+      <label
+        htmlFor={label}
         className="
           w-1/2
           bg-gray-600
           p-2
           border-1 border-gray-500
+          bg-gray-800 hover:bg-gray-600 active:bg-gray-300
         "
       >
         {label}
-      </p>
+      </label>
       <button
+        id={label}
         className="
           w-1/2
-          bg-gray-800 hover:bg-gray-600 active:bg-gray-300
           p-2
           text-center
           border-1 border-gray-500
+          bg-gray-800 hover:bg-gray-600 active:bg-gray-300
         "
         onClick={() => {
           setMessage(description || "No description available");
