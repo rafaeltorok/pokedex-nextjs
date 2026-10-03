@@ -3,8 +3,7 @@ import { getPokemons } from "@/lib/data";
 
 // Components
 import SearchBar from "@/components/SearchBar";
-import List from "./List";
-import Pagination from "./pagination/Pagination";
+import ListContainer from "./ListContainer";
 
 // TypeScript types
 import type { PokemonApiResource } from "@/types/types";
@@ -54,15 +53,12 @@ export default async function Page({
     <div className="mx-auto text-center">
       <SearchBar />
 
-      <List
+      <ListContainer
         paginatedData={paginatedData}
         regionName={regionName}
-        searchQuery={query}
         totalPages={totalPages}
         currentPage={currentPage}
       />
-
-      <Pagination totalPages={totalPages} />
     </div>
   );
 }
