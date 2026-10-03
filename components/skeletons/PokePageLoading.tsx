@@ -8,6 +8,7 @@ export default function PokePageLoading() {
         animate-pulse
         bg-gray-500/20 dark:bg-gray-700/40
         p-2
+        lg:w-[750px]
       "
     >
       {/* Wrapper for the top portion of the data table */}
@@ -16,6 +17,7 @@ export default function PokePageLoading() {
           sm:flex flex-col sm:flex-row
           min-w-[300px] max-w-[400px]
           sm:min-w-full sm:h-[400px]
+          lg:h-[425px]
         "
       >
         {/* Wrapper for the title, sprite picture and types */}
@@ -31,13 +33,14 @@ export default function PokePageLoading() {
           "
         >
           {/* Title section */}
-          <div className="p-5 sm:p-2">Loading Pokémon data...</div>
+          <div className="p-5 sm:p-2 lg:p-4">Loading Pokémon data...</div>
 
           {/* Sprite picture */}
           <div
             className="
               h-[300px] w-[300px]
-              sm:h-[275px] sm:w-[240px]
+              sm:h-[275px] sm:w-[245px] 
+              lg:h-[310px] lg:w-[365px]
               bg-gray-600 dark:bg-gray-800
             "
           />
@@ -48,7 +51,7 @@ export default function PokePageLoading() {
           className="
             sm:w-1/2
             sm:ml-0.75
-            h-[250px] sm:h-[400px]
+            h-[250px] sm:h-[400px] lg:h-[425px]
             bg-gray-600 dark:bg-gray-800
             sm:rounded-tr-xl
           "
@@ -59,13 +62,13 @@ export default function PokePageLoading() {
       </div>
 
       {/* Wrapper for the bottom portion of the data table */}
-      <div className="flex flex-col sm:flex-row">
+      <div className="flex flex-col sm:flex-row lg:w-[735px]">
         {/* Abilities section */}
         <div
           className="
             sm:w-1/2
             bg-gray-700 dark:bg-gray-900/50
-            h-[150px] sm:w-[245px]
+            h-[150px] sm:w-[245px] lg:w-1/2
             sm:mt-2 sm:mr-0.75
           "
         >
@@ -76,7 +79,7 @@ export default function PokePageLoading() {
         {/* Evolutions section */}
         <div
           className="
-            sm:w-1/2
+            sm:w-1/2 lg:w-1/2
             sm:mt-2 sm:ml-0.75
             h-[100px] sm:h-[150px] sm:w-[245px]
             bg-gray-700 dark:bg-gray-900/50
@@ -94,7 +97,7 @@ function renderHeader() {
   return (
     <div
       className="
-        h-[40px]
+        h-[40px] lg:h-[50px]
         bg-gray-700 dark:bg-gray-900
       "
     />
