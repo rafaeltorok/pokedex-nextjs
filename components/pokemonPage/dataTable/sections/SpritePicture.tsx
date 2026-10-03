@@ -10,7 +10,7 @@ export default function SpritePicture({ url }: { url: string }) {
     <div
       className="
         relative
-        w-full object-contain
+        w-full
         bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600
         sm:flex-1
       "
@@ -26,7 +26,6 @@ export default function SpritePicture({ url }: { url: string }) {
         width={300}
         height={300}
         alt="Pokémon picture"
-        className="p-5"
         onLoad={() => setLoading(false)}
       />
     </div>
