@@ -1,7 +1,3 @@
-"use client";
-
-import { usePathname, useSearchParams } from "next/navigation";
-
 // Utils
 import generatePagination from "@/utils/generatePagination";
 
@@ -9,61 +5,63 @@ import generatePagination from "@/utils/generatePagination";
 import PaginationNumber from "./PaginationNumber";
 import PaginationArrow from "./PaginationArrow";
 
-export default function Pagination({ totalPages }: { totalPages: number }) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+interface PaginationProps {
+  totalPages: number;
+  currentPage: number;
+  isPending: boolean;
+  navigate: (pageNumber: number) => void;
+}
 
-  // If the page number is not present on the URL, default to 1
-  const currentPage = Number(searchParams.get("page")) || 1;
-
-  // Insert the page number into the URL
-  const createPageURL = (pageNumber: number | string) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("page", pageNumber.toString());
-    return `${pathname}?${params.toString()}`;
-  };
-
-  const allPages = generatePagination(Number(currentPage), totalPages);
+export default function Pagination({
+  totalPages,
+  currentPage,
+  isPending,
+  navigate,
+}: PaginationProps) {
+  const allPages = generatePagination(currentPage, totalPages);
 
   return (
-    <>
-      <div className="inline-flex mt-3 mb-5">
-        {/* Render the left navigation arrow */}
-        <PaginationArrow
-          direction="left"
-          href={createPageURL(currentPage - 1)}
-          isDisabled={currentPage <= 1}
-        />
+    <div
+      className={`inline-flex mb-5 ${isPending && "opacity-40 pointer-events-none"}`}
+    >
+      <PaginationArrow
+        direction="left"
+        navigate={navigate}
+        isPending={isPending}
+        currentPage={currentPage}
+        isDisabled={currentPage <= 1}
+      />
 
-        {/* Render all of the page numbers */}
-        <div className="flex -space-x-px">
-          {allPages.map((page, index) => {
-            let position: "first" | "last" | "single" | "middle" | undefined;
+      <div className="flex -space-x-px">
+        {allPages.map((page, index) => {
+          let position: "first" | "last" | "single" | "middle" | undefined;
 
-            if (index === 0) position = "first";
-            if (index === allPages.length - 1) position = "last";
-            if (allPages.length === 1) position = "single";
-            if (page === "...") position = "middle";
+          if (index === 0) position = "first";
+          if (index === allPages.length - 1) position = "last";
+          if (allPages.length === 1) position = "single";
+          if (page === "...") position = "middle";
 
-            return (
-              <PaginationNumber
-                key={`${page}-${index}`}
-                href={createPageURL(page)}
-                page={page}
-                position={position}
-                isActive={currentPage === page}
-              />
-            );
-          })}
-        </div>
-
-        {/* Render the right navigation arrow */}
-        <PaginationArrow
-          direction="right"
-          href={createPageURL(currentPage + 1)}
-          isDisabled={currentPage >= totalPages}
-        />
+          return (
+            <PaginationNumber
+              key={`${page}-${index}`}
+              page={page}
+              navigate={navigate}
+              currentPage={currentPage}
+              isPending={isPending}
+              isActive={currentPage === page}
+              position={position}
+            />
+          );
+        })}
       </div>
-    </>
+
+      <PaginationArrow
+        direction="right"
+        navigate={navigate}
+        isPending={isPending}
+        currentPage={currentPage}
+        isDisabled={currentPage >= totalPages}
+      />
+    </div>
   );
 }
