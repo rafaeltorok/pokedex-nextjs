@@ -27,6 +27,7 @@ export default function SpritePicture({ url }: { url: string }) {
         height={300}
         alt="Pokémon picture"
         onLoad={() => setLoading(false)}
+        className="mx-auto my-auto"
       />
     </div>
   );
