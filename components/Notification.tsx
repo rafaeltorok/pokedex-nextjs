@@ -27,16 +27,14 @@ export default function Notification({
       className="
         min-w-[300px]
         max-w-[400px]
-        justify-center
-        align-center
         p-5
         bg-gray-800/75
         text-center text-yellow-300
         border-2 border-gray-600 rounded-xl
         mx-auto
-        my-auto sm:my-5
         backdrop:bg-black/50
         backdrop:backdrop-blur-[3px]
+        top-1/2 -translate-y-1/2
       "
       onCancel={() => setShowMessage(false)}
     >
