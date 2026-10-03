@@ -23,9 +23,10 @@ export default function NavArrows({
             -left-9
             text-4xl
             p-1
-            border-1 border-gray-700 rounded
+            rounded
             bg-gray-900
             hover:bg-gray-700 active:bg-gray-600
+            sm:top-1/2 sm:right-full -translate-y-1/2
           "
         >
           <Link href={`/${regionName}/${previous}`}>◀</Link>
@@ -40,9 +41,10 @@ export default function NavArrows({
             -right-9
             text-4xl
             p-1
-            border-1 border-gray-700 rounded
+            rounded
             bg-gray-900
             hover:bg-gray-700 active:bg-gray-600
+            sm:top-1/2 sm:left-full -translate-y-1/2
           "
         >
           <Link href={`/${regionName}/${next}`}>▶</Link>
