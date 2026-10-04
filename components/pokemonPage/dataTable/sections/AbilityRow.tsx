@@ -26,7 +26,7 @@ export default function AbilityRow({
           bg-gray-600
           p-2
           border-1 border-gray-500
-          bg-gray-800 hover:bg-gray-600 active:bg-gray-300
+          bg-gray-500 hover:bg-gray-400 active:bg-gray-300
         "
       >
         {label}
@@ -38,7 +38,7 @@ export default function AbilityRow({
           p-2
           text-center
           border-1 border-gray-500
-          bg-gray-800 hover:bg-gray-600 active:bg-gray-300
+          bg-gray-800 hover:bg-gray-400 active:bg-gray-300
         "
         onClick={() => {
           setMessage(description || "No description available");
