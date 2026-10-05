@@ -2,6 +2,7 @@
 export interface PokemonApiResource {
   name: string;
   url: string;
+  icon?: string;
 }
 
 // Types for the Pokémon data table
@@ -75,6 +76,14 @@ export interface Pokemon {
         front_default: string;
       };
     };
+    versions: {
+      "generation-i"?: GenerationIcons;
+      "generation-ii"?: GenerationIcons;
+      "generation-iii"?: GenerationIcons;
+      "generation-iv"?: GenerationIcons;
+      "generation-v"?: GenerationIcons;
+      "generation-vi"?: GenerationIcons;
+    };
   };
   types: PokemonType[];
   stats: PokemonStats[];
@@ -117,4 +126,18 @@ export interface ChainLink {
 // Root for the evolution chain
 export interface EvolutionChain {
   chain: ChainLink;
+}
+
+// Types for the list thumbnail icons
+export type generation_name = "generation-i" | 
+  "generation-ii" | 
+  "generation-iii" | 
+  "generation-iv" |
+  "generation-v" |
+  "generation-vi";
+
+interface GenerationIcons {
+  icons: {
+    front_default: string;
+  };
 }

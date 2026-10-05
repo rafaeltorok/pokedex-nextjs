@@ -16,18 +16,20 @@ import {
 import PokeData from "./dataTable/PokeData";
 
 // TypeScript types
-import type { Pokemon, AbilityData, TypeDetails } from "@/types/types";
+import type { Pokemon, AbilityData, TypeDetails, generation_name } from "@/types/types";
 
 interface PokemonPageProps {
   pokeName: string;
   baseUrl: string;
   regionName: string;
+  generationIcons: generation_name;
 }
 
 export default async function PokePage({
   pokeName,
   baseUrl,
   regionName,
+  generationIcons,
 }: PokemonPageProps) {
   const pokemonList = await getPokemons(baseUrl);
   const pokemon = pokemonList.find((p) => p.name === pokeName);
@@ -82,6 +84,7 @@ export default async function PokePage({
         normalAbility={normalAbility}
         hiddenAbility={hiddenAbility}
         regionName={regionName}
+        generationIcons={generationIcons}
       />
 
       {/* Return button */}

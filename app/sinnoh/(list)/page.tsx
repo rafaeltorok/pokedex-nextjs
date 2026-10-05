@@ -39,6 +39,7 @@ export default async function SinnohList(props: {
         requestedPage={page}
         baseUrl={baseUrl}
         regionName="sinnoh"
+        generationIcons="generation-iv"
       />
     </>
   );

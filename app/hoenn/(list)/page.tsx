@@ -39,6 +39,7 @@ export default async function HoennList(props: {
         requestedPage={page}
         baseUrl={baseUrl}
         regionName="hoenn"
+        generationIcons="generation-v"
       />
     </>
   );

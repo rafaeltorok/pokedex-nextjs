@@ -24,6 +24,7 @@ import type {
   AbilityData,
   TypeDetails,
   DamageRelations,
+  generation_name,
 } from "@/types/types";
 
 interface PokeDataProps {
@@ -34,6 +35,7 @@ interface PokeDataProps {
   normalAbility: AbilityData;
   hiddenAbility: AbilityData;
   regionName: string;
+  generationIcons: generation_name;
 }
 
 export default function PokeData({
@@ -44,6 +46,7 @@ export default function PokeData({
   normalAbility,
   hiddenAbility,
   regionName,
+  generationIcons,
 }: PokeDataProps) {
   const router = useRouter();
 
@@ -171,7 +174,11 @@ export default function PokeData({
         {/* Wrapper for the title, sprite picture and types */}
         <div className="sm:flex sm:flex-col sm:w-1/2 sm:m-2 sm:mr-0.75 sm:mb-0.75">
           {/* Table title - Pokémon name and ID number */}
-          <Title id={pokemonData.id} name={pokemonData.name} />
+          <Title
+            id={pokemonData.id}
+            name={pokemonData.name}
+            spriteIcon={pokemonData.sprites.versions?.[generationIcons]?.icons.front_default || ""}
+          />
 
           {/* Sprite section */}
           <SpritePicture url={pokemonData.sprites.other.home.front_default} />

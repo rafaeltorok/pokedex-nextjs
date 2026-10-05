@@ -39,6 +39,7 @@ export default async function KantoList(props: {
         requestedPage={page}
         baseUrl={baseUrl}
         regionName="kanto"
+        generationIcons="generation-iv"
       />
     </>
   );

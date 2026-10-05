@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -6,6 +8,7 @@ import capitalize from "@/utils/capitalize";
 
 // TypeScript types
 import type { PokemonApiResource } from "@/types/types";
+import { useState } from "react";
 
 interface ItemProps {
   pokemon: PokemonApiResource;
@@ -13,6 +16,8 @@ interface ItemProps {
 }
 
 export default function Item({ pokemon, regionName }: ItemProps) {
+  const [isIconLoading, setIsIconLoading] = useState(true);
+
   return (
     <Link
       href={`/${regionName}/${pokemon.name}`}
@@ -20,20 +25,39 @@ export default function Item({ pokemon, regionName }: ItemProps) {
         flex
         border-1 border-gray-500 rounded
         bg-gray-900/75
-        p-2 m-2
+        p-2 my-2
         font-bold
         hover:bg-gray-700/75 active:bg-gray-600/75
         items-center
         h-[50px]
       "
     >
-      <Image
-        src={"/pokeball_icon.png"}
-        alt="Pokéball logo"
-        width={50}
-        height={50}
-        className="w-1/6 h-[30px] w-[30px]"
-      />
+      <div className="w-1/6 h-[40px] w-[40px] relative">
+        {isIconLoading && (
+          // Display a placeholder skeleton while the icon is loading
+          <div
+            className="
+              absolute
+              animate-pulse
+              w-[40px] h-[40px]
+              gray-600
+              dark:bg-gray-800
+              rounded-xl"
+            />
+        )}
+        
+        {/* Pokémon sprite icon */}
+        <Image
+          src={pokemon.icon || "/pokeball_icon.png"}
+          alt="Pokémon showdown sprite"
+          width={40}
+          height={40}
+          onLoad={() => setIsIconLoading(false)}
+          className="absolute"
+        />
+      </div>
+
+      {/* Clickable Pokémon list item */}
       <li className="w-5/6">
         <span className="[-webkit-text-stroke:0.1px_rgb(0_0_0_/_50%)] text-xl">
           {capitalize(pokemon.name)}

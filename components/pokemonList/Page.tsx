@@ -1,18 +1,19 @@
 // Services
-import { getPokemons } from "@/lib/data";
+import { getPokemons, getPokemon } from "@/lib/data";
 
 // Components
 import SearchBar from "@/components/SearchBar";
 import ListContainer from "./ListContainer";
 
 // TypeScript types
-import type { PokemonApiResource } from "@/types/types";
+import type { PokemonApiResource, generation_name } from "@/types/types";
 
 interface PageProps {
   query: string | undefined;
   requestedPage: number;
   baseUrl: string;
   regionName: string;
+  generationIcons: generation_name;
 }
 
 export default async function Page({
@@ -20,6 +21,7 @@ export default async function Page({
   requestedPage,
   baseUrl,
   regionName,
+  generationIcons,
 }: PageProps) {
   let pokemons: PokemonApiResource[] = await getPokemons(baseUrl);
 
@@ -49,12 +51,21 @@ export default async function Page({
   // Divide the amount of data based on the pagination number
   const paginatedData = pokemons.slice(offset, endIndex);
 
+  // Map each sprite icon to the page's respective items
+  const paginatedDataWithIcons = await Promise.all(paginatedData.map(async (d) => {
+    const itemData = await getPokemon(d.url);
+    return {
+      ...d,
+      icon: itemData.sprites.versions?.[generationIcons]?.icons.front_default || "",
+    };
+  }));
+
   return (
     <div className="mx-auto text-center">
       <SearchBar />
 
       <ListContainer
-        paginatedData={paginatedData}
+        paginatedData={paginatedDataWithIcons}
         regionName={regionName}
         totalPages={totalPages}
         currentPage={currentPage}

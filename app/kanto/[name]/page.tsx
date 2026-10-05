@@ -29,5 +29,12 @@ export default async function KantoPokePage({
   // Create the API url
   const baseUrl = "https://pokeapi.co/api/v2/pokemon/?limit=151";
 
-  return <PokePage pokeName={name} baseUrl={baseUrl} regionName="kanto" />;
+  return (
+    <PokePage
+      pokeName={name}
+      baseUrl={baseUrl}
+      regionName="kanto"
+      generationIcons="generation-iv"
+    />
+  );
 }

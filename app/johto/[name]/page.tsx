@@ -29,5 +29,12 @@ export default async function JohtoPokePage({
   // Create the API url
   const baseUrl = "https://pokeapi.co/api/v2/pokemon?offset=151&limit=100";
 
-  return <PokePage pokeName={name} baseUrl={baseUrl} regionName="johto" />;
+  return (
+    <PokePage
+      pokeName={name}
+      baseUrl={baseUrl}
+      regionName="johto"
+      generationIcons="generation-v"
+    />
+  );
 }
