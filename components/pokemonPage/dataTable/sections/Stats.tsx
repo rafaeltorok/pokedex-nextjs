@@ -9,7 +9,7 @@ interface StatsProps {
 
 export default function Stats({ stats }: StatsProps) {
   return (
-    <div className="flex lg:h-[425px] flex-col">
+    <div className="flex lg:h-[435px] flex-col">
       <p className="text-center text-xl text-bold bg-gray-800 p-2 my-auto lg:h-[60px] lg:pt-3">
         Stats
       </p>
