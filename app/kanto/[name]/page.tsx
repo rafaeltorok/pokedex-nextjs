@@ -34,7 +34,7 @@ export default async function KantoPokePage({
       pokeName={name}
       baseUrl={baseUrl}
       regionName="kanto"
-      generationIcons="generation-iv"
+      generationIcons="generation-iii"
     />
   );
 }
