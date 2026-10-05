@@ -6,7 +6,7 @@ import { GenerationIcons } from "./icons";
 export interface PokemonApiResource {
   name: string;
   url: string;
-  icon?: string;
+  id?: number;
 }
 
 export interface PokemonStats {

@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/*.png"),
       new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/**/icons/*.png"),
+      new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/*.png"),
     ],
   },
   // Allows all local devices access to the Next Dev Server

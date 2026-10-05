@@ -39,7 +39,6 @@ export default async function JohtoList(props: {
         requestedPage={page}
         baseUrl={baseUrl}
         regionName="johto"
-        generationIcons="generation-v"
       />
     </>
   );
