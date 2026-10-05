@@ -16,13 +16,16 @@ import {
 import PokeData from "./dataTable/PokeData";
 
 // TypeScript types
-import type { Pokemon, AbilityData, TypeDetails, generation_name } from "@/types/types";
+import type { Pokemon } from "@/types/pokemon";
+import type { AbilityData, FlavorText } from "@/types/abilities";
+import type { TypeDetails } from "@/types/pokeTypes";
+import type { generationName } from "@/types/icons";
 
 interface PokemonPageProps {
   pokeName: string;
   baseUrl: string;
   regionName: string;
-  generationIcons: generation_name;
+  generationIcons: generationName;
 }
 
 export default async function PokePage({
@@ -125,7 +128,7 @@ async function getAbilityData(
   return {
     name: ability?.ability.name || "",
     description:
-      description?.flavor_text_entries.find((entry) => {
+      description?.flavor_text_entries.find((entry: FlavorText) => {
         return entry.language.name === "en";
       })?.flavor_text || "",
   };

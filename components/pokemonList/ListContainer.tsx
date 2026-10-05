@@ -7,7 +7,7 @@ import List from "./List";
 import Pagination from "./pagination/Pagination";
 
 // TypeScript type
-import type { PokemonApiResource } from "@/types/types";
+import type { PokemonApiResource } from "@/types/pokemon";
 
 interface ListContainerProps {
   paginatedData: PokemonApiResource[];

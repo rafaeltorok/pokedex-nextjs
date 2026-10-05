@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 import RelationSection from "./RelationSection";
 
 // TypeScript types
-import type { DamageRelations } from "@/types/types";
+import type { DamageRelations } from "@/types/pokeTypes";
 
 interface RelationsProps {
   showDamageRelations: boolean;

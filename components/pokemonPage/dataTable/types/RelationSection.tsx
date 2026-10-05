@@ -2,7 +2,7 @@
 import capitalize from "@/utils/capitalize";
 
 // TypeScript types
-import type { DamageRelation } from "@/types/types";
+import type { DamageRelation } from "@/types/pokeTypes";
 
 interface RelationSectionProps {
   label: string;

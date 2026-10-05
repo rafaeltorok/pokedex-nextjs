@@ -9,7 +9,7 @@ import { RotatingLines } from "react-loader-spinner";
 import Item from "./Item";
 
 // TypeScript types
-import type { PokemonApiResource } from "@/types/types";
+import type { PokemonApiResource } from "@/types/pokemon";
 import type { SwipeEventData } from "react-swipeable";
 
 interface ListProps {

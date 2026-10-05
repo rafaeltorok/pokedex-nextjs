@@ -2,7 +2,7 @@
 import AbilityRow from "./AbilityRow";
 
 // TypeScript types
-import type { AbilityData } from "@/types/types";
+import type { AbilityData } from "@/types/abilities";
 
 interface AbilitiesProps {
   normalAbility: AbilityData;

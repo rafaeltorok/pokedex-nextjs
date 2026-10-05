@@ -7,7 +7,7 @@ import Image from "next/image";
 import capitalize from "@/utils/capitalize";
 
 // TypeScript types
-import type { PokemonApiResource } from "@/types/types";
+import type { PokemonApiResource } from "@/types/pokemon";
 import { useState } from "react";
 
 interface ItemProps {

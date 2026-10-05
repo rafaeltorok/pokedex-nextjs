@@ -1,7 +1,7 @@
 import capitalize from "@/utils/capitalize";
 
 // TypeScript types
-import type { TypeDetails, DamageRelations } from "@/types/types";
+import type { TypeDetails, DamageRelations } from "@/types/pokeTypes";
 
 interface TypesProps {
   types: TypeDetails[];

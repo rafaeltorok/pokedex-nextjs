@@ -20,12 +20,12 @@ import Relations from "./types/Relations";
 import type {
   Pokemon,
   PokemonApiResource,
-  EvolutionChain,
-  AbilityData,
-  TypeDetails,
-  DamageRelations,
-  generation_name,
-} from "@/types/types";
+} from "@/types/pokemon";
+import type { EvolutionChain } from "@/types/evolutionChain";
+import type { AbilityData } from "@/types/abilities";
+import type { TypeDetails } from "@/types/pokeTypes";
+import type { DamageRelations } from "@/types/pokeTypes";
+import type { generationName } from "@/types/icons";
 
 interface PokeDataProps {
   pokemonList: PokemonApiResource[];
@@ -35,7 +35,7 @@ interface PokeDataProps {
   normalAbility: AbilityData;
   hiddenAbility: AbilityData;
   regionName: string;
-  generationIcons: generation_name;
+  generationIcons: generationName;
 }
 
 export default function PokeData({

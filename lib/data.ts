@@ -4,10 +4,10 @@ import type {
   PokemonApiResource,
   Pokemon,
   PokemonSpecies,
-  EvolutionChain,
-  AbilityDescription,
-  TypeDetails,
-} from "@/types/types";
+} from "@/types/pokemon";
+import type { EvolutionChain } from "@/types/evolutionChain";
+import type { AbilityDescription } from "@/types/abilities";
+import type { TypeDetails } from "@/types/pokeTypes";
 
 // Get all Pokémons from a particular region/generation
 export async function getPokemons(url: string): Promise<PokemonApiResource[]> {

@@ -5,7 +5,7 @@ import { findEvolutionNode } from "@/utils/evolution";
 import EvolutionRow from "./EvolutionRow";
 
 // TypeScript types
-import type { EvolutionChain } from "@/types/types";
+import type { EvolutionChain } from "@/types/evolutionChain";
 
 interface EvolutionProps {
   evolutionChain: EvolutionChain | null;

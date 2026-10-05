@@ -6,14 +6,15 @@ import SearchBar from "@/components/SearchBar";
 import ListContainer from "./ListContainer";
 
 // TypeScript types
-import type { PokemonApiResource, generation_name } from "@/types/types";
+import type { PokemonApiResource } from "@/types/pokemon";
+import { generationName } from "@/types/icons";
 
 interface PageProps {
   query: string | undefined;
   requestedPage: number;
   baseUrl: string;
   regionName: string;
-  generationIcons: generation_name;
+  generationIcons: generationName;
 }
 
 export default async function Page({

@@ -2,7 +2,7 @@
 import capitalize from "@/utils/capitalize";
 
 // TypeScript types
-import type { EvolutionDetails } from "@/types/types";
+import type { EvolutionDetails } from "@/types/evolutionChain";
 
 interface EvolutionRowProps {
   label: string;
