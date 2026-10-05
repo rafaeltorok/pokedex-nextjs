@@ -3,7 +3,7 @@ export default function ListLoading() {
     <div className="animate-pulse">
       <h1
         className="
-          mt-8 mb-2
+          mt-6 mb-2
           text-2xl text-center
           text-gray-300 dark:text-gray-600/50
           font-bold
@@ -19,14 +19,14 @@ export default function ListLoading() {
           className="
             mx-auto text-center
             bg-gray-400/75 dark:bg-gray-700/75
-            p-2 my-4
+            p-2 mt-4 mb-6
             rounded
             w-[275px] h-[40px]
           "
         />
 
         {/* List items skeleton */}
-        <div className="flex flex-col gap-2">
+        <div className="grid grid-cols-2 gap-2">
           {renderListItemSkeleton()}
           {renderListItemSkeleton()}
           {renderListItemSkeleton()}
@@ -56,9 +56,9 @@ function renderListItemSkeleton() {
   return (
     <div
       className="
-        rounded
+        rounded-xl
         bg-gray-500/75 dark:bg-gray-800/75
-        h-[50px]
+        h-[150px] w-[150px]
       "
     />
   );
