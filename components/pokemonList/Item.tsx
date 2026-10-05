@@ -51,9 +51,9 @@ export default function Item({ pokemon, regionName, id }: ItemProps) {
           {/* Pokémon sprite thumbnail */}
           <Image
             src={
-              id ?
-                `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png` : 
-                "/pokeball_icon.png"
+              id
+                ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
+                : "/pokeball_icon.png"
             }
             alt="Pokémon sprite thumbnail"
             width={100}

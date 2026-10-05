@@ -72,11 +72,14 @@ export default function List({
         ${isPending && "opacity-40 pointer-events-none"}
       `}
     >
-      <ul
-        className="grid grid-cols-2 gap-2"
-      >
+      <ul className="grid grid-cols-2 gap-2">
         {paginatedData.map((p) => (
-          <Item key={p.name} pokemon={p} regionName={regionName} id={p.id || 0} />
+          <Item
+            key={p.name}
+            pokemon={p}
+            regionName={regionName}
+            id={p.id || 0}
+          />
         ))}
       </ul>
     </div>
