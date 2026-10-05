@@ -14,15 +14,15 @@ A Pokédex style web app that presents a list containing all of the Pokémon fro
 #### Desktop web UI
 
 <div style="display: flex; gap: 1rem;">
-  <img src="./img/pokedex-list-view.png" alt="Pokédex list view" width=400 />
-  <img src="./img/pokemon-info-view.png" alt="Pokémon info card view" width=400 />
+  <img src="./img/pokedex-list-view.png" alt="Pokédex list view" height=250 />
+  <img src="./img/pokemon-info-view.png" alt="Pokémon info card view" height=250 />
 </div>
 
 #### Mobile web UI
 
 <div style="display: flex; gap: 1rem;">
-  <img src="./img/mobile-pokedex-list-view.png" alt="Pokédex list view on mobile" width=200 />
-  <img src="./img/mobile-pokemon-info-view.png" alt="Pokémon info card view on mobile" width=200 />
+  <img src="./img/mobile-pokedex-list-view.png" alt="Pokédex list view on mobile" height=400 />
+  <img src="./img/mobile-pokemon-info-view.png" alt="Pokémon info card view on mobile" height=400 />
 </div>
 
 ## Usage
