@@ -3,7 +3,6 @@
 // React
 import { useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
-import { RotatingLines } from "react-loader-spinner";
 
 // Components
 import Item from "./Item";
@@ -68,30 +67,18 @@ export default function List({
       {...swipeHandler}
       className={`
         w-[300px]
-        mx-auto
+        mx-auto mt-2 mb-4
         text-center
-        relative
         ${isPending && "opacity-40 pointer-events-none"}
       `}
     >
-      <ul>
+      <ul
+        className="grid grid-cols-2 gap-2"
+      >
         {paginatedData.map((p) => (
-          <Item key={p.name} pokemon={p} regionName={regionName} />
+          <Item key={p.name} pokemon={p} regionName={regionName} id={p.id || 0} />
         ))}
       </ul>
-
-      {/* Renders a loading spinner when navigating through pages */}
-      {isPending && (
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <RotatingLines
-            strokeColor="grey"
-            strokeWidth="5"
-            animationDuration="0.75"
-            width="48"
-            visible={true}
-          />
-        </div>
-      )}
     </div>
   );
 }
