@@ -34,7 +34,7 @@ export default async function HoennPokePage({
       pokeName={name}
       baseUrl={baseUrl}
       regionName="hoenn"
-      generationIcons="generation-v"
+      generationIcons="generation-iii"
     />
   );
 }
