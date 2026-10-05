@@ -16,8 +16,8 @@ export default function PokePageLoading() {
         className="
           sm:flex flex-col sm:flex-row
           min-w-[300px] max-w-[400px]
-          sm:min-w-full sm:h-[400px]
-          lg:h-[425px]
+          sm:min-w-full sm:h-[385px]
+          lg:h-[435px]
         "
       >
         {/* Wrapper for the title, sprite picture and types */}
@@ -25,7 +25,7 @@ export default function PokePageLoading() {
           className="
             sm:w-1/2
             sm:mr-0.75 sm:mb-0.5
-            h-[420px] sm:h-full
+            h-[425px] sm:h-full
             font-bold text-xl
             text-gray-200 dark:text-gray-500/75
             bg-gray-500 dark:bg-gray-700/50
@@ -33,14 +33,14 @@ export default function PokePageLoading() {
           "
         >
           {/* Title section */}
-          <div className="p-5 sm:p-2 lg:p-4">Loading Pokémon data...</div>
+          <div className="p-6 sm:p-3 lg:p-7">Loading Pokémon data...</div>
 
           {/* Sprite picture */}
           <div
             className="
               h-[300px] w-[300px]
-              sm:h-[275px] sm:w-[245px] 
-              lg:h-[310px] lg:w-[365px]
+              sm:h-[255px] sm:w-[245px] 
+              lg:h-[305px] lg:w-[365px]
               bg-gray-600 dark:bg-gray-800
             "
           />
@@ -51,7 +51,7 @@ export default function PokePageLoading() {
           className="
             sm:w-1/2
             sm:ml-0.75
-            h-[250px] sm:h-[400px] lg:h-[425px]
+            h-[250px] sm:h-[385px] lg:h-[435px]
             bg-gray-600 dark:bg-gray-800
             sm:rounded-tr-xl
           "
@@ -68,7 +68,7 @@ export default function PokePageLoading() {
           className="
             sm:w-1/2
             bg-gray-700 dark:bg-gray-900/50
-            h-[150px] sm:w-[245px] lg:w-1/2
+            h-[150px] sm:w-[245px] lg:w-1/2 lg:h-[125px]
             sm:mt-2 sm:mr-0.75
           "
         >
@@ -81,7 +81,7 @@ export default function PokePageLoading() {
           className="
             sm:w-1/2 lg:w-1/2
             sm:mt-2 sm:ml-0.75
-            h-[100px] sm:h-[150px] sm:w-[245px]
+            h-[100px] sm:h-[150px] sm:w-[245px] lg:h-[125px]
             bg-gray-700 dark:bg-gray-900/50
           "
         >
@@ -97,7 +97,7 @@ function renderHeader() {
   return (
     <div
       className="
-        h-[40px] lg:h-[50px]
+        h-[45px] lg:h-[50px]
         bg-gray-700 dark:bg-gray-900
       "
     />
