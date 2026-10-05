@@ -17,10 +17,7 @@ import Notification from "@/components/Notification";
 import Relations from "./types/Relations";
 
 // TypeScript types
-import type {
-  Pokemon,
-  PokemonApiResource,
-} from "@/types/pokemon";
+import type { Pokemon, PokemonApiResource } from "@/types/pokemon";
 import type { EvolutionChain } from "@/types/evolutionChain";
 import type { AbilityData } from "@/types/abilities";
 import type { TypeDetails } from "@/types/pokeTypes";
@@ -177,7 +174,10 @@ export default function PokeData({
           <Title
             id={pokemonData.id}
             name={pokemonData.name}
-            spriteIcon={pokemonData.sprites.versions?.[generationIcons]?.icons.front_default || ""}
+            spriteIcon={
+              pokemonData.sprites.versions?.[generationIcons]?.icons
+                .front_default || ""
+            }
           />
 
           {/* Sprite section */}

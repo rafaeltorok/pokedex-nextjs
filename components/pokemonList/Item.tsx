@@ -43,9 +43,9 @@ export default function Item({ pokemon, regionName }: ItemProps) {
               gray-600
               dark:bg-gray-800
               rounded-xl"
-            />
+          />
         )}
-        
+
         {/* Pokémon sprite icon */}
         <Image
           src={pokemon.icon || "/pokeball_icon.png"}

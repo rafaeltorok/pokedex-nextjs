@@ -53,13 +53,17 @@ export default async function Page({
   const paginatedData = pokemons.slice(offset, endIndex);
 
   // Map each sprite icon to the page's respective items
-  const paginatedDataWithIcons = await Promise.all(paginatedData.map(async (d) => {
-    const itemData = await getPokemon(d.url);
-    return {
-      ...d,
-      icon: itemData.sprites.versions?.[generationIcons]?.icons.front_default || "",
-    };
-  }));
+  const paginatedDataWithIcons = await Promise.all(
+    paginatedData.map(async (d) => {
+      const itemData = await getPokemon(d.url);
+      return {
+        ...d,
+        icon:
+          itemData.sprites.versions?.[generationIcons]?.icons.front_default ||
+          "",
+      };
+    }),
+  );
 
   return (
     <div className="mx-auto text-center">
