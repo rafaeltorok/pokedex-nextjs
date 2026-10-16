@@ -62,6 +62,10 @@ export default function List({
     delta: 50, // Define the min amount of pixels before a swipe is registered
   });
 
+  if (paginatedData.length === 0) {
+    return <h2 className="my-5">No pokémons were found</h2>
+  }
+
   return (
     <div
       {...swipeHandler}

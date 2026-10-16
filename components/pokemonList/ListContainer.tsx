@@ -36,12 +36,15 @@ export default function ListContainer({
         navigate={navigate}
       />
 
-      <Pagination
-        totalPages={totalPages}
-        currentPage={currentPage}
-        isPending={isPending}
-        navigate={navigate}
-      />
+      {/* Prevents zero pages when no Pokémons are found */}
+      {totalPages > 0 && (
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          isPending={isPending}
+          navigate={navigate}
+        />
+      )}
 
       {/* Renders a loading spinner when navigating through pages */}
       {isPending && (
