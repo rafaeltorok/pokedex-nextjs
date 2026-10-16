@@ -25,6 +25,16 @@ export default function ListLoading() {
           "
         />
 
+        {/* Pokémons per page selector */}
+        <div
+          className="
+            h-[25px] w-[225px]
+            mx-auto mb-4
+            bg-gray-400/75 dark:bg-gray-700/75
+            rounded-xl
+          "
+        />
+
         {/* List items skeleton */}
         <div className="grid grid-cols-2 gap-2">
           {renderListItemSkeleton()}
