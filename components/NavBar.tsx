@@ -59,14 +59,36 @@ export default function NavBar() {
             </div>
 
             <div
-              className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-content min-h-[250px] space-y-10"
+              className="MENU-LINK-MOBILE-OPEN flex flex-col items-center justify-content min-h-[250px] w-full space-y-1"
               onClick={() => setIsNavOpen(false)}
             >
-              <Link href="/">Home</Link>
-              <Link href="/kanto">Gen I (Kanto)</Link>
-              <Link href="/johto">Gen II (Johto)</Link>
-              <Link href="/hoenn">Gen III (Hoenn)</Link>
-              <Link href="/sinnoh">Gen IV (Sinnoh)</Link>
+              <Link className="bg-black/25 w-full text-center p-5" href="/">
+                Home
+              </Link>
+              <Link
+                className="bg-black/25 w-full text-center p-5"
+                href="/kanto"
+              >
+                Gen I (Kanto)
+              </Link>
+              <Link
+                className="bg-black/25 w-full text-center p-5"
+                href="/johto"
+              >
+                Gen II (Johto)
+              </Link>
+              <Link
+                className="bg-black/25 w-full text-center p-5"
+                href="/hoenn"
+              >
+                Gen III (Hoenn)
+              </Link>
+              <Link
+                className="bg-black/25 w-full text-center p-5"
+                href="/sinnoh"
+              >
+                Gen IV (Sinnoh)
+              </Link>
             </div>
           </div>
         </section>

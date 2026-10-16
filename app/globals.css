@@ -47,7 +47,7 @@ body {
   display: none;
 }
 .showMenuNav {
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.5);
   color: var(--foreground);
   display: block;
   position: absolute;
@@ -55,10 +55,11 @@ body {
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 20;
+  z-index: 20; /* Forces all other page elements to appear on the background, behind the menu */
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   font-size: 1.2rem;
+  backdrop-filter: blur(10px);
 }
