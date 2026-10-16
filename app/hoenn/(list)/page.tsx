@@ -11,6 +11,7 @@ export default async function HoennList(props: {
   searchParams?: Promise<{
     query?: string;
     page?: string;
+    limit?: string;
   }>;
 }) {
   // Define the region API link
@@ -20,6 +21,7 @@ export default async function HoennList(props: {
   const searchParams = await props.searchParams;
   const query = searchParams?.query;
   const page = Number(searchParams?.page) || 1;
+  const itemsPerPage = Number(searchParams?.limit) || 8;
 
   return (
     <>
@@ -39,6 +41,7 @@ export default async function HoennList(props: {
         requestedPage={page}
         baseUrl={baseUrl}
         regionName="hoenn"
+        itemsPerPage={itemsPerPage}
       />
     </>
   );

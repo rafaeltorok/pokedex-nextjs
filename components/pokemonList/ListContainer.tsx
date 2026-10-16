@@ -6,6 +6,7 @@ import { RotatingLines } from "react-loader-spinner";
 // Components
 import List from "./List";
 import Pagination from "./pagination/Pagination";
+import Limit from "./Limit";
 
 // TypeScript type
 import type { PokemonApiResource } from "@/types/pokemon";
@@ -27,6 +28,10 @@ export default function ListContainer({
 
   return (
     <div>
+      {/* Controls the amount of Pokémons per page */}
+      <Limit />
+
+      {/* Paginated Pokémons list */}
       <List
         paginatedData={paginatedData}
         regionName={regionName}
@@ -36,15 +41,13 @@ export default function ListContainer({
         navigate={navigate}
       />
 
-      {/* Prevents zero pages when no Pokémons are found */}
-      {totalPages > 0 && (
-        <Pagination
-          totalPages={totalPages}
-          currentPage={currentPage}
-          isPending={isPending}
-          navigate={navigate}
-        />
-      )}
+      {/* Page navigation controls */}
+      <Pagination
+        totalPages={totalPages}
+        currentPage={currentPage}
+        isPending={isPending}
+        navigate={navigate}
+      />
 
       {/* Renders a loading spinner when navigating through pages */}
       {isPending && (

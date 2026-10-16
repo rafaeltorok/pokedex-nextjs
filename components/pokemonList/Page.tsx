@@ -13,6 +13,7 @@ interface PageProps {
   requestedPage: number;
   baseUrl: string;
   regionName: string;
+  itemsPerPage: number;
 }
 
 export default async function Page({
@@ -20,6 +21,7 @@ export default async function Page({
   requestedPage,
   baseUrl,
   regionName,
+  itemsPerPage,
 }: PageProps) {
   let pokemons: PokemonApiResource[] = await getPokemons(baseUrl);
 
@@ -31,8 +33,7 @@ export default async function Page({
   }
 
   // Define the total amount of pages to be displayed
-  const ITEMS_PER_PAGE = 8;
-  const totalPages = Math.ceil(pokemons.length / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(pokemons.length / itemsPerPage);
 
   // Get the current page number
   const currentPage =
@@ -43,8 +44,8 @@ export default async function Page({
       : 1;
 
   // Define the offset
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = offset + ITEMS_PER_PAGE;
+  const offset = (currentPage - 1) * itemsPerPage;
+  const endIndex = offset + itemsPerPage;
 
   // Divide the amount of data based on the pagination number
   const paginatedData = pokemons.slice(offset, endIndex);
@@ -65,12 +66,16 @@ export default async function Page({
     <div className="mx-auto text-center">
       <SearchBar />
 
-      <ListContainer
-        paginatedData={paginatedDataWithIds}
-        regionName={regionName}
-        totalPages={totalPages}
-        currentPage={currentPage}
-      />
+      {paginatedDataWithIds.length > 0 ? (
+        <ListContainer
+          paginatedData={paginatedDataWithIds}
+          regionName={regionName}
+          totalPages={totalPages}
+          currentPage={currentPage}
+        />
+      ) : (
+        <h2 className="my-5">No pokémons were found</h2>
+      )}
     </div>
   );
 }
