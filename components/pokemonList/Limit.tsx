@@ -1,11 +1,16 @@
 "use client";
 
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import itemsPerPageOptions from "@/constants/itemsPerPageOptions";
 
 export default function Limit() {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+
+  // Get the current limit query from the URL
+  const limit = searchParams.get("limit")?.toString();
+  let defaultValue = "8";
 
   function handleLimit(limit: string) {
     const params = new URLSearchParams(searchParams);
@@ -18,6 +23,11 @@ export default function Limit() {
     replace(`${pathname}?${params.toString()}`);
   }
 
+  // Sync the select current option with the URL param
+  if (limit && itemsPerPageOptions.includes(limit)) {
+    defaultValue = limit;
+  }
+
   return (
     <div className="mt-1 mb-4">
       <label htmlFor="limit-choice">Pokémons per page:</label>
@@ -25,13 +35,14 @@ export default function Limit() {
         className="bg-black color-white border border-gray-700 rounded px-1 ml-2"
         name="limit-choice"
         id="limit-choice"
-        defaultValue={searchParams.get("limit")?.toString() || "8"}
+        defaultValue={defaultValue}
         onChange={(e) => handleLimit(e.target.value)}
       >
-        <option value="4">4</option>
-        <option value="6">6</option>
-        <option value="8">8</option>
-        <option value="10">10</option>
+        {itemsPerPageOptions.map((value) => (
+          <option key={value} value={value}>
+            {value}
+          </option>
+        ))}
       </select>
     </div>
   );

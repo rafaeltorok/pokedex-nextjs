@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import itemsPerPageOptions from "@/constants/itemsPerPageOptions";
 
 // Components
 import Page from "@/components/pokemonList/Page";
@@ -21,7 +22,12 @@ export default async function JohtoList(props: {
   const searchParams = await props.searchParams;
   const query = searchParams?.query;
   const page = Number(searchParams?.page) || 1;
-  const itemsPerPage = Number(searchParams?.limit) || 8;
+  let itemsPerPage = String(searchParams?.limit);
+
+  // Guards against invalid limits set directly on the URL
+  if (!itemsPerPageOptions.includes(itemsPerPage)) {
+    itemsPerPage = "8";
+  }
 
   return (
     <>
@@ -41,7 +47,7 @@ export default async function JohtoList(props: {
         requestedPage={page}
         baseUrl={baseUrl}
         regionName="johto"
-        itemsPerPage={itemsPerPage}
+        itemsPerPage={Number(itemsPerPage)}
       />
     </>
   );
