@@ -66,13 +66,13 @@ export default function List({
     <div
       {...swipeHandler}
       className={`
-        w-[300px]
         mx-auto mt-2 mb-4
+        max-w-[350px] sm:max-w-[750px]
         text-center
         ${isPending && "opacity-40 pointer-events-none"}
       `}
     >
-      <ul className="grid grid-cols-2 gap-2">
+      <ul className="flex flex-wrap justify-center gap-1">
         {paginatedData.map((p) => (
           <Item
             key={p.name}

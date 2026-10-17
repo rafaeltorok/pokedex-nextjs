@@ -13,7 +13,7 @@ export default function ListLoading() {
         Loading Pokédex...
       </h1>
 
-      <div className="w-[300px] mx-auto">
+      <div className="w-[300px] sm:w-[600px] mx-auto">
         {/* Search Bar skeleton */}
         <div
           className="
@@ -36,7 +36,7 @@ export default function ListLoading() {
         />
 
         {/* List items skeleton */}
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
           {renderListItemSkeleton()}
           {renderListItemSkeleton()}
           {renderListItemSkeleton()}
@@ -53,7 +53,7 @@ export default function ListLoading() {
         className="
           w-[350px] h-[40px]
           bg-gray-600 dark:bg-gray-900
-          mt-5 mb-5
+          mt-5 mb-5 mx-auto
           rounded-xl
         "
       />
