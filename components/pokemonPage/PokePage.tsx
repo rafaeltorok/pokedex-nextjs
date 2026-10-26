@@ -99,6 +99,7 @@ export default async function PokePage({
           border-2 border-gray-700 rounded
           bg-gray-900
           hover:bg-gray-700 active:bg-gray-600
+          cursor-pointer
         "
       >
         Return

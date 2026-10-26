@@ -33,6 +33,7 @@ export default function Types({
             border-gray-600
             [-webkit-text-stroke:0.25px_#303030]
             hover:border-white active:border-black
+            cursor-pointer
           "
           onClick={() => {
             setDamageRelations(types[0].damage_relations);
@@ -58,6 +59,7 @@ export default function Types({
               border-gray-600
               [-webkit-text-stroke:0.25px_#303030]
               hover:border-white active:border-black
+              cursor-pointer
             "
             onClick={() => {
               setDamageRelations(t.damage_relations);

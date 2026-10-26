@@ -106,6 +106,7 @@ export default function Relations({
           bg-gray-900
           p-3
           hover:bg-gray-700 active:bg-gray-600
+          cursor-pointer
         "
         onClick={() => setShowDamageRelations(false)}
       >
