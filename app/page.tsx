@@ -19,7 +19,7 @@ export default function Home() {
         "
       >
         <h1 className="mx-auto text-4xl font-bold [text-shadow:1px_1px_0_#000]">
-          Pokédex App
+          Pokédex Next
         </h1>
 
         <section className="mx-auto my-10">
@@ -29,10 +29,10 @@ export default function Home() {
             Features:
             <ul className="list-disc">
               <li>
-                The full Pokédex from Generations I to IV (Kanto, Johto, Hoenn
+                The complete Pokédex from Generations I to IV (Kanto, Johto, Hoenn
                 and Sinnoh)
               </li>
-              <li>Filter the Pokémons by name</li>
+              <li>Filter the Pokémon by name</li>
               <li>Click on each type to get info about its damage relations</li>
               <li>Click on each ability for a short description</li>
             </ul>

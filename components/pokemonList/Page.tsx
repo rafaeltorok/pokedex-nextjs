@@ -1,5 +1,5 @@
 // Services
-import { getPokemons, getPokemon } from "@/lib/data";
+import { getPokemonList, getPokemon } from "@/lib/data";
 
 // Components
 import SearchBar from "@/components/SearchBar";
@@ -23,17 +23,17 @@ export default async function Page({
   regionName,
   itemsPerPage,
 }: PageProps) {
-  let pokemons: PokemonApiResource[] = await getPokemons(baseUrl);
+  let pokemonList: PokemonApiResource[] = await getPokemonList(baseUrl);
 
   // Filter the list by Pokémon name
   if (query) {
-    pokemons = pokemons.filter((p) => {
+    pokemonList = pokemonList.filter((p) => {
       return p.name.includes(query.toLowerCase());
     });
   }
 
   // Define the total amount of pages to be displayed
-  const totalPages = Math.ceil(pokemons.length / itemsPerPage);
+  const totalPages = Math.ceil(pokemonList.length / itemsPerPage);
 
   // Get the current page number
   const currentPage =
@@ -48,7 +48,7 @@ export default async function Page({
   const endIndex = offset + itemsPerPage;
 
   // Divide the amount of data based on the pagination number
-  const paginatedData = pokemons.slice(offset, endIndex);
+  const paginatedData = pokemonList.slice(offset, endIndex);
 
   // Map each id to the page's respective items
   const paginatedDataWithIds = await Promise.all(

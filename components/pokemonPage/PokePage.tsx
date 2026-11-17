@@ -4,7 +4,7 @@ import Link from "next/link";
 
 // Services
 import {
-  getPokemons,
+  getPokemonList,
   getPokemon,
   getSpecies,
   getEvolutionChain,
@@ -34,7 +34,7 @@ export default async function PokePage({
   regionName,
   generationIcons,
 }: PokemonPageProps) {
-  const pokemonList = await getPokemons(baseUrl);
+  const pokemonList = await getPokemonList(baseUrl);
   const pokemon = pokemonList.find((p) => p.name === pokeName);
 
   if (!pokemon) {

@@ -15,8 +15,8 @@ const pokeFont = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pokédex App",
-  description: "A Pokédex-style app built with Next.js",
+  title: "Pokédex Next",
+  description: "Your favorite place for Pokémon info",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
