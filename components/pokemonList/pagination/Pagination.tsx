@@ -22,6 +22,7 @@ export default function Pagination({
 
   return (
     <div
+      aria-label="Page controls"
       className={`inline-flex mb-5 ${isPending && "opacity-40 pointer-events-none"}`}
     >
       <PaginationArrow
