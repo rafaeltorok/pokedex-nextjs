@@ -24,6 +24,7 @@ export default function SearchBar() {
   return (
     <div className="mx-auto">
       <input
+        aria-label="Search bar"
         className="bg-gray-700 p-2 my-4 rounded w-[275px]"
         type="search"
         placeholder="Search Pokémon..."

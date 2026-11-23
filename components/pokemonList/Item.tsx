@@ -24,6 +24,7 @@ export default function Item({ pokemon, regionName, id }: ItemProps) {
       {/* Clickable Pokédex list item */}
       <Link
         href={`/${regionName}/${pokemon.name}`}
+        aria-label="Pokémon list entry"
         className="
           flex flex-col
           border-1 border-gray-500 rounded-xl
