@@ -3,6 +3,7 @@
 ## Table of Contents
 - [About](#about)
 - [Usage](#usage)
+- [Tests](#tests)
 
 
 ## About
@@ -49,4 +50,24 @@ npm run start
 Start the Next dev server (supports hot-reloading)
 ```bash
 npm run dev
+```
+
+
+## Tests
+
+### E2E
+
+Install dependencies
+```bash
+npm install
+```
+
+Run the tests in CLI
+```bash
+npm run e2e
+```
+
+Run the tests in UI mode
+```bash
+npm run e2e:ui
 ```

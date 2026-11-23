@@ -28,10 +28,10 @@ export default function ListContainer({
 
   return (
     <div>
-      {/* Controls the amount of Pokémons per page */}
+      {/* Controls the amount of Pokémon per page */}
       <Limit />
 
-      {/* Paginated Pokémons list */}
+      {/* Paginated Pokémon list */}
       <List
         paginatedData={paginatedData}
         regionName={regionName}

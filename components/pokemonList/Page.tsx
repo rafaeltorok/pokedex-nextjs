@@ -74,7 +74,7 @@ export default async function Page({
           currentPage={currentPage}
         />
       ) : (
-        <h2 className="my-5">No pokémons were found</h2>
+        <h2 className="my-5">No pokémon found</h2>
       )}
     </div>
   );
