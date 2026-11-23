@@ -30,7 +30,7 @@ export default function Limit() {
 
   return (
     <div className="mt-1 mb-4">
-      <label htmlFor="limit-choice">Pokémons per page:</label>
+      <label htmlFor="limit-choice">Pokémon per page:</label>
       <select
         className="bg-black color-white border border-gray-700 rounded px-1 ml-2"
         name="limit-choice"
