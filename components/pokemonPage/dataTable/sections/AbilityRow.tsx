@@ -18,8 +18,9 @@ export default function AbilityRow({
   description,
 }: AbilityRowProps) {
   return (
-    <div className="flex w-full">
+    <div className="flex w-full" aria-label="Ability row">
       <label
+        aria-label="Ability type"
         htmlFor={label}
         className="
           w-1/2
@@ -34,6 +35,7 @@ export default function AbilityRow({
       </label>
       <button
         id={label}
+        aria-label="Ability name"
         className="
           w-1/2
           p-2
