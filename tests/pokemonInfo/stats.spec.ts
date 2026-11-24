@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import type { Page } from "@playwright/test";
+import { navigateToPokémonPage } from "../test-utils/navigateToPokemonPage";
 
 // Helper functions
 async function assertStatRow(name: string, value: string, page: Page) {
@@ -21,11 +22,7 @@ async function assertStatRow(name: string, value: string, page: Page) {
 test.describe("the Pokémon stats", () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to a Pokémon page
-    await page.goto("/kanto/bulbasaur");
-
-    // Confirm the current info page is the correct one
-    await expect(page.getByText(/\# 1/i)).toBeVisible();
-    await expect(page.getByText(/bulbasaur/i)).toBeVisible();
+    await navigateToPokémonPage(page, "1", "bulbasaur");
   });
 
   test("each stat value should be displayed correctly", async ({ page }) => {

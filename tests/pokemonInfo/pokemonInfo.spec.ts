@@ -1,13 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { navigateToPokémonPage } from "../test-utils/navigateToPokemonPage";
 
 test.describe("testing the Pokémon info page", () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to a Pokémon page
-    await page.goto("/kanto/bulbasaur");
-
-    // Confirm the current info page is the correct one
-    await expect(page.getByText(/\# 1/i)).toBeVisible();
-    await expect(page.getByText(/bulbasaur/i)).toBeVisible();
+    await navigateToPokémonPage(page, "1", "bulbasaur");
   });
 
   test("the Pokémon info sections should be displayed", async ({ page }) => {

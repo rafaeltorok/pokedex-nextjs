@@ -1,13 +1,10 @@
 import { test, expect } from "@playwright/test";
+import { navigateToPokémonPage } from "../test-utils/navigateToPokemonPage";
 
 test.describe("the Pokémon abilities", () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to a Pokémon page
-    await page.goto("/kanto/bulbasaur");
-
-    // Confirm the current info page is the correct one
-    await expect(page.getByText(/\# 1/i)).toBeVisible();
-    await expect(page.getByText(/bulbasaur/i)).toBeVisible();
+    await navigateToPokémonPage(page, "1", "bulbasaur");
   });
 
   test("each ability should be displayed correctly", async ({ page }) => {
@@ -87,7 +84,7 @@ test.describe("the Pokémon abilities", () => {
 
   test("a Pokémon with a single ability should not display the Hidden ability row", async ({ page }) => {
     // Navigate to Pokémon info page that only has the normal ability
-    await page.goto("/kanto/mew");
+    await navigateToPokémonPage(page, "151", "mew");
 
     // Get the ability rows
     const abilityRows = page.locator("div[aria-label='Ability row']");
