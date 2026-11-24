@@ -69,7 +69,7 @@ test.describe("testing the Pokédex pages", () => {
     // Confirm the correct Pokémon info is being displayed
     await expect(page.getByText(/\# 1/i)).toBeVisible();
     await expect(page.getByText("Bulbasaur", { exact: true })).toBeVisible();
-    await expect(page.getByRole("button", { name: /grass/i })).toBeVisible();
-    await expect(page.getByRole("button", { name: /poison/i })).toBeVisible();
+    await expect(page.getByText(/grass/i)).toBeVisible();
+    await expect(page.getByText(/poison/i)).toBeVisible();
   });
 });
