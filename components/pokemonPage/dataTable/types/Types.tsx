@@ -17,9 +17,10 @@ export default function Types({
   const typeColor = (name: string) => `var(--type-${name})`;
 
   return (
-    <div className="flex">
+    <div className="flex" aria-label="Types row">
       {types.length === 1 ? (
         <button
+          aria-label="Type name"
           type="button"
           style={{
             backgroundImage: `linear-gradient(140deg, ${typeColor(types[0].name)} 50%, white 100%)`,
@@ -45,6 +46,7 @@ export default function Types({
       ) : (
         types.map((t) => (
           <button
+            aria-label="Type name"
             key={t.name}
             type="button"
             style={{

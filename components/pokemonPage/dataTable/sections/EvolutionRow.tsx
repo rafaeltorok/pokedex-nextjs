@@ -16,8 +16,9 @@ export default function EvolutionRow({
   details,
 }: EvolutionRowProps) {
   return (
-    <div className="flex w-full">
+    <div className="flex w-full" aria-label="Evolution row">
       <p
+        aria-label="Evolution type"
         className="
           w-1/5
           text-center
@@ -29,6 +30,7 @@ export default function EvolutionRow({
         {label}
       </p>
       <p
+        aria-label="Evolution name"
         className="
           w-2/5
           text-center
@@ -40,6 +42,7 @@ export default function EvolutionRow({
         {capitalize(name)}
       </p>
       <p
+        aria-label="Evolution description"
         className="
           w-2/5
           text-center

@@ -120,4 +120,30 @@ test.describe("testing the Search bar component", () => {
     // Check if each individual result is correct
     await expect(results.nth(0)).toHaveText(/pikachu/i);
   });
+
+  test("entering a search term should reset to the first page", async ({ page }) => {
+    // Navigate to a Pokédex page
+    await navigateToPokedexPage("kanto", page);
+
+    // Navigate to the last page
+    await page.getByRole("button", { name: "19" }).click();
+
+    // Confirm it is currently on the last page
+    await expect(page.getByRole("link", { name: "Pokémon list entry", exact: true })
+      .filter({ hasText: /mewtwo/i}))
+      .toBeVisible();
+
+    // Type on the search bar
+    await page.getByRole("searchbox", { name: "Search bar", exact: true }).fill("a");
+    
+    // Assert the first page is the one currently selected
+    await expect(page).toHaveURL(url => {
+      const params = url.searchParams;
+      return params.has("page") && params.get("page") === "1";
+    });
+
+    await expect(page.getByRole("link", { name: "Pokémon list entry", exact: true })
+      .filter({ hasText: /bulbasaur/i}))
+      .toBeVisible();
+  });
 });

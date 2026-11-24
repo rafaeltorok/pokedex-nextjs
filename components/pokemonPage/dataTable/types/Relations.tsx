@@ -63,7 +63,7 @@ export default function Relations({
           className="min-w-[300px] max-w-[400px]"
           ref={refContainer}
         >
-          <div className="flex flex-col gap-2 mb-5">
+          <div className="flex flex-col gap-2 mb-5" aria-label="Attack damage relations">
             <p className="text-xl p-2 bg-gray-900 rounded-xl">Attack</p>
             <RelationSection
               label="No damage to:"
@@ -79,7 +79,7 @@ export default function Relations({
             />
           </div>
 
-          <div className="flex flex-col gap-2 mb-5">
+          <div className="flex flex-col gap-2 mb-5" aria-label="Defense damage relations">
             <p className="text-xl p-2 bg-gray-900 rounded-xl">Defense</p>
             <RelationSection
               label="No damage from:"

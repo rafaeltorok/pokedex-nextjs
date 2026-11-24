@@ -37,7 +37,8 @@ export default function Evolution({
       <p className="text-center text-xl text-bold bg-gray-800 p-2">Evolution</p>
 
       {doesNotEvolveAtAll ? (
-        <p
+        <div
+          aria-label="Evolution row"
           className="
             w-full
             text-center
@@ -47,7 +48,7 @@ export default function Evolution({
           "
         >
           Does not evolve
-        </p>
+        </div>
       ) : (
         <>
           {parent && (

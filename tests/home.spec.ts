@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { navigateToPokémonPage } from './test-utils/navigateToPokemonPage';
 
 test.describe("testing the home page", () => {
   test.beforeEach(async ({ page }) => {
@@ -62,11 +63,7 @@ test.describe("testing the home page", () => {
 
     test("the nav bar should be visible on the Pokémon info pages", async ({ page }) => {
       // Navigate to a Pokémon info page
-      await page.goto("/kanto/bulbasaur");
-
-      // Confirm the correct Pokémon info is being displayed
-      await expect(page.getByText(/\# 1/i)).toBeVisible();
-      await expect(page.getByText(/bulbasaur/i)).toBeVisible();
+      await navigateToPokémonPage(page, "1", "bulbasaur");
 
       // Assert the nav bar links are visible
       await expect(page.getByRole("link", { name: /home/i })).toBeVisible();
@@ -98,11 +95,7 @@ test.describe("testing the home page", () => {
 
     test("the footer should be visible on the Pokémon info pages", async ({ page }) => {
       // Navigate to a Pokémon info page
-      await page.goto("/kanto/bulbasaur");
-
-      // Confirm the correct Pokémon info is being displayed
-      await expect(page.getByText(/\# 1/i)).toBeVisible();
-      await expect(page.getByText(/bulbasaur/i)).toBeVisible();
+      await navigateToPokémonPage(page, "1", "bulbasaur");
 
       // Assert the footer text content is visible
       await expect(page.getByText(/developed by rafael g. torok/i)).toBeVisible();

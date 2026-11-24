@@ -56,4 +56,20 @@ test.describe("testing the Pokédex pages", () => {
     await expect(page.getByText(/chimchar/i)).toBeVisible();
     await expect(page.getByText(/piplup/i)).toBeVisible();
   });
+  
+  test("a Pokémon entry can be clicked on", async ({ page }) => {
+    // Navigate to a Pokédex page
+    await page.goto("/kanto");
+
+    // Click on a Pokémon entry on the list
+    await page.getByRole("link", { name: "Pokémon list entry", exact: true })
+      .filter({ hasText: /bulbasaur/i })
+      .click();
+
+    // Confirm the correct Pokémon info is being displayed
+    await expect(page.getByText(/\# 1/i)).toBeVisible();
+    await expect(page.getByText("Bulbasaur", { exact: true })).toBeVisible();
+    await expect(page.getByText(/grass/i)).toBeVisible();
+    await expect(page.getByText(/poison/i)).toBeVisible();
+  });
 });
