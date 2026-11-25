@@ -1,5 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { navigateToPokémonPage } from './test-utils/navigateToPokemonPage';
+import { test, expect } from "@playwright/test";
+import { navigateToPokémonPage } from "./test-utils/navigateToPokemonPage";
 
 test.describe("testing the home page", () => {
   test.beforeEach(async ({ page }) => {
@@ -14,7 +14,9 @@ test.describe("testing the home page", () => {
 
   test("the info and instructions section is rendered", async ({ page }) => {
     // Assert the main section is present within the home page
-    await expect(page.getByText(/built with next.js and tailwind css./i)).toBeVisible();
+    await expect(
+      page.getByText(/built with next.js and tailwind css./i),
+    ).toBeVisible();
     await expect(page.getByText(/features:/i)).toBeVisible();
     await expect(page.getByText(/pokémon info:/i)).toBeVisible();
   });
@@ -23,10 +25,18 @@ test.describe("testing the home page", () => {
     test("the navigation bar is visible", async ({ page }) => {
       // Assert the navigation links are visible
       await expect(page.getByRole("link", { name: /home/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen i \(kanto\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen ii \(johto\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen iii \(hoenn\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen iv \(sinnoh\)/i })).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen i \(kanto\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen ii \(johto\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen iii \(hoenn\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen iv \(sinnoh\)/i }),
+      ).toBeVisible();
     });
 
     test("the nav bar works", async ({ page }) => {
@@ -46,7 +56,9 @@ test.describe("testing the home page", () => {
       await expect(page).toHaveTitle(/pokédex next/i);
     });
 
-    test("the nav bar should be visible on the Pokémon list pages", async ({ page }) => {
+    test("the nav bar should be visible on the Pokémon list pages", async ({
+      page,
+    }) => {
       // Navigate to a Pokémon list page
       await page.goto("/kanto");
 
@@ -55,33 +67,55 @@ test.describe("testing the home page", () => {
 
       // Assert the nav bar links are visible
       await expect(page.getByRole("link", { name: /home/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen i \(kanto\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen ii \(johto\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen iii \(hoenn\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen iv \(sinnoh\)/i })).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen i \(kanto\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen ii \(johto\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen iii \(hoenn\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen iv \(sinnoh\)/i }),
+      ).toBeVisible();
     });
 
-    test("the nav bar should be visible on the Pokémon info pages", async ({ page }) => {
+    test("the nav bar should be visible on the Pokémon info pages", async ({
+      page,
+    }) => {
       // Navigate to a Pokémon info page
       await navigateToPokémonPage(page, "1", "bulbasaur");
 
       // Assert the nav bar links are visible
       await expect(page.getByRole("link", { name: /home/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen i \(kanto\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen ii \(johto\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen iii \(hoenn\)/i })).toBeVisible();
-      await expect(page.getByRole("link", { name: /gen iv \(sinnoh\)/i })).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen i \(kanto\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen ii \(johto\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen iii \(hoenn\)/i }),
+      ).toBeVisible();
+      await expect(
+        page.getByRole("link", { name: /gen iv \(sinnoh\)/i }),
+      ).toBeVisible();
     });
   });
 
   test.describe("testing the footer element", () => {
     test("the footer is visible on the main page", async ({ page }) => {
       // Assert the footer text content is visible
-      await expect(page.getByText(/developed by rafael g. torok/i)).toBeVisible();
+      await expect(
+        page.getByText(/developed by rafael g. torok/i),
+      ).toBeVisible();
       await expect(page.getByText(/powered by the poké api⇗/i)).toBeVisible();
     });
 
-    test("the footer should be visible on the Pokémon list pages", async ({ page }) => {
+    test("the footer should be visible on the Pokémon list pages", async ({
+      page,
+    }) => {
       // Navigate to a Pokémon list page
       await page.goto("/kanto");
 
@@ -89,16 +123,22 @@ test.describe("testing the home page", () => {
       await expect(page).toHaveTitle(/kanto pokédex/i);
 
       // Assert the footer text content is visible
-      await expect(page.getByText(/developed by rafael g. torok/i)).toBeVisible();
+      await expect(
+        page.getByText(/developed by rafael g. torok/i),
+      ).toBeVisible();
       await expect(page.getByText(/powered by the poké api⇗/i)).toBeVisible();
     });
 
-    test("the footer should be visible on the Pokémon info pages", async ({ page }) => {
+    test("the footer should be visible on the Pokémon info pages", async ({
+      page,
+    }) => {
       // Navigate to a Pokémon info page
       await navigateToPokémonPage(page, "1", "bulbasaur");
 
       // Assert the footer text content is visible
-      await expect(page.getByText(/developed by rafael g. torok/i)).toBeVisible();
+      await expect(
+        page.getByText(/developed by rafael g. torok/i),
+      ).toBeVisible();
       await expect(page.getByText(/powered by the poké api⇗/i)).toBeVisible();
     });
   });

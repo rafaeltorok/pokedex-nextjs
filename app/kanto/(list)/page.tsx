@@ -30,7 +30,7 @@ export default async function KantoList(props: {
   }
 
   return (
-    <>
+    <section>
       <h1
         className="
           mx-auto mt-8 mb-2
@@ -49,6 +49,6 @@ export default async function KantoList(props: {
         regionName="kanto"
         itemsPerPage={Number(itemsPerPage)}
       />
-    </>
+    </section>
   );
 }

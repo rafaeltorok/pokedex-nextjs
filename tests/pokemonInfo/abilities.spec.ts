@@ -13,28 +13,40 @@ test.describe("the Pokémon abilities", () => {
 
     // Get the normal ability row
     let currentRow = abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Normal ability", { exact: true }),
+      has: page
+        .locator("label[aria-label='Ability type']")
+        .getByText("Normal ability", { exact: true }),
     });
 
     // Assert the ability name is correct
-    await expect(currentRow.locator("button[aria-label='Ability name']")).toHaveText(/overgrow/i);
+    await expect(
+      currentRow.locator("button[aria-label='Ability name']"),
+    ).toHaveText(/overgrow/i);
 
     // Get the hidden ability row
     currentRow = abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Hidden ability", { exact: true }),
+      has: page
+        .locator("label[aria-label='Ability type']")
+        .getByText("Hidden ability", { exact: true }),
     });
 
     // Assert the ability name is correct
-    await expect(currentRow.locator("button[aria-label='Ability name']")).toHaveText(/chlorophyll/i);
+    await expect(
+      currentRow.locator("button[aria-label='Ability name']"),
+    ).toHaveText(/chlorophyll/i);
   });
 
-  test("clicking on the normal ability should display its description", async ({ page }) => {
+  test("clicking on the normal ability should display its description", async ({
+    page,
+  }) => {
     // Get the ability rows
     const abilityRows = page.locator("div[aria-label='Ability row']");
 
     // Filter the normal ability row
     const currentRow = abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Normal ability", { exact: true }),
+      has: page
+        .locator("label[aria-label='Ability type']")
+        .getByText("Normal ability", { exact: true }),
     });
 
     // Click on the normal ability to open the description popup
@@ -44,13 +56,17 @@ test.describe("the Pokémon abilities", () => {
     await expect(page.getByText(/ups grass moves in a pinch/i)).toBeVisible();
   });
 
-  test("clicking on the hidden ability should display its description", async ({ page }) => {
+  test("clicking on the hidden ability should display its description", async ({
+    page,
+  }) => {
     // Get the ability rows
     const abilityRows = page.locator("div[aria-label='Ability row']");
 
     // Filter the hidden ability row
     const currentRow = abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Hidden ability", { exact: true }),
+      has: page
+        .locator("label[aria-label='Ability type']")
+        .getByText("Hidden ability", { exact: true }),
     });
 
     // Click on the hidden ability to open the description popup
@@ -60,13 +76,17 @@ test.describe("the Pokémon abilities", () => {
     await expect(page.getByText(/raises speed in sunshine/i)).toBeVisible();
   });
 
-  test("clicking on the close button should close the description popup", async ({ page }) => {
+  test("clicking on the close button should close the description popup", async ({
+    page,
+  }) => {
     // Get the ability rows
     const abilityRows = page.locator("div[aria-label='Ability row']");
 
     // Filter the normal ability row
     const currentRow = abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Normal ability", { exact: true }),
+      has: page
+        .locator("label[aria-label='Ability type']")
+        .getByText("Normal ability", { exact: true }),
     });
 
     // Click on the normal ability to open the description popup
@@ -79,10 +99,14 @@ test.describe("the Pokémon abilities", () => {
     await page.getByRole("button", { name: /close/i }).click();
 
     // Assert the popup has been closed
-    await expect(page.getByText(/ups grass moves in a pinch/i)).not.toBeVisible();
+    await expect(
+      page.getByText(/ups grass moves in a pinch/i),
+    ).not.toBeVisible();
   });
 
-  test("a Pokémon with a single ability should not display the Hidden ability row", async ({ page }) => {
+  test("a Pokémon with a single ability should not display the Hidden ability row", async ({
+    page,
+  }) => {
     // Navigate to Pokémon info page that only has the normal ability
     await navigateToPokémonPage(page, "151", "mew");
 
@@ -91,15 +115,23 @@ test.describe("the Pokémon abilities", () => {
 
     // Get the normal ability row
     const currentRow = abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Normal ability", { exact: true }),
+      has: page
+        .locator("label[aria-label='Ability type']")
+        .getByText("Normal ability", { exact: true }),
     });
 
     // Assert the ability name is correct
-    await expect(currentRow.locator("button[aria-label='Ability name']")).toHaveText(/synchronize/i);
+    await expect(
+      currentRow.locator("button[aria-label='Ability name']"),
+    ).toHaveText(/synchronize/i);
 
     // Confirm the hidden ability row is not present
-    await expect(abilityRows.filter({
-      has: page.locator("label[aria-label='Ability type']").getByText("Hidden ability", { exact: true }),
-    })).not.toBeVisible();
+    await expect(
+      abilityRows.filter({
+        has: page
+          .locator("label[aria-label='Ability type']")
+          .getByText("Hidden ability", { exact: true }),
+      }),
+    ).not.toBeVisible();
   });
 });

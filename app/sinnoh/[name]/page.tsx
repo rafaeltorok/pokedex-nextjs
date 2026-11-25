@@ -30,11 +30,13 @@ export default async function SinnohPokePage({
   const baseUrl = "https://pokeapi.co/api/v2/pokemon?offset=386&limit=107";
 
   return (
-    <PokePage
-      pokeName={name}
-      baseUrl={baseUrl}
-      regionName="sinnoh"
-      generationIcons="generation-iv"
-    />
+    <section>
+      <PokePage
+        pokeName={name}
+        baseUrl={baseUrl}
+        regionName="sinnoh"
+        generationIcons="generation-iv"
+      />
+    </section>
   );
 }

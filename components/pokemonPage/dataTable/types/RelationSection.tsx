@@ -25,11 +25,24 @@ export default function RelationSection({
   }
 
   return (
-    <div className={`bg-gray-${bgSectionColor} p-1 rounded`} aria-label="Damage relations row">
-      <p className="text-left [-webkit-text-stroke:0.35px_#303030]" aria-label="Damage relations label">{label}</p>
+    <div
+      className={`bg-gray-${bgSectionColor} p-1 rounded`}
+      aria-label="Damage relations row"
+    >
+      <p
+        className="text-left [-webkit-text-stroke:0.35px_#303030]"
+        aria-label="Damage relations label"
+      >
+        {label}
+      </p>
 
       {damageRelation.length === 0 ? (
-        <div className="[-webkit-text-stroke:0.35px_#303030]" aria-label="Damage relation value">None</div>
+        <div
+          className="[-webkit-text-stroke:0.35px_#303030]"
+          aria-label="Damage relation value"
+        >
+          None
+        </div>
       ) : (
         <div className="flex flex-wrap">
           {damageRelation.map((r) => (

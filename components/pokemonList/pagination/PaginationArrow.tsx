@@ -14,7 +14,7 @@ export default function PaginationArrow({
   isDisabled?: boolean;
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center rounded-md border border-gray-600",
+    "flex h-10 w-10 items-center justify-center rounded-md border border-gray-600 cursor-pointer",
     {
       "pointer-events-none text-gray-700 border-gray-800": isDisabled,
       "hover:bg-gray-700": !isDisabled,

@@ -14,20 +14,36 @@ export default function Stats({ stats }: StatsProps) {
         Stats
       </p>
       {stats.map((s) => (
-        <div key={s.stat.name} className="flex text-center lg:h-[70px]" aria-label="Stat row">
-          <p className="w-1/2 text-left border-1 border-gray-500 p-2 bg-gray-600" aria-label="Stat name">
+        <div
+          key={s.stat.name}
+          className="flex text-center lg:h-[70px]"
+          aria-label="Stat row"
+        >
+          <p
+            className="w-1/2 text-left border-1 border-gray-500 p-2 bg-gray-600"
+            aria-label="Stat name"
+          >
             {capitalize(s.stat.name)}
           </p>
-          <p className="w-1/2 border-1 border-gray-500 p-2 bg-gray-800" aria-label="Stat value">
+          <p
+            className="w-1/2 border-1 border-gray-500 p-2 bg-gray-800"
+            aria-label="Stat value"
+          >
             {s.base_stat}
           </p>
         </div>
       ))}
       <div className="flex text-center" aria-label="Stat row">
-        <p className="w-1/2 text-left border-1 border-gray-500 p-2 bg-gray-600" aria-label="Stat name">
+        <p
+          className="w-1/2 text-left border-1 border-gray-500 p-2 bg-gray-600"
+          aria-label="Stat name"
+        >
           Total
         </p>
-        <p className="w-1/2 border-1 border-gray-500 p-2 bg-gray-800" aria-label="Stat value">
+        <p
+          className="w-1/2 border-1 border-gray-500 p-2 bg-gray-800"
+          aria-label="Stat value"
+        >
           {stats.reduce(calculateTotalStats, 0)}
         </p>
       </div>
