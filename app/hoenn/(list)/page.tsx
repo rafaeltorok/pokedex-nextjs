@@ -30,7 +30,7 @@ export default async function HoennList(props: {
   }
 
   return (
-    <>
+    <section>
       <h1
         className="
           mx-auto mt-8 mb-2
@@ -49,6 +49,6 @@ export default async function HoennList(props: {
         regionName="hoenn"
         itemsPerPage={Number(itemsPerPage)}
       />
-    </>
+    </section>
   );
 }
