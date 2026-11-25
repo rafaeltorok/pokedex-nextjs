@@ -12,11 +12,17 @@ test.describe("the Pokémon types", () => {
     const typesRow = page.locator("div[aria-label='Types row']");
 
     // Assert each Pokémon type name is being correctly displayed
-    await expect(typesRow.locator("button[aria-label='Type name']").nth(0)).toHaveText(/grass/i);
-    await expect(typesRow.locator("button[aria-label='Type name']").nth(1)).toHaveText(/poison/i);
+    await expect(
+      typesRow.locator("button[aria-label='Type name']").nth(0),
+    ).toHaveText(/grass/i);
+    await expect(
+      typesRow.locator("button[aria-label='Type name']").nth(1),
+    ).toHaveText(/poison/i);
   });
 
-  test("clicking on a type should display its damage relations", async ({ page }) => {
+  test("clicking on a type should display its damage relations", async ({
+    page,
+  }) => {
     // Get the types row
     const typesRow = page.locator("div[aria-label='Types row']");
 
@@ -28,8 +34,12 @@ test.describe("the Pokémon types", () => {
     await grassButton.click();
 
     // Confirm the main sections are present
-    await expect(page.getByLabel("Attack damage relations").getByText(/attack/i)).toBeVisible();
-    await expect(page.getByLabel("Defense damage relations").getByText(/defense/i)).toBeVisible();
+    await expect(
+      page.getByLabel("Attack damage relations").getByText(/attack/i),
+    ).toBeVisible();
+    await expect(
+      page.getByLabel("Defense damage relations").getByText(/defense/i),
+    ).toBeVisible();
 
     // Confirm the damage sub-sections are present
     await expect(page.getByText(/no damage to/i)).toBeVisible();
@@ -41,7 +51,9 @@ test.describe("the Pokémon types", () => {
     await expect(page.getByText(/2x damage from/i)).toBeVisible();
   });
 
-  test("clicking on close button should close the damage relations popup", async ({ page }) => {
+  test("clicking on close button should close the damage relations popup", async ({
+    page,
+  }) => {
     // Get the types row
     const typesRow = page.locator("div[aria-label='Types row']");
 
@@ -53,8 +65,12 @@ test.describe("the Pokémon types", () => {
     await grassButton.click();
 
     // Confirm the main sections are present
-    await expect(page.getByLabel("Attack damage relations").getByText(/attack/i)).toBeVisible();
-    await expect(page.getByLabel("Defense damage relations").getByText(/defense/i)).toBeVisible();
+    await expect(
+      page.getByLabel("Attack damage relations").getByText(/attack/i),
+    ).toBeVisible();
+    await expect(
+      page.getByLabel("Defense damage relations").getByText(/defense/i),
+    ).toBeVisible();
 
     // Confirm the damage sub-sections are present
     await expect(page.getByText(/no damage to/i)).toBeVisible();
@@ -69,11 +85,15 @@ test.describe("the Pokémon types", () => {
     await page.getByRole("button", { name: /close/i }).click();
 
     // Confirm the popup has been closed
-    await expect(page.getByLabel("Attack damage relations").getByText(/attack/i)).not.toBeVisible();
-    await expect(page.getByLabel("Defense damage relations").getByText(/defense/i)).not.toBeVisible();
+    await expect(
+      page.getByLabel("Attack damage relations").getByText(/attack/i),
+    ).not.toBeVisible();
+    await expect(
+      page.getByLabel("Defense damage relations").getByText(/defense/i),
+    ).not.toBeVisible();
   });
 
-  test.describe("the attack damage relations",() => {
+  test.describe("the attack damage relations", () => {
     test.beforeEach(async ({ page }) => {
       // Get the types row
       const typesRow = page.locator("div[aria-label='Types row']");
@@ -86,7 +106,9 @@ test.describe("the Pokémon types", () => {
       await grassButton.click();
 
       // Confirm the section is present
-      await expect(page.getByLabel("Attack damage relations").getByText(/attack/i)).toBeVisible();
+      await expect(
+        page.getByLabel("Attack damage relations").getByText(/attack/i),
+      ).toBeVisible();
 
       // Confirm the damage sub-sections are present
       await expect(page.getByText(/no damage to/i)).toBeVisible();
@@ -94,37 +116,53 @@ test.describe("the Pokémon types", () => {
       await expect(page.getByText(/2x damage to/i)).toBeVisible();
     });
 
-    test("the 'No damage to' row should display the correct types", async ({ page }) => {
+    test("the 'No damage to' row should display the correct types", async ({
+      page,
+    }) => {
       // Get the Attack section
-      const attackRelations = page.locator("div[aria-label='Attack damage relations']");
+      const attackRelations = page.locator(
+        "div[aria-label='Attack damage relations']",
+      );
 
       // Assert the "No damage to" row is correct
       const currentRow = attackRelations
         .locator("div[aria-label='Damage relations row']")
         .filter({
-          has: page.locator("p[aria-label='Damage relations label']").getByText(/no damage to/i),
+          has: page
+            .locator("p[aria-label='Damage relations label']")
+            .getByText(/no damage to/i),
         });
 
       // Select all of the types
-      const typeValues = currentRow.locator("div[aria-label='Damage relation value']");
+      const typeValues = currentRow.locator(
+        "div[aria-label='Damage relation value']",
+      );
 
       // Assert the types are correct
       await expect(typeValues.nth(0)).toHaveText(/none/i);
     });
 
-    test("the '1/2 damage to' row should display the correct types", async ({ page }) => {
+    test("the '1/2 damage to' row should display the correct types", async ({
+      page,
+    }) => {
       // Get the Attack section
-      const attackRelations = page.locator("div[aria-label='Attack damage relations']");
+      const attackRelations = page.locator(
+        "div[aria-label='Attack damage relations']",
+      );
 
       // Assert the "1/2 damage to" row is correct
       const currentRow = attackRelations
         .locator("div[aria-label='Damage relations row']")
         .filter({
-          has: page.locator("p[aria-label='Damage relations label']").getByText(/1\/2 damage to/i),
+          has: page
+            .locator("p[aria-label='Damage relations label']")
+            .getByText(/1\/2 damage to/i),
         });
 
       // Select all of the types
-      const typeValues = currentRow.locator("div[aria-label='Damage relation value']");
+      const typeValues = currentRow.locator(
+        "div[aria-label='Damage relation value']",
+      );
 
       // Assert the types are correct
       await expect(typeValues.nth(0)).toHaveText(/flying/i);
@@ -136,19 +174,27 @@ test.describe("the Pokémon types", () => {
       await expect(typeValues.nth(6)).toHaveText(/dragon/i);
     });
 
-    test("the '2x damage to' row should display the correct types", async ({ page }) => {
+    test("the '2x damage to' row should display the correct types", async ({
+      page,
+    }) => {
       // Get the Attack section
-      const attackRelations = page.locator("div[aria-label='Attack damage relations']");
+      const attackRelations = page.locator(
+        "div[aria-label='Attack damage relations']",
+      );
 
       // Assert the "2x damage to" row is correct
       const currentRow = attackRelations
         .locator("div[aria-label='Damage relations row']")
         .filter({
-          has: page.locator("p[aria-label='Damage relations label']").getByText(/2x damage to/i),
+          has: page
+            .locator("p[aria-label='Damage relations label']")
+            .getByText(/2x damage to/i),
         });
 
       // Select all of the types
-      const typeValues = currentRow.locator("div[aria-label='Damage relation value']");
+      const typeValues = currentRow.locator(
+        "div[aria-label='Damage relation value']",
+      );
 
       // Assert the types are correct
       await expect(typeValues.nth(0)).toHaveText(/ground/i);
@@ -157,7 +203,7 @@ test.describe("the Pokémon types", () => {
     });
   });
 
-  test.describe("the defense damage relations",() => {
+  test.describe("the defense damage relations", () => {
     test.beforeEach(async ({ page }) => {
       // Get the types row
       const typesRow = page.locator("div[aria-label='Types row']");
@@ -170,7 +216,9 @@ test.describe("the Pokémon types", () => {
       await grassButton.click();
 
       // Confirm the section is present
-      await expect(page.getByLabel("Defense damage relations").getByText(/defense/i)).toBeVisible();
+      await expect(
+        page.getByLabel("Defense damage relations").getByText(/defense/i),
+      ).toBeVisible();
 
       // Confirm the damage sub-sections are present
       await expect(page.getByText(/no damage from/i)).toBeVisible();
@@ -178,37 +226,53 @@ test.describe("the Pokémon types", () => {
       await expect(page.getByText(/2x damage from/i)).toBeVisible();
     });
 
-    test("the 'No damage from' row should display the correct types", async ({ page }) => {
+    test("the 'No damage from' row should display the correct types", async ({
+      page,
+    }) => {
       // Get the Defense section
-      const defenseRelations = page.locator("div[aria-label='Defense damage relations']");
+      const defenseRelations = page.locator(
+        "div[aria-label='Defense damage relations']",
+      );
 
       // Assert the "No damage from" row is correct
       const currentRow = defenseRelations
         .locator("div[aria-label='Damage relations row']")
         .filter({
-          has: page.locator("p[aria-label='Damage relations label']").getByText(/no damage from/i),
+          has: page
+            .locator("p[aria-label='Damage relations label']")
+            .getByText(/no damage from/i),
         });
 
       // Select all of the types
-      const typeValues = currentRow.locator("div[aria-label='Damage relation value']");
+      const typeValues = currentRow.locator(
+        "div[aria-label='Damage relation value']",
+      );
 
       // Assert the types are correct
       await expect(typeValues.nth(0)).toHaveText(/none/i);
     });
 
-    test("the '1/2 damage from' row should display the correct types", async ({ page }) => {
+    test("the '1/2 damage from' row should display the correct types", async ({
+      page,
+    }) => {
       // Get the Defense section
-      const defenseRelations = page.locator("div[aria-label='Defense damage relations']");
+      const defenseRelations = page.locator(
+        "div[aria-label='Defense damage relations']",
+      );
 
       // Assert the "1/2 damage from" row is correct
       const currentRow = defenseRelations
         .locator("div[aria-label='Damage relations row']")
         .filter({
-          has: page.locator("p[aria-label='Damage relations label']").getByText(/1\/2 damage from/i),
+          has: page
+            .locator("p[aria-label='Damage relations label']")
+            .getByText(/1\/2 damage from/i),
         });
 
       // Select all of the types
-      const typeValues = currentRow.locator("div[aria-label='Damage relation value']");
+      const typeValues = currentRow.locator(
+        "div[aria-label='Damage relation value']",
+      );
 
       // Assert the types are correct
       await expect(typeValues.nth(0)).toHaveText(/ground/i);
@@ -217,19 +281,27 @@ test.describe("the Pokémon types", () => {
       await expect(typeValues.nth(3)).toHaveText(/electric/i);
     });
 
-    test("the '2x damage from' row should display the correct types", async ({ page }) => {
+    test("the '2x damage from' row should display the correct types", async ({
+      page,
+    }) => {
       // Get the Defense section
-      const defenseRelations = page.locator("div[aria-label='Defense damage relations']");
+      const defenseRelations = page.locator(
+        "div[aria-label='Defense damage relations']",
+      );
 
       // Assert the "2x damage from" row is correct
       const currentRow = defenseRelations
         .locator("div[aria-label='Damage relations row']")
         .filter({
-          has: page.locator("p[aria-label='Damage relations label']").getByText(/2x damage from/i),
+          has: page
+            .locator("p[aria-label='Damage relations label']")
+            .getByText(/2x damage from/i),
         });
 
       // Select all of the types
-      const typeValues = currentRow.locator("div[aria-label='Damage relation value']");
+      const typeValues = currentRow.locator(
+        "div[aria-label='Damage relation value']",
+      );
 
       // Assert the types are correct
       await expect(typeValues.nth(0)).toHaveText(/flying/i);

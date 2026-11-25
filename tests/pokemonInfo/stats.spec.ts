@@ -9,7 +9,9 @@ async function assertStatRow(name: string, value: string, page: Page) {
 
   // Get the row to be asserted
   const currentRow = statRows.filter({
-    has: page.locator("p[aria-label='Stat name']").getByText(name, { exact: true }),
+    has: page
+      .locator("p[aria-label='Stat name']")
+      .getByText(name, { exact: true }),
   });
 
   // Select the stat value from the row

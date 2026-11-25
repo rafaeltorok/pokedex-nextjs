@@ -10,7 +10,9 @@ import type { AbilityDescription } from "@/types/abilities";
 import type { TypeDetails } from "@/types/pokeTypes";
 
 // Get all Pokémons from a particular region/generation
-export async function getPokemonList(url: string): Promise<PokemonApiResource[]> {
+export async function getPokemonList(
+  url: string,
+): Promise<PokemonApiResource[]> {
   const response = await axios.get(url);
   return response.data.results;
 }

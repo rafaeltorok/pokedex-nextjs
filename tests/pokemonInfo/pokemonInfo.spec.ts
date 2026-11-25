@@ -16,6 +16,8 @@ test.describe("testing the Pokémon info page", () => {
 
   test("the Pokémon sprite should be visible", async ({ page }) => {
     // Assert the sprite picture is present within the info page
-    await expect(page.getByRole('img', { name: 'Pokémon picture' })).toBeVisible();
+    await expect(
+      page.getByRole("img", { name: "Pokémon picture" }),
+    ).toBeVisible();
   });
 });
