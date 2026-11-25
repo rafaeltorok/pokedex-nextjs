@@ -16,7 +16,7 @@ export default function PaginationNumber({
   position?: "first" | "last" | "middle" | "single";
 }) {
   const className = clsx(
-    "flex h-10 w-10 items-center justify-center text-sm border border-gray-600",
+    "flex h-10 w-10 items-center justify-center text-sm border border-gray-600 cursor-pointer",
     {
       "rounded-l-md": position === "first" || position === "single",
       "rounded-r-md": position === "last" || position === "single",
